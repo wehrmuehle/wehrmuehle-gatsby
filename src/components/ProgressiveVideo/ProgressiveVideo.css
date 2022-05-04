@@ -1,0 +1,16 @@
+.progressive-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.video-thumb {
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+    transition: opacity 400ms ease 0;
+
+}
