@@ -75,7 +75,7 @@ export default function Layout({children}) {
                 {children}
             </MainMobile>}
 
-            {breakpoints.l && <MainDesktop>{children}</MainDesktop>}
+            {(breakpoints.l && !breakpoints.sm) && <MainDesktop>{children}</MainDesktop>}
 
             {breakpoints.sm && <BottomBar>
                 <Link to="/">
@@ -87,7 +87,7 @@ export default function Layout({children}) {
                 </Link>
             </BottomBar>}
 
-            {breakpoints.l && <SideBar>
+            {(breakpoints.l && !breakpoints.sm) && <SideBar>
                 <TextLink>
                     <p>Get Tickets</p>
                 </TextLink>

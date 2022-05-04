@@ -8,8 +8,8 @@ export default function IndexPage() {
 
     return (
       <>
-        {breakpoints.sm && <HomePageMobile/>}
-        {breakpoints.l && <HomePageDekstop/>}
+        {breakpoints.sm &&  <HomePageMobile/>}
+        {(breakpoints.l && !breakpoints.sm) && <HomePageDekstop/>}
       </>
     )
 }
