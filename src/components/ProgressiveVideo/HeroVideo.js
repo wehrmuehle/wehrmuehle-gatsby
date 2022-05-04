@@ -1,7 +1,7 @@
 import React from "react"
 import ProgressiveVideo from "../../components/ProgressiveVideo/ProgressiveVideo"
 import TemporaryGradientVideo from "../../images/TemporaryGradientVideo.webm"
-import TemporaryThumbnail from "../../images/TemporaryThumbnail.webp"
+import TemporaryThumbnail from "../../images/TemporaryThumbnail.jpg"
 import {useBreakpoint} from "gatsby-plugin-breakpoints";
 import ResponsiveProgressiveVideo from "./ResponsiveProgressiveVideo"
 
