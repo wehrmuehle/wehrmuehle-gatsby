@@ -32,7 +32,7 @@ const ProgressiveVideo = (props) => {
                 : 1};`}/> */}
 
             <StaticImage
-                src="../../images/TemporaryThumbnail.webp"
+                src="../../images/TemporaryThumbnail.jpeg"
                 alt="Video Thumbnail"
                 layout="constrained"
                 placeholder="blurred"
