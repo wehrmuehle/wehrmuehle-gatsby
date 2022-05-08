@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link} from "gatsby"
 import {StaticImage} from "gatsby-plugin-image"
 import styled from "@emotion/styled";
 import {css, jsx} from '@emotion/react'
 import TextLink from '../UI/TextLink';
 import IcInstagram from '../../vectors/IcInstagram.svg'
+import IntroLogo from '../../vectors/IntroLogo.svg'
 import IcLocation from '../../vectors/IcLocation.svg'
 import HeroVideo from '../ProgressiveVideo/HeroVideo';
 
@@ -96,11 +97,29 @@ display: flex;
 flex-direction: column;
 `
 
+const Spacer = styled("div")`
+width: 100%;
+`
+
 export default function HomePageDekstop() {
+
+    const [videoHeight,
+        setVideoHeight] = useState(0);
+
+    useEffect(() => {
+        const spacer = document.getElementById("spacer");
+        const spacerHeight = window.innerWidth * 1300 / 1920;
+        spacer.style.height = `${spacerHeight}px`
+
+    }, [])
+
     return (
         <Wrapper>
 
-            <HeroVideo/>
+            <Spacer id="spacer"/>
+
+            <div ><HeroVideo/></div>
+            <IntroLogo css={css `width: 300px; height: auto;`}/>
             <h1 css={css `margin:50px 0 150px 0;`}>One of Europe’s leading institutions that
                 integrate the arts, cultural and education through site-specific art.</h1>
 
@@ -138,7 +157,7 @@ export default function HomePageDekstop() {
                 <h1 css={css `font-size:150px;`}>Art Biesenthal</h1>
 
                 <h6 css={css `margin: 100px 0 40px 0;`}>
-                    <TextLink>Art Biesenthal 2022</TextLink>
+                    <TextLink to="/artbiesenthal">Art Biesenthal 2022</TextLink>
                 </h6>
 
                 <h6 >02. Juli – 29. August</h6>
@@ -147,8 +166,8 @@ export default function HomePageDekstop() {
                     <TextLink>Ticket Tailor</TextLink>
                 </h6>
 
-                <h2 css={css `margin: 150px 0 200px 0;`}>
-                    <TextLink>Art Biesenthal</TextLink>
+                <h2 css={css `margin: 200px 0 200px 0;`}>
+                    <TextLink to="/artbiesenthal">Art Biesenthal</TextLink>
                     {` is an annual art exhibition and summer program situated in outer Berlin that
                     focuses on bringing international emerging and established artists together to
                     exhibit. Over August and September, such artists will take place in a residency
@@ -160,14 +179,15 @@ export default function HomePageDekstop() {
 
             <h3 css={css `margin: 100px 0 80px 0;`}>Follow us</h3>
 
+            <p
+                css={css `font-size: 130px; font-weight: bold; margin-right: 20px; margin-bottom: 50px;`}>@wehrmuehle</p>
+
             <div css={css `display: flex;`}>
-                <p css={css `font-size: 150px; font-weight: bold; margin-right: 20px;`}>Instagram</p>
-                <IcInstagram css={css `width: 150px; height: auto;`}/>
+                <h6 css={css `margin-right: 20px;`}>Instagram</h6>
+                <IcInstagram css={css `width: 26px; height: auto;`}/>
             </div>
 
-            <h6 css={css `margin: 40px 0 200px 0;`}>@wehrmuele</h6>
-
-            <FollowBottomContainer css={css `margin-bottom: 150px;`}>
+            <FollowBottomContainer css={css `margin:100px 0 150px 0;`}>
                 <NewsletterContainer>
                     <h3>Newsletter</h3>
                     <p css={css `margin: 40px 0 30px 0;`}>Sign up with your email address to receive news and updates.</p>

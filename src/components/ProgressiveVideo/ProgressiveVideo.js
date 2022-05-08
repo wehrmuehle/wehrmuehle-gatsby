@@ -7,7 +7,7 @@ import {css, jsx} from '@emotion/react'
 
 const Box = styled("div")`
 width: 100%;
-min-height: 100vh;
+display: inline-flex;
 overflow: hidden;
 position: ${props => props.position};
 background-image: url(${props => props.bg});
@@ -23,15 +23,13 @@ const ProgressiveVideo = (props) => {
 
     return (
         <Box bg={props.bgColour}>
-            {/* <Box
+            <Box
                 className="video-thumb"
                 position="absolute"
                 bg={props.desktopThumbnail}
                 css={css `opacity: ${isVideoLoaded
                 ? 0
-                : 1};`}/> */}
-
-            <StaticImage
+                : 1}; width: 100%; background-size: contain; background-repeat: no-repeat;`}/> {/* <StaticImage
                 src="../../images/TemporaryThumbnail.jpeg"
                 alt="Video Thumbnail"
                 layout="constrained"
@@ -40,7 +38,7 @@ const ProgressiveVideo = (props) => {
                 height={1300}
                 css={css `width: 100%; opacity: ${isVideoLoaded
                 ? 0
-                : 1}; position: absolute; top: 0; left: 0;`}/>
+                : 1}; position: absolute; top: 0; left: 0;`}/> */}
 
             <AutoPlaySilentVideo
                 onLoadedData={handleVideoLoaded}

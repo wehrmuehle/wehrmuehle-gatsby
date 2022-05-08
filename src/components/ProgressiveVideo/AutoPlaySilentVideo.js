@@ -8,6 +8,7 @@ export default function AutoPlaySilentVideo(props) {
     return (
         <video
             className={props.className}
+            id="hero-video"
             ref={videoRef}
             loop
             autoPlay
@@ -17,6 +18,7 @@ export default function AutoPlaySilentVideo(props) {
             ? props.onLoadedData
             : () => null}>
             <source src={props.video} style={props.style} type="video/webm"/>
+            {/* <source src={props.fallbackVideo} style={props.style} type="video/mp4"/> */}
         </video>
     );
 }

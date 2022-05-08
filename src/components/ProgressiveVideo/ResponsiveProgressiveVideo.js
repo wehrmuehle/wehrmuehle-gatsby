@@ -12,13 +12,13 @@ background-color: ${props => props.bg};
 `
 
 const ResponsiveProgressiveVideo = (props) => {
-const {mobileVideo, desktopVideo, desktopThumbnail} = props;
+const {mobileVideo, desktopVideo, desktopThumbnail, fallbackVideo} = props;
 
     const breakpoints = useBreakpoint();
 
     return (
         <Box>
-            {breakpoints.sm && <ProgressiveVideo video={mobileVideo}/>}
+            {breakpoints.sm && <ProgressiveVideo video={mobileVideo} />}
             {!breakpoints.sm && <ProgressiveVideo video={desktopVideo} desktopThumbnail={desktopThumbnail} />}
 
         </Box>

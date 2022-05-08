@@ -1,6 +1,7 @@
 import React from "react"
 import ProgressiveVideo from "../../components/ProgressiveVideo/ProgressiveVideo"
 import TemporaryGradientVideo from "../../images/TemporaryGradientVideo.webm"
+// import TemporaryFallbackVideo from "../../images/TemporaryFallbackVideo.mp4"
 import TemporaryThumbnail from "../../images/TemporaryThumbnail.jpg"
 import {useBreakpoint} from "gatsby-plugin-breakpoints";
 import ResponsiveProgressiveVideo from "./ResponsiveProgressiveVideo"
@@ -8,9 +9,10 @@ import ResponsiveProgressiveVideo from "./ResponsiveProgressiveVideo"
 const HeroVideo = () => {
     const breakpoints = useBreakpoint();
 
-    return (
-        <ResponsiveProgressiveVideo mobileVideo={undefined} desktopVideo={TemporaryGradientVideo} desktopThumbnail={TemporaryThumbnail}/>
-    )
+    return (<ResponsiveProgressiveVideo
+        mobileVideo={undefined}
+        desktopVideo={TemporaryGradientVideo}
+        desktopThumbnail={TemporaryThumbnail}/>)
 
 }
 
