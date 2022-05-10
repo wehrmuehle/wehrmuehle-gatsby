@@ -19,14 +19,15 @@ height: 100vh;
 
 export default function PresskitPage({data}) {
 
-    const edges = data.allContentfulEntry.edges
+    const edges = data.allContentfulPressPicture.edges
 
     const Pictures = edges.map((entry) => (<PicturesComponent
         image={entry.node.highResolutionImage.gatsbyImageData}
         description={entry.node.description}
         title={entry.node.title}
         copyright={entry.node.copyright}
-        url={entry.node.highResolutionImage.url}/>))
+        url={entry.node.highResolutionImage.url}
+        key={entry.node.id}/>))
 
     return (
         <React.Fragment>
@@ -53,26 +54,24 @@ export default function PresskitPage({data}) {
 
 export const pageQuery = graphql `
 query MyQuery {
-    allContentfulEntry {
-      edges {
-        node {
-          id
-          ... on ContentfulPressPicture {
-            id
-            title
-            description
-            copyright
-            highResolutionImage {
-              gatsbyImageData(width: 1500, placeholder: BLURRED)
-              url
-            }
-            lowResolutionImage {
-              gatsbyImageData(width: 1500, placeholder: BLURRED)
-            }
-          }
+  allContentfulPressPicture {
+    edges {
+      node {
+        id
+        title
+        description
+        copyright
+        highResolutionImage {
+          gatsbyImageData(width: 1500, placeholder: BLURRED)
+          url
         }
+        lowResolutionImage {
+
+        gatsbyImageData(width: 1500, placeholder: BLURRED)}
       }
     }
   }
+}
+
   
 `

@@ -25,6 +25,7 @@ const ProgressiveVideo = (props) => {
         <Box bg={props.bgColour}>
             <Box
                 className="video-thumb"
+                id="thumbnail"
                 position="absolute"
                 bg={props.desktopThumbnail}
                 css={css `opacity: ${isVideoLoaded

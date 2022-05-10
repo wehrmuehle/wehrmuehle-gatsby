@@ -23,8 +23,7 @@ height: 6px;
 width: 100%;
 `
 
-export default function HomePageDekstop() {
-
+export default function HomePageDekstop({eventData}) {
     return (
         <Wrapper>
 
@@ -86,7 +85,7 @@ export default function HomePageDekstop() {
 
             <Hr css={css `margin-bottom: 30vh;`}/>
 
-            <DatesSectionComponent />
+            <DatesSectionComponent eventData={eventData}/>
 
         </Wrapper>
     )

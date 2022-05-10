@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from "@emotion/styled";
 import {css, jsx} from '@emotion/react'
 
@@ -104,9 +104,8 @@ const JulyFour = createWeekObject([
 
 const July = createMonthObject(JulyOne, JulyTwo, JulyThree, JulyFour)
 
-console.log(July)
-
 const DateComponent = ({date, dateName, data}) => {
+
     return (
         <DateBlock>
             <Hr/>
@@ -118,7 +117,48 @@ const DateComponent = ({date, dateName, data}) => {
     )
 }
 
-function DatesSectionComponent() {
+function DatesSectionComponent({eventData}) {
+
+    const [eventDataStructure,
+        setEventDataStructure] = useState({})
+
+    const tempState = {}
+
+    const eventDataStructureHandler = (data) => {
+
+        data.map((_) => {
+            if (_.node.dateCode in tempState) {
+
+                tempState[_.node.dateCode] = {
+                    ...tempState[_.node.dateCode],
+                    [_.node.id]: _.node
+
+                }
+
+            } else {
+
+                tempState[_.node.dateCode] = {
+                    [_.node.id]: _.node
+                }
+
+            }
+           
+
+        })
+    }
+
+    
+
+    eventDataStructureHandler(eventData)
+
+    useEffect(() => {
+        setEventDataStructure(tempState)
+    }, [])
+
+    console.log(eventDataStructure)
+
+    
+
 
     const [firstDateVisible,
         setFirstDateVisible] = useState(false);
@@ -130,7 +170,6 @@ function DatesSectionComponent() {
         setFourthDateVisible] = useState(false);
 
     const handleDatesVisibility = (e) => {
-        console.log(e.target.id)
 
         switch (e.target.id) {
             case "first-period":

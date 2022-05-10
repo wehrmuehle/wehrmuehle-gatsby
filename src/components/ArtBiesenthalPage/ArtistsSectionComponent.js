@@ -151,13 +151,13 @@ export default function DatesSectionComponent() {
     const artistsMapped = Artists.map((artist) => {
         return artist[0] === "seventh-artist"
             ? <ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>{`${artist[1]}`}</ArtistName>
-            : <ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>{`${artist[1]} ${','}`}</ArtistName>
+            : <ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>{`${artist[1]}${','}`}&nbsp;</ArtistName>
 
     })
     return (
         <Wrapper>
 
-        <h3 css={css`position: absolute; top: 80px;`}>/w</h3>
+            <h3 css={css `position: absolute; top: 80px;`}>/w</h3>
             <NameBlock>{artistsMapped}</NameBlock>
 
             <StaticImage
@@ -229,8 +229,6 @@ export default function DatesSectionComponent() {
                 css={css `width: 50%; z-index: -1; position: absolute; right: 0; display: ${seventhNameVisible
                 ? "visible"
                 : "none"};`}/>
-
-
 
         </Wrapper>
     )
