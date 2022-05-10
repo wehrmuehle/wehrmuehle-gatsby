@@ -74,6 +74,8 @@ const createMonthObject = (week1, week2, week3, week4) => {
         weekThree: week3,
         weekFour: week4
     }
+
+    return monthObject
 }
 
 const JulyOne = createWeekObject([
@@ -101,6 +103,8 @@ const JulyFour = createWeekObject([
 ], ["Sunday 31"], "29-31")
 
 const July = createMonthObject(JulyOne, JulyTwo, JulyThree, JulyFour)
+
+console.log(July)
 
 const DateComponent = ({date, dateName, data}) => {
     return (
