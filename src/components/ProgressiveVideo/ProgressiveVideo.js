@@ -30,16 +30,7 @@ const ProgressiveVideo = (props) => {
                 bg={props.desktopThumbnail}
                 css={css `opacity: ${isVideoLoaded
                 ? 0
-                : 1}; width: 100%; background-size: contain; background-repeat: no-repeat;`}/> {/* <StaticImage
-                src="../../images/TemporaryThumbnail.jpeg"
-                alt="Video Thumbnail"
-                layout="constrained"
-                placeholder="blurred"
-                width={1920}
-                height={1300}
-                css={css `width: 100%; opacity: ${isVideoLoaded
-                ? 0
-                : 1}; position: absolute; top: 0; left: 0;`}/> */}
+                : 1}; width: 100%; background-size: contain; background-repeat: no-repeat;`}/> 
 
             <AutoPlaySilentVideo
                 onLoadedData={handleVideoLoaded}

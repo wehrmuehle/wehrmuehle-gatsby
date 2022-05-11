@@ -125,7 +125,7 @@ export default function Layout({children}) {
 
             </SideBar>}
 
-            <FooterWrapper>
+            {/* <FooterWrapper>
                 {breakpoints.l && <FooterDesktop/>}
                 <div
                     css={css `height: 30vh; background: #000; display: flex; justify-content: space-between; width: calc(100% + 328px); margin:0 -164px; padding: 0 164px; padding-top: 4rem;`}>
@@ -150,7 +150,7 @@ export default function Layout({children}) {
                         </div>
                     </div>
                 </div>
-            </FooterWrapper>
+            </FooterWrapper> */}
         </LayoutWrapper>
     )
 }

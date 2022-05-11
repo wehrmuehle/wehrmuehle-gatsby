@@ -29,6 +29,12 @@ width: 30%;
 const Date = styled("p")`
 font-size: 18px;
 `
+
+const DateNameWrapper = styled("div")`
+width: 100%;
+display: flex;
+flex-direction: column;
+`
 const DateName = styled("h6")`
 font-size: 18px;
 `
@@ -56,54 +62,6 @@ display: flex;
 flex-direction: column;
 `
 
-const createWeekObject = (day1, day2, day3, code) => {
-    const weekObject = {
-        dayOne: day1,
-        dayTwo: day2,
-        dayThree: day3,
-        weekCode: code
-    }
-
-    return weekObject
-}
-
-const createMonthObject = (week1, week2, week3, week4) => {
-    const monthObject = {
-        weekOne: week1,
-        weekTwo: week2,
-        weekThree: week3,
-        weekFour: week4
-    }
-
-    return monthObject
-}
-
-const JulyOne = createWeekObject([
-    "Friday 8", "Preview and press"
-], [
-    "Saturday 9", "Vernissage", "Tim Seifert party"
-], [
-    "Sunday 10", "Vernissage"
-], "8-10");
-
-const JulyTwo = createWeekObject([
-    "Friday 15", "Dinner Baldon x Clara Hunger", "TRD Intra"
-], [
-    "Saturday 16", "Jakob Kukula", "Performance at sunset"
-], ["Sunday 17"], "15-17")
-
-const JulyThree = createWeekObject(["Friday 22"], [
-    "Saturday 23", "eTape Performance "
-], ["Sunday 24"], "22-24")
-
-const JulyFour = createWeekObject([
-    "Friday 29", "Stoke x Baldon", "Yellownose Studio", "Sound Metaphors"
-], [
-    "Saturday 30", "Sound Metaphors"
-], ["Sunday 31"], "29-31")
-
-const July = createMonthObject(JulyOne, JulyTwo, JulyThree, JulyFour)
-
 const DateComponent = ({date, dateName, data}) => {
 
     return (
@@ -111,7 +69,13 @@ const DateComponent = ({date, dateName, data}) => {
             <Hr/>
             <Date>{date}</Date>
 
-            <DateName>{dateName}</DateName>
+            <DateNameWrapper>
+                {dateName.map(e => (
+                    <DateName>
+                        {e}
+                    </DateName>
+                ))}
+            </DateNameWrapper>
 
         </DateBlock>
     )
@@ -124,41 +88,72 @@ function DatesSectionComponent({eventData}) {
 
     const tempState = {}
 
+    const getDateHeader = (rawDate) => {
+
+        const weekDays = [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+        ];
+
+        const dateArray = rawDate.split("-");
+
+        const rawYear = parseInt(dateArray[0]);
+
+        const rawMonth = parseInt(dateArray[1]) - 1;
+
+        const rawDay = parseInt(dateArray[2]);
+
+        const objectDate = new window.Date(rawYear, rawMonth, rawDay);
+
+        const weekDay = weekDays[objectDate.getDay() === 0
+                ? objectDate.getDay()
+                : objectDate.getDay() - 1];
+
+        const dateHeader = `${weekDay} ${rawDay}.${rawMonth + 1}.`
+
+        return [dateHeader, rawDay]
+    }
+
     const eventDataStructureHandler = (data) => {
 
         data.map((_) => {
+            const dateHeaderData = getDateHeader(_.node.dateAndTime)
             if (_.node.dateCode in tempState) {
 
                 tempState[_.node.dateCode] = {
                     ...tempState[_.node.dateCode],
-                    [_.node.id]: _.node
-
+                    [_.node.id]: {
+                        ..._.node,
+                        dateHeader: dateHeaderData[0],
+                        orderingDay: dateHeaderData[1]
+                    }
                 }
 
             } else {
 
                 tempState[_.node.dateCode] = {
-                    [_.node.id]: _.node
+                    [_.node.id]: {
+                        ..._.node,
+                        dateHeader: dateHeaderData[0],
+                        orderingDay: dateHeaderData[1]
+                    }
                 }
 
             }
-           
 
         })
     }
-
-    
 
     eventDataStructureHandler(eventData)
 
     useEffect(() => {
         setEventDataStructure(tempState)
     }, [])
-
-    console.log(eventDataStructure)
-
-    
-
 
     const [firstDateVisible,
         setFirstDateVisible] = useState(false);
@@ -180,20 +175,60 @@ function DatesSectionComponent({eventData}) {
             case "second-period":
                 setFirstDateVisible(false);
                 setSecondDateVisible(true);
+
                 break;
 
             default:
                 break;
         }
     }
+
+    const [periods,
+        setPeriods] = useState(["first-period", "second-period", "third-period", "fourth-period"])
+
+    const sortCodesHandler = (events) => {
+        const sortedDateCodes = Object
+            .keys(events)
+            .sort(function (a, b) {
+                return parseInt(a.split("-")[0]) - parseInt(b.split("-")[0]);
+            })
+
+        return sortedDateCodes
+    }
+
+    const sortedDateCodes = sortCodesHandler(eventDataStructure)
+
+    const handleDaysDivision = (dayGroup) => {
+        const days = {};
+
+        if (typeof(dayGroup) === "object") {
+            Object
+                .keys(dayGroup)
+                .map(_ => (days[dayGroup[_].orderingDay]
+                    ? days[dayGroup[_].orderingDay] = [
+                        days[dayGroup[_].orderingDay],
+                        dayGroup[_].eventName
+                    ]
+                    : days[dayGroup[_].orderingDay] = dayGroup[_].eventName))
+
+        }
+
+        return days
+
+    }
+
+    const test = handleDaysDivision(eventDataStructure["8-10"])
+    console.log(test)
+ 
+
+    const periodsMapped = sortedDateCodes.map((key, index) => (
+        <Period id={periods[index]} onMouseOver={handleDatesVisibility}>{key}</Period>
+    ))
+
     return (
         <DatesSection>
             <PeriodWrapper>
-                <Period id="first-period" onMouseOver={handleDatesVisibility}>08 – 10</Period>
-                <Period id="second-period" onMouseOver={handleDatesVisibility}>15 – 17</Period>
-                <Period id="second-period" onMouseOver={handleDatesVisibility}>22 – 24</Period>
-                <Period>22 – 23</Period>
-                <Period>29 – 30</Period>
+                {periodsMapped}
             </PeriodWrapper>
 
             <DatesWrapper
@@ -201,20 +236,11 @@ function DatesSectionComponent({eventData}) {
                 ? "visible"
                 : "none"}>
 
-                <DateBlock>
-                    <Hr/>
-                    <Date>SATURDAY 09.07.</Date>
-                    <DateName>Vernissage</DateName>
-                </DateBlock>
+                
 
-                <DateComponent date="FRIDAY 08.07." dateName=""/>
-
-                <DateBlock>
-                    <Hr/>
-                    <Date>SUNDAY 10.07.</Date>
-                    <DateName>Vernissage</DateName>
-                </DateBlock>
+                
             </DatesWrapper>
+            
 
             <DatesWrapper
                 display={secondDateVisible
