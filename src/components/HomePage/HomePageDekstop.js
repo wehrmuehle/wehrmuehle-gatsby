@@ -122,7 +122,7 @@ export default function HomePageDekstop() {
 
             <Spacer id="spacer"/>
 
-            <p css={css`position: absolute; top: 90vh; z-index: 10;`}>
+            <p css={css `position: absolute; top: 90vh; z-index: 10;`}>
                 <a href="#about">About</a>
             </p>
 
@@ -151,14 +151,14 @@ export default function HomePageDekstop() {
             </ValuesContainer>
 
             <StaticImage
-                    src="../../images/Location.jpg"
-                    alt="Wehrmuehle's location"
-                    layout="constrained"
-                    width={1920}
-                    height={1120}
-                    css={css `width: calc(100% + 328px); margin: 0 -164px;`}/>
+                src="../../images/Location.jpg"
+                alt="Wehrmuehle's location"
+                layout="constrained"
+                width={1920}
+                height={1120}
+                css={css `width: calc(100% + 328px); margin: 0 -164px;`}/>
 
-                    <PillarsComponentDesktop />
+            <PillarsComponentDesktop/>
 
             <Hr/>
 
@@ -174,7 +174,7 @@ export default function HomePageDekstop() {
                     height={1010}
                     css={css `width: 50%; margin-bottom: 30px; position: absolute; right: 0; z-index: -1;`}/>
 
-                <h1 css={css `font-size:150px;`}>Art Biesenthal</h1>
+                <h1 css={css `font-size:150px;`}>Art<br/>Biesenthal<br/>2022</h1>
 
                 <h6 css={css `margin: 100px 0 40px 0;`}>
                     <TextLink to="/artbiesenthal">Art Biesenthal 2022</TextLink>

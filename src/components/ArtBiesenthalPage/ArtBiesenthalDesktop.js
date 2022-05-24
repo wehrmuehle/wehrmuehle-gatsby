@@ -24,18 +24,18 @@ export default function HomePageDekstop({eventData}) {
         <Wrapper>
 
             <StaticImage
-                src="../../images/abPlaceholder.png"
+                src="../../images/gradientPlaceholder.jpg"
                 alt="A person looking at an artwork"
                 layout="constrained"
-                width={1920}
-                height={1080}
-                css={css `width: calc(100% + 328px); margin:0 -164px 0 -164px; z-index: -1;`}/>
+                width={1921}
+                height={1467}
+                css={css `width: calc(100% + 328px); margin:-100px -164px 0 -164px; z-index: -1;`}/>
 
-            <h1 css={css `position: absolute; top: 160px; font-size: 150px; color: white;`}>Art
+            <h1 css={css `position: absolute; top: 160px; font-size: 150px;`}>Art
                 <br/>Biesenthal
                 <br/>2022</h1>
 
-            <h1 css={css `margin-top: 100px; margin-bottom: 100px;`}>One of the most
+            <h1 css={css `margin-bottom: 100px;`}>One of the most
                 sought-after annual art exhibitions and summer programs brings international
                 emerging and established artists together in its epicenter, Wehrmuehle.</h1>
 
@@ -81,7 +81,7 @@ export default function HomePageDekstop({eventData}) {
 
             <Hr css={css `margin-bottom: 30vh;`}/>
 
-            <DatesSectionComponent eventData={eventData}/>
+            {/* <DatesSectionComponent eventData={eventData}/> */}
 
         </Wrapper>
     )
