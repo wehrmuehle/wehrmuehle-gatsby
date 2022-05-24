@@ -83,21 +83,40 @@ const DateComponent = ({date, dateName, data}) => {
 
 function DatesSectionComponent({eventData}) {
 
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ]
+
     const [eventDataStructure,
         setEventDataStructure] = useState({})
 
-    const tempState = {}
+    const tempDay = {}
+
+    const tempDateCodes = {}
+
+    const tempMonth = {}
 
     const getDateHeader = (rawDate) => {
 
         const weekDays = [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fr",
+            "Sat",
+            "Sun"
         ];
 
         const dateArray = rawDate.split("-");
@@ -114,45 +133,140 @@ function DatesSectionComponent({eventData}) {
                 ? objectDate.getDay()
                 : objectDate.getDay() - 1];
 
-        const dateHeader = `${weekDay} ${rawDay}.${rawMonth + 1}.`
+        const month = months[objectDate.getMonth()]
 
-        return [dateHeader, rawDay]
+        const dateHeader = `${rawDay}.${rawMonth + 1}.`
+
+        return [dateHeader, rawDay, weekDay, month]
     }
 
     const eventDataStructureHandler = (data) => {
 
         data.map((_) => {
-            const dateHeaderData = getDateHeader(_.node.dateAndTime)
-            if (_.node.dateCode in tempState) {
+            if (!(_.node.dateCode in tempDateCodes)) {
+                tempDateCodes[_.node.dateCode] = {}
+            }
+        })
 
-                tempState[_.node.dateCode] = {
-                    ...tempState[_.node.dateCode],
+        data.map((_) => {
+            const [dateHeader,
+                eventDay,
+                eventWeekDay,
+                eventMonth] = getDateHeader(_.node.dateAndTime)
+
+            if (eventDay in tempDay) {
+
+                tempDay[eventDay] = {
+                    ...tempDay[eventDay],
                     [_.node.id]: {
                         ..._.node,
-                        dateHeader: dateHeaderData[0],
-                        orderingDay: dateHeaderData[1]
+                        dateHeader: dateHeader,
+                        eventWeekDay: eventWeekDay,
+                        eventMonth: eventMonth,
+                        eventDay: eventDay
                     }
                 }
 
             } else {
 
-                tempState[_.node.dateCode] = {
+                tempDay[eventDay] = {
                     [_.node.id]: {
                         ..._.node,
-                        dateHeader: dateHeaderData[0],
-                        orderingDay: dateHeaderData[1]
+                        dateHeader: dateHeader,
+                        eventWeekDay: eventWeekDay,
+                        eventMonth: eventMonth,
+                        eventDay: eventDay
                     }
                 }
 
             }
 
         })
+
+        Object
+            .keys(tempDay)
+            .map((_) => {
+
+                Object
+                    .keys(tempDay[_])
+                    .map((i) => {
+
+                        if (!(tempDay[_][i].eventMonth in tempMonth)) {
+                            tempMonth[tempDay[_][i].eventMonth] = {}
+                        }
+                    })
+            })
+
+        const checkInRangeDateCode = (dc, item) => {
+            const numbers = dc.split("-");
+            const lower = parseInt(numbers[0]);
+            const higher = parseInt(numbers[1]);
+
+            if (item > lower - 1 && item < higher + 1) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        Object
+            .keys(tempDay)
+            .map((_) => {
+
+                Object
+                    .keys(tempDay[_])
+                    .map((i) => {
+
+                        console.log("1", tempDay[_])
+                        console.log("2", tempDay[_][i])
+
+                        const dc = tempDay[_][i].dateCode;
+
+                        console.log("3", {...tempDay[_][i].dateCode})
+
+                        if (checkInRangeDateCode(dc, _)) {
+                            tempDateCodes[dc] = {
+                                ...tempDateCodes[dc],
+                                [tempDay[_][i].eventDay]: {
+                                    ...tempDay[_][i],
+                                    [tempDay[_][i].id]: tempDay[_][i]
+                                }
+
+                            }
+
+                        }
+
+                    })
+
+            })
+
+        Object
+            .keys(tempDateCodes)
+            .map((_) => {
+
+                Object
+                    .keys(tempDateCodes[_])
+                    .map((i) => {
+                        Object
+                            .keys(tempMonth)
+                            .map((m => {
+                                if (tempDateCodes[_][i].eventMonth === m) {
+                                    tempMonth[m] = {
+                                        ...tempMonth[m],
+                                        [tempDateCodes[_][i].dateCode]: tempDateCodes[_]
+
+                                    }
+                                }
+                            }))
+                    })
+            })
+
     }
 
     eventDataStructureHandler(eventData)
 
     useEffect(() => {
-        setEventDataStructure(tempState)
+        setEventDataStructure(tempMonth)
     }, [])
 
     const [firstDateVisible,
@@ -183,20 +297,31 @@ function DatesSectionComponent({eventData}) {
         }
     }
 
+    const handleMonthVisibility = (e) => {
+
+        console.log(e.target.innerHTML)
+    }
+
     const [periods,
         setPeriods] = useState(["first-period", "second-period", "third-period", "fourth-period"])
 
     const sortCodesHandler = (events) => {
-        const sortedDateCodes = Object
-            .keys(events)
-            .sort(function (a, b) {
-                return parseInt(a.split("-")[0]) - parseInt(b.split("-")[0]);
-            })
+
+        if (events) {
+            const sortedDateCodes = Object
+                .keys(events)
+                .sort(function (a, b) {
+                    return parseInt(a.split("-")[0]) - parseInt(b.split("-")[0]);
+                })
+        }
 
         return sortedDateCodes
     }
 
-    const sortedDateCodes = sortCodesHandler(eventDataStructure)
+    const sortMonths = (monthsArray) => {
+        const sortedMonthArray = monthsArray.sort((a, b) => months.indexOf(a) - months.indexOf(b))
+        return sortedMonthArray
+    }
 
     const handleDaysDivision = (dayGroup) => {
         const days = {};
@@ -217,55 +342,66 @@ function DatesSectionComponent({eventData}) {
 
     }
 
-    const test = handleDaysDivision(eventDataStructure["8-10"])
-    console.log(test)
- 
+    const [visibleMonth,
+        setVisibleMonth] = useState("")
 
-    const periodsMapped = sortedDateCodes.map((key, index) => (
-        <Period id={periods[index]} onMouseOver={handleDatesVisibility}>{key}</Period>
-    ))
+    useEffect(() => {
+        setVisibleMonth(sortMonths(Object.keys(eventDataStructure))[0])
+    })
+
+    const sortedDateCodes = sortCodesHandler(eventDataStructure)
+
+
+
+    // const periodsMapped = sortedDateCodes.map((key, index) => (     <Period
+    // id={periods[index]} onMouseOver={handleDatesVisibility}>{key}</Period> ))
 
     return (
-        <DatesSection>
-            <PeriodWrapper>
-                {periodsMapped}
-            </PeriodWrapper>
 
-            <DatesWrapper
-                display={firstDateVisible
-                ? "visible"
-                : "none"}>
+        <div>
 
-                
+            <div css={css `display: flex; margin-bottom: 5rem;`}>{sortMonths(Object.keys(eventDataStructure)).map((_) => {
+                    return (
+                        <p css={css `margin-left: 2rem;`} onMouseOver={handleMonthVisibility}>{_}</p>
+                    )
+                })}</div>
 
-                
-            </DatesWrapper>
-            
+            <DatesSection>
+                <PeriodWrapper>
+                    {/* {periodsMapped} */}
+                </PeriodWrapper>
 
-            <DatesWrapper
-                display={secondDateVisible
-                ? "visible"
-                : "none"}>
-                <DateBlock>
-                    <Hr/>
-                    <Date>FRIDAY 15.07.</Date>
-                    <DateName>Preview & Press</DateName>
-                </DateBlock>
+                <DatesWrapper
+                    display={firstDateVisible
+                    ? "visible"
+                    : "none"}></DatesWrapper>
 
-                <DateBlock>
-                    <Hr/>
-                    <Date>SATURDAY 16.07.</Date>
-                    <DateName>Vernissage</DateName>
-                </DateBlock>
+                <DatesWrapper
+                    display={secondDateVisible
+                    ? "visible"
+                    : "none"}>
+                    <DateBlock>
+                        <Hr/>
+                        <Date>FRIDAY 15.07.</Date>
+                        <DateName>Preview & Press</DateName>
+                    </DateBlock>
 
-                <DateBlock>
-                    <Hr/>
-                    <Date>SUNDAY 17.07.</Date>
-                    <DateName>Vernissage</DateName>
-                </DateBlock>
-            </DatesWrapper>
+                    <DateBlock>
+                        <Hr/>
+                        <Date>SATURDAY 16.07.</Date>
+                        <DateName>Vernissage</DateName>
+                    </DateBlock>
 
-        </DatesSection>
+                    <DateBlock>
+                        <Hr/>
+                        <Date>SUNDAY 17.07.</Date>
+                        <DateName>Vernissage</DateName>
+                    </DateBlock>
+                </DatesWrapper>
+
+            </DatesSection>
+
+        </div>
     )
 }
 

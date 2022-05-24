@@ -9,7 +9,7 @@ export default function TempHome() {
     return (
       <>
         {breakpoints.sm &&  <HomePageMobile/>}
-        {(breakpoints.l && !breakpoints.sm) && <HomePageDekstop/>}
+        {!breakpoints.md && <HomePageDekstop/>}
       </>
     )
 }

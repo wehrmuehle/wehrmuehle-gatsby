@@ -8,6 +8,7 @@ import IcInstagram from '../../vectors/IcInstagram.svg'
 import IntroLogo from '../../vectors/IntroLogo.svg'
 import IcLocation from '../../vectors/IcLocation.svg'
 import HeroVideo from '../ProgressiveVideo/HeroVideo';
+import PillarsComponentDesktop from './PillarsComponentDesktop';
 
 const Values = [
     [
@@ -38,6 +39,7 @@ const Directions = [
 
 const Wrapper = styled("div")`
 width: 100%;
+position: relative;
 `
 
 const Hr = styled("div")`
@@ -120,8 +122,14 @@ export default function HomePageDekstop() {
 
             <Spacer id="spacer"/>
 
-            <div ><HeroVideo/></div>
-            <IntroLogo css={css `width: 300px; height: auto;`}/>
+            <p css={css`position: absolute; top: 90vh; z-index: 10;`}>
+                <a href="#about">About</a>
+            </p>
+
+            <div><HeroVideo/></div>
+            <div id="about">
+                <IntroLogo css={css `width: 300px; height: auto;`}/>
+            </div>
             <h1 css={css `margin:50px 0 150px 0;`}>One of Europe’s leading institutions that
                 integrate the arts, cultural and education through site-specific art.</h1>
 
@@ -141,6 +149,16 @@ export default function HomePageDekstop() {
                     </React.Fragment>
                 ))}
             </ValuesContainer>
+
+            <StaticImage
+                    src="../../images/Location.jpg"
+                    alt="Wehrmuehle's location"
+                    layout="constrained"
+                    width={1920}
+                    height={1120}
+                    css={css `width: calc(100% + 328px); margin: 0 -164px;`}/>
+
+                    <PillarsComponentDesktop />
 
             <Hr/>
 
@@ -176,7 +194,6 @@ export default function HomePageDekstop() {
                     exploring the historic site of the gallery and surrounding natural landscapes.`}</h2>
 
             </UpcomingContainer>
-            
 
         </Wrapper>
     )

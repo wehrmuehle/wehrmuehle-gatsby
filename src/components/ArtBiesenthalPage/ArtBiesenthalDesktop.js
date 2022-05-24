@@ -1,13 +1,9 @@
-import React, {useState, useEffect} from 'react'
-import {Link} from "gatsby"
+import React from 'react'
 import {StaticImage} from "gatsby-plugin-image"
 import styled from "@emotion/styled";
-import {css, jsx} from '@emotion/react'
+import {css, jsx} from '@emotion/react';
 import TextLink from '../UI/TextLink';
-import IcInstagram from '../../vectors/IcInstagram.svg'
-import IntroLogo from '../../vectors/IntroLogo.svg'
-import IcLocation from '../../vectors/IcLocation.svg'
-import HeroVideo from '../ProgressiveVideo/HeroVideo';
+
 import DatesSectionComponent from './DatesSectionComponent';
 import ArtistsSectionComponent from './ArtistsSectionComponent'
 

@@ -103,7 +103,7 @@ export default function Layout({children}) {
                 {children}
             </MainMobile>}
 
-            {(breakpoints.l && !breakpoints.sm) && <MainDesktop>{children}</MainDesktop>}
+            {!breakpoints.md && <MainDesktop>{children}</MainDesktop>}
 
             {breakpoints.sm && <BottomBar>
                 <Link to="/">
@@ -115,7 +115,7 @@ export default function Layout({children}) {
                 </Link>
             </BottomBar>}
 
-            {(breakpoints.l && !breakpoints.sm) && <SideBar>
+            {!breakpoints.md && <SideBar>
                 <TextLink>
                     <p>Get Tickets</p>
                 </TextLink>
@@ -125,8 +125,8 @@ export default function Layout({children}) {
 
             </SideBar>}
 
-            {/* <FooterWrapper>
-                {breakpoints.l && <FooterDesktop/>}
+            <FooterWrapper>
+                {!breakpoints.md && <FooterDesktop/>}
                 <div
                     css={css `height: 30vh; background: #000; display: flex; justify-content: space-between; width: calc(100% + 328px); margin:0 -164px; padding: 0 164px; padding-top: 4rem;`}>
                     <WehrmuehleLogoSmallWhite css={css `height: 35px;`}/>
@@ -150,7 +150,7 @@ export default function Layout({children}) {
                         </div>
                     </div>
                 </div>
-            </FooterWrapper> */}
+            </FooterWrapper>
         </LayoutWrapper>
     )
 }
