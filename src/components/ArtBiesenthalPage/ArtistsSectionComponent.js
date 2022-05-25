@@ -73,7 +73,7 @@ export default function DatesSectionComponent() {
         setSeventhNameVisible] = useState(false);
 
     const handleArtistsVisibility = (e) => {
-        console.log(e.target.id)
+
 
         switch (e.target.id) {
             case "first-artist":

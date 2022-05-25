@@ -6,6 +6,7 @@ import TextLink from '../UI/TextLink';
 
 import DatesSectionComponent from './DatesSectionComponent';
 import ArtistsSectionComponent from './ArtistsSectionComponent'
+import DatesNew from './DatesNew';
 
 const Wrapper = styled("div")`
 width: 100%;
@@ -35,7 +36,7 @@ export default function HomePageDekstop({eventData}) {
                 <br/>Biesenthal
                 <br/>2022</h1>
 
-            <h1 css={css `margin-bottom: 100px;`}>One of the most
+            <h1 css={css `margin-top:-150px; margin-bottom: 100px;`}>One of the most
                 sought-after annual art exhibitions and summer programs brings international
                 emerging and established artists together in its epicenter, Wehrmuehle.</h1>
 
@@ -53,7 +54,17 @@ export default function HomePageDekstop({eventData}) {
                     <div
                         css={css `display: flex; width: 100%; flex-direction: column; &>*{margin-bottom: 30px;}`}>
                         <h6>Öffnungszeiten</h6>
-                        <h2>1pm – 7pm</h2>
+                        <div css={css `display: flex; justify-content: space-between; width: 50%;`}>
+                            <h2>SAT</h2>
+                            <h2>–</h2>
+                            <h2>SUN</h2>
+                        </div>
+                        <div css={css `display: flex; justify-content: space-between; width: 50%;`}>
+                            <h2>1pm</h2>
+                            <h2>–</h2>
+                            <h2>7pm</h2>
+                        </div>
+
                     </div>
                 </div>
                 <div
@@ -80,8 +91,7 @@ export default function HomePageDekstop({eventData}) {
             <ArtistsSectionComponent/>
 
             <Hr css={css `margin-bottom: 30vh;`}/>
-
-            {/* <DatesSectionComponent eventData={eventData}/> */}
+            <DatesNew data={eventData}/>
 
         </Wrapper>
     )
