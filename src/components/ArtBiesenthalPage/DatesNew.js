@@ -1,188 +1,277 @@
-import React, {useState, useEffect} from 'react'
-import styled from "@emotion/styled";
-import {css, jsx} from '@emotion/react';
+// import React, {useState, useEffect} from 'react'
+// import styled from "@emotion/styled";
+// import {css, jsx} from '@emotion/react';
 
-const Hr = styled("div")`
-background: ${props => props.bg
-    ? props.bg
-    : "black"};
-height: 6px;
-width: 100%;
-`
+// const Hr = styled("div")`
+// background: ${props => props.bg
+//     ? props.bg
+//     : "black"};
+// height: 6px;
+// width: 100%;
+// `
 
-const Period = styled("h1")`
-font-size: 80px;
-text-decoration: underline;
-cursor: pointer;
+// const Period = styled("h1")`
+// font-size: 80px;
+// text-decoration: underline;
+// cursor: pointer;
 
-&:hover {
-    text-decoration: none;
-}
-`
+// &:hover {
+//     text-decoration: none;
+// }
+// `
 
-const DateBlock = styled("div")`
-display: flex;
-flex-direction: column;
-width: 30%;
-`
+// const DateBlock = styled("div")`
+// display: flex;
+// flex-direction: column;
+// width: 30%;
+// `
 
-const Date = styled("p")`
-font-size: 18px;
-`
+// const Date = styled("p")`
+// font-size: 18px;
+// `
 
-const DateNameWrapper = styled("div")`
-width: 100%;
-display: flex;
-flex-direction: column;
-`
-const DateName = styled("h6")`
-font-size: 18px;
-`
+// const DateNameWrapper = styled("div")`
+// width: 100%;
+// display: flex;
+// flex-direction: column;
+// `
+// const DateName = styled("h6")`
+// font-size: 18px;
+// `
 
-const DatesSection = styled("div")`
-width: 100%;
-height: 100vh;
-display: flex;
-position: relative;
-`
+// const DatesSection = styled("div")`
+// width: 100%;
+// height: 100vh;
+// display: flex;
+// position: relative;
+// `
 
-const DatesWrapper = styled("div")`
-width: 70%;
-height: 100%;
-display: flex;
-justify-content: space-evenly;
-position: absolute;
-right: 0;
-display: ${props => props.display};
-`
-const PeriodWrapper = styled("div")`
-width: 30%;
-height: 100%;
-display: flex;
-flex-direction: column;
-`
+// const DatesWrapper = styled("div")`
+// width: 70%;
+// height: 100%;
+// display: flex;
+// justify-content: space-evenly;
+// position: absolute;
+// right: 0;
+// display: ${props => props.display};
+// `
+// const PeriodWrapper = styled("div")`
+// width: 30%;
+// height: 100%;
+// display: flex;
+// flex-direction: column;
+// `
 
-export default function DatesNew({data}) {
+// const DateComponent = ({date, dateName, data}) => {
 
-    const [datesData,
-        setDatesData] = useState("");
+//     return (
+//         <DateBlock>
+//             <Hr/>
+//             <Date>{date}</Date>
 
-    const dateFormatter = (date) => {
+//             <DateNameWrapper>
+//                 {dateName.map(e => (
+//                     <DateName key={e}>
+//                         {e}
+//                     </DateName>
+//                 ))}
+//             </DateNameWrapper>
 
-        const dataArray = date.split("-");
-        const year = dataArray[0];
-        const numberMonth = dataArray[1];
-        const numberDay = dataArray[2];
+//         </DateBlock>
+//     )
+// }
 
-        return [year, numberMonth, numberDay]
-    }
+// export default function DatesNew({data}) {
 
-    const temp = {}
+//     const [datesData,
+//         setDatesData] = useState("");
 
-    const alfaWeekDay = [
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fr",
-        "Sat",
-        "Sun"
-    ];
+//     const dateFormatter = (date) => {
 
-    const alfaMonths = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-    ]
+//         const dataArray = date.split("-");
+//         const year = dataArray[0];
+//         const numberMonth = dataArray[1];
+//         const numberDay = dataArray[2];
 
-    data.map((_) => {
-        
+//         return [year, numberMonth, numberDay]
+//     }
 
-        
+//     const temp = {}
 
-        const dateObject = window ? new window.Date(dateFormatter(_.node.dateAndTime)) : null;
+//     const alfaWeekDay = [
+//         "Mon",
+//         "Tue",
+//         "Wed",
+//         "Thu",
+//         "Fr",
+//         "Sat",
+//         "Sun"
+//     ];
 
-        const month = dateObject.getMonth();
-        const day = dateObject.getDate();
-        const weekDay = dateObject.getDay();
-        const dateCode = _.node.dateCode
-        const eventName = _.node.eventName
-        const eventObject = _.node
+//     const alfaMonths = [
+//         "January",
+//         "February",
+//         "March",
+//         "April",
+//         "May",
+//         "June",
+//         "July",
+//         "August",
+//         "September",
+//         "October",
+//         "November",
+//         "December"
+//     ]
 
-        // if (temp[month]) {     console.log(temp[month]) }
+//     data.map((_) => {
 
-        if (month in temp) {
+//         const dateObject = window
+//             ? new window.Date(dateFormatter(_.node.dateAndTime))
+//             : null;
 
-            if (dateCode in temp[month] && temp[month]) {
+//         const month = dateObject.getMonth();
+//         const day = dateObject.getDate();
+//         const weekDay = dateObject.getDay();
+//         const dateCode = _.node.dateCode
+//         const eventName = _.node.eventName
+//         const eventObject = _.node
 
-                if (day in temp[month][dateCode] && temp[month][dateCode]) {
+//         if (month in temp) {
 
-                    temp[month][dateCode][day] = {
-                        ...temp[month][dateCode][day],
-                        [eventName]: {
-                            ...eventObject,
-                            alfaWeekDay: alfaWeekDay[weekDay],
-                            numberDay: day,
-                            alfaMonth: alfaMonths[month]
-                        }
-                    }
-                } else {
-                    temp[month][dateCode][day] = {
-                        [eventName]: {
-                            ...eventObject,
-                            alfaWeekDay: alfaWeekDay[weekDay],
-                            numberDay: day,
-                            alfaMonth: alfaMonths[month]
-                        }
-                    }
-                }
-            } else {
-                temp[month][dateCode] = {
-                    [day]: {
-                        [eventName]: {
-                            ...eventObject,
-                            alfaWeekDay: alfaWeekDay[weekDay],
-                            numberDay: day,
-                            alfaMonth: alfaMonths[month]
-                        }
-                    }
-                }
-            }
-        } else {
-            temp[month] = {
-                [dateCode]: {
-                    [day]: {
-                        [eventName]: {
-                            ...eventObject,
-                            alfaWeekDay: alfaWeekDay[weekDay],
-                            numberDay: day,
-                            alfaMonth: alfaMonths[month]
-                        }
-                    }
-                }
-            }
-        }
+//             if (dateCode in temp[month] && temp[month]) {
 
-    })
+//                 if (day in temp[month][dateCode] && temp[month][dateCode]) {
 
-    useEffect(() => {
-        setDatesData(temp)
-    }, [])
+//                     temp[month][dateCode][day] = {
+//                         ...temp[month][dateCode][day],
+//                         [eventName]: {
+//                             ...eventObject,
+//                             alfaWeekDay: alfaWeekDay[weekDay],
+//                             numberDay: day,
+//                             alfaMonth: alfaMonths[month]
+//                         }
+//                     }
+//                 } else {
+//                     temp[month][dateCode][day] = {
+//                         [eventName]: {
+//                             ...eventObject,
+//                             alfaWeekDay: alfaWeekDay[weekDay],
+//                             numberDay: day,
+//                             alfaMonth: alfaMonths[month]
+//                         }
+//                     }
+//                 }
+//             } else {
+//                 temp[month][dateCode] = {
+//                     [day]: {
+//                         [eventName]: {
+//                             ...eventObject,
+//                             alfaWeekDay: alfaWeekDay[weekDay],
+//                             numberDay: day,
+//                             alfaMonth: alfaMonths[month]
+//                         }
+//                     }
+//                 }
+//             }
+//         } else {
+//             temp[month] = {
+//                 [dateCode]: {
+//                     [day]: {
+//                         [eventName]: {
+//                             ...eventObject,
+//                             alfaWeekDay: alfaWeekDay[weekDay],
+//                             numberDay: day,
+//                             alfaMonth: alfaMonths[month]
+//                         }
+//                     }
+//                 }
+//             }
+//         }
 
-    console.log(datesData)
+//     })
+
+//     useEffect(() => {
+//         setDatesData(temp)
+//     }, [])
+
+//     const sortCodesHandler = (events) => {
+//         let sortedDateCodes;
+//         if (events) {
+//             sortedDateCodes = Object
+//                 .keys(events)
+//                 .sort(function (a, b) {
+//                     return parseInt(a.split("-")[0]) - parseInt(b.split("-")[0]);
+//                 })
+//         }
+
+//         return sortedDateCodes
+//     }
+
+//     const sorted = sortCodesHandler(datesData[6])
+
+//     const [dateCodesVisibility,
+//         setDateCodesVisibility] = useState([]);
+
+//     // const [visibleDC,     setVisibleDC] = useState([]);
+
+//     let tempDCState;
+//     let tempEventsState;
+
+//     useEffect(() => {
+
+//         const dCAreSorted = typeof(sorted) !== 'undefined'
+
+//         if (dCAreSorted) {
+//             tempDCState = sorted.map((dc, index) => index === 0
+//                 ? [dc, false]
+//                 : [dc, false]);
+//             const visibleDC = tempDCState.filter((dc => dc[1]))[0][0];
+
+//             if (visibleDC) {
+//                 tempEventsState = Object
+//                     .entries(datesData[6])
+//                     .filter(dc => dc[0] === visibleDC)
+//             }
+
+//             setDateCodesVisibility(tempDCState)
+//         };
+
+//         console.log(dCAreSorted)
+
+//         return () => dCAreSorted = false
+//     }, []);
 
 
+//     const dateCodeClickHandler = (e) => {
+//         const tempState = dateCodesVisibility;
 
-    return (
-        <div>DatesNew</div>
-    )
-}
+//         tempState.map((dc) => {
+//             if (e.target.id === dc[0]) {
+//                 dc[1] = true;
+//             } else {
+//                 dc[1] = false;
+//             }
+//         })
+
+//         setDateCodesVisibility(tempState)
+//     }
+
+//     let dateCodesMapped;
+//     let eventsMapped;
+
+//     if (dateCodesVisibility && dateCodesVisibility.length > 0) {
+
+//         dateCodesMapped = dateCodesVisibility.map((dc) => {
+//             return (
+//                 <Period key={dc[0]} id={dc[0]} onClick={dateCodeClickHandler}>{dc[0]}</Period>
+//             )
+//         })
+
+//     }
+
+//     return (
+//         <DatesSection>
+//             <PeriodWrapper>{dateCodesMapped}</PeriodWrapper>
+//         </DatesSection>
+//     )
+// }

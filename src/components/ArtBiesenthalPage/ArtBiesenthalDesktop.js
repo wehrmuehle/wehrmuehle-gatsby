@@ -91,7 +91,7 @@ export default function HomePageDekstop({eventData}) {
             <ArtistsSectionComponent/>
 
             <Hr css={css `margin-bottom: 30vh;`}/>
-            <DatesNew data={eventData}/>
+            {/* <DatesNew data={eventData}/> */}
 
         </Wrapper>
     )

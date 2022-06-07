@@ -253,20 +253,16 @@ export default function PillarsComponentDesktop() {
                     mt={"-200px"}>
                     <div>
                         <StaticImage
-                            src="../../images/ExhibitionsPillar.jpg"
-                            alt="Some people chatting during an art exhibition"
+                            src="../../images/exhibitions.jpg"
+                            alt="Wehrmuehle Location's"
                             layout="constrained"
-                            width={517}
-                            height={396}
+                            width={6240}
+                            height={4160}
                             css={css `margin-bottom: 50px;`}/>
                     </div>
 
-                    <p>Wehrmuehle opens its doors to international artists from every stage of their
-                        career and hosts Art Biesenthal, an exhibition and summer program held over
-                        August and September. Art Biesenthal has exhibited early careers by Alicja
-                        Kwade, Norbert Bisky, and Thomas Rentmeister in 2008 and established artists
-                        like Julian Rosefeldt, Michael Sailstorfer, Andreas Muehe, Gregor Hildebrandt,
-                        and Jonas Burgert in more recent years.</p>
+                    <p>Wehrmuehle presents site-specific installations, performances, and panel
+                        discussions that spotlight international artists at all stages of their careers.</p>
 
                 </ContentContainer>
 
@@ -276,20 +272,21 @@ export default function PillarsComponentDesktop() {
                     : "none"}
                     mt={"-200px"}>
                     <div>
+
                         <StaticImage
-                            src="../../images/ResidencyPillar.jpg"
-                            alt="Some people chatting during an art exhibition"
+                            src="../../images/residency.jpg"
+                            alt="Wehrmuehle Location's"
                             layout="constrained"
-                            width={337}
-                            height={484}
+                            width={1440}
+                            height={1920}
                             css={css `margin-bottom: 50px;`}/>
                     </div>
 
-                    <p>The residency is home to a cross-section of disciplines such as sculpture,
-                        video, sound, painting, printmaking, sculpture, photography, and performance. In
-                        the lead-up to the exhibition, all artists are invited to use Wehrmuehle as
-                        their creative studio to experiment, workshop, foster collaboration, and
-                        facilitate their own art practice.</p>
+                    <p>The Wehrmuehle Art residency in June 2022 will feature a cross-section of
+                        disciplines, including sculpture, video, sound, painting, photography, and
+                        performance. In the lead up to the exhibition, all artists are invited to use
+                        Wehrmuehle as their studio to conduct research, workshops, facilitate
+                        collaborations, and experiment.</p>
 
                 </ContentContainer>
 
@@ -300,19 +297,16 @@ export default function PillarsComponentDesktop() {
                     mt={"-200px"}>
                     <div>
                         <StaticImage
-                            src="../../images/CollaborationPillar.jpg"
-                            alt="Some people chatting during an art exhibition"
+                            src="../../images/collaborations.jpg"
+                            alt="Wehrmuehle Location's"
                             layout="constrained"
-                            width={337}
-                            height={421}
+                            width={3324}
+                            height={2236}
                             css={css `margin-bottom: 50px;`}/>
                     </div>
 
-                    <p>Wehrmuehle has collaborated on a wide variety of projects, such as hosting
-                        events for Opera Antwerp and Innervisions or participating in fashion campaigns
-                        with Gucci, Saint Laurent, and Valentino. Among their collaborators or
-                        Gastro-partners in the food and drink area are Oto, Nobelhart & Schmutzig, and
-                        Cookies & Cream.</p>
+                    <p>Wehrmuehle has partnered with brands in a wide range of fields, from fashion
+                        to entertainment to culinary events, to help create unparalleled experiences.</p>
 
                 </ContentContainer>
 
@@ -323,21 +317,17 @@ export default function PillarsComponentDesktop() {
                     mt={"-200px"}>
                     <div>
                         <StaticImage
-                            src="../../images/NaturePillar.jpg"
-                            alt="Some people chatting during an art exhibition"
+                            src="../../images/nature.jpg"
+                            alt="Wehrmuehle Location's"
                             layout="constrained"
-                            width={516}
-                            height={351}
+                            width={3575}
+                            height={2433}
                             css={css `margin-bottom: 50px;`}/>
                     </div>
 
-                    <p>What we know today as Wehrmuehle was once a weir to control the flow nearby
-                        the river Finow to fill the moat of a nearby castle. Subsequently, at the
-                        beginning of the 20th century, the property was held by the Jewish Mühsam
-                        family, only to be seized and misused in the 1930s with the rise of the Nazi
-                        regime. Today, Wehrmuehle stands as one of Europe’s leading establishments in
-                        integrating arts, cultural and educational institutions through site-specific
-                        art.</p>
+                    <p>Located in the middle of a UNESCO nature reserve titled "Human and
+                        Biosphere," Wehrmuehle is a historical and cultural site dating back to the 14th
+                        century.</p>
 
                 </ContentContainer>
             </BottomContainer>

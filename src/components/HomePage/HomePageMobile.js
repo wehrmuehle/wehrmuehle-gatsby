@@ -6,6 +6,8 @@ import {css, jsx} from '@emotion/react'
 import TextLink from '../UI/TextLink';
 import IcInstagram from '../../vectors/IcInstagram.svg'
 import IcLocation from '../../vectors/IcLocation.svg'
+import HighlightsMobile from './HighlightsMobile';
+import PillarsComponentMobile from './PillarsComponentMobile';
 
 const Values = [
     [
@@ -83,8 +85,9 @@ const ValuesMapped = Values.map((value) => (
 
 const DirectionsMapped = Directions.map((direction) => (
     <DirectionsMappedWrapper>
-        <h1 css={css`margin-bottom: 30px;`}>{direction[0]}</h1>
-        <p css={css`margin-bottom: 40px;`}> {direction[1]}</p>
+        <h1 css={css `margin-bottom: 30px;`}>{direction[0]}</h1>
+        <p css={css `margin-bottom: 40px;`}>
+            {direction[1]}</p>
     </DirectionsMappedWrapper>
 ))
 
@@ -101,14 +104,17 @@ export default function HomePageMobile() {
                 height={766}
                 css={css `height: calc(100vh - 14rem);`}/>
 
-            <h1 css={css `margin:50px 0 94px 0;`}>One of Europe’s leading institutions that
-                integrate the arts, cultural and education through site-specific art.</h1>
+            <h1 css={css `margin:50px 0 94px 0;`}>Kulturort Wehrmuehle in Brandenburger
+                Biesenthal serves as a space for contemporary art and culture, in particular for
+                the annual Art Biesenthal.</h1>
 
             <h1 css={css `margin-bottom: 70px;`}>Values</h1>
 
             <Hr css={css `margin:20px 0 60px 0;`}/> {ValuesMapped}
 
             <Hr/>
+
+            <PillarsComponentMobile/>
 
             <p css={css `margin:20px 0 40px 0; font-size: 20px; font-weight: bold;`}>Upcoming</p>
             <h1 css={css `margin-bottom: 40px;`}>Highlights</h1>
@@ -121,7 +127,7 @@ export default function HomePageMobile() {
                 height={1010}
                 css={css `width: 100%; margin-bottom: 30px;`}/>
 
-            <EventSpacer>
+            <HighlightsMobile/> {/* <EventSpacer>
 
                 <TextLink to="/">
                     <h6 css={css `margin-bottom: 30px;`}>Art Biesenthal 2022</h6>
@@ -143,7 +149,7 @@ export default function HomePageMobile() {
                 {` is an annual art exhibition and summer program situated in outer Berlin that
                 focuses on bringing international emerging and established artists together to
                 exhibit. Over August and September, such artists will take place in a residency
-                exploring the historic site of the gallery and surrounding natural landscapes.`}</h4>
+                exploring the historic site of the gallery and surrounding natural landscapes.`}</h4> */}
 
             <Hr css={css `margin-bottom: 60px;`}/>
 
@@ -177,7 +183,8 @@ export default function HomePageMobile() {
                     <br/>
                     Biesenthal</p>
 
-                <div css={css `display: flex; align-items: center; width: 80%; justify-content: space-between; margin: 0 auto 50px auto;`}>
+                <div
+                    css={css `display: flex; align-items: center; width: 80%; justify-content: space-between; margin: 0 auto 50px auto;`}>
                     <IcLocation css={css `width: 31px; height: auto; filter: invert(1);`}/>
                     <p>Wehrmühlenweg 8
                         <br/>

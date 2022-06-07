@@ -82,7 +82,7 @@ const metaNavItems = [
 ]
 
 const metaNavItemsMapped = metaNavItems.map((item) => (
-    <Link
+    <Link key={item[0]}
         to={item[1]}
         css={css `text-decoration: none; font-size: 22px; font-weight: 500;`}>{item[0]}</Link>
 ))

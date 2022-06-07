@@ -130,8 +130,9 @@ export default function HomePageDekstop() {
             <div id="about">
                 <IntroLogo css={css `width: 300px; height: auto;`}/>
             </div>
-            <h1 css={css `margin:50px 0 150px 0;`}>One of Europe’s leading institutions that
-                integrate the arts, cultural and education through site-specific art.</h1>
+            <h1 css={css `margin:50px 0 150px 0;`}>Kulturort Wehrmuehle in Brandenburger
+                Biesenthal serves as a space for contemporary art and culture, in particular for
+                the annual Art Biesenthal.</h1>
 
             <ValuesContainer>
                 <ValueWrapper>
@@ -183,15 +184,12 @@ export default function HomePageDekstop() {
                 <h6 >02. Juli – 29. August</h6>
 
                 <h6 css={css `margin: 40px 0 40px 0;`}>{"Get your ticket via "}
-                    <TextLink>Ticket Tailor</TextLink>
+                    <TextLink to="/">Ticket Tailor</TextLink>
                 </h6>
 
                 <h2 css={css `margin: 200px 0 200px 0;`}>
                     <TextLink to="/artbiesenthal">Art Biesenthal</TextLink>
-                    {` is an annual art exhibition and summer program situated in outer Berlin that
-                    focuses on bringing international emerging and established artists together to
-                    exhibit. Over August and September, such artists will take place in a residency
-                    exploring the historic site of the gallery and surrounding natural landscapes.`}</h2>
+                    {` is an annual art exhibition and summer program that focuses on bringing international emerging and established artists together to exhibit.`}</h2>
 
             </UpcomingContainer>
 
