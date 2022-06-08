@@ -5,6 +5,7 @@ import {css, jsx} from '@emotion/react';
 import TextLink from '../UI/TextLink';
 
 import ArtistsSectionComponent from './ArtistsSectionComponent'
+import PartnersSectionComponent from './PartnersSectionComponent';
 
 const Wrapper = styled("div")`
 width: 100%;
@@ -88,6 +89,10 @@ export default function HomePageDekstop({eventData}) {
             <Hr css={css `margin: 150px 0 50px 0;`}/>
 
             <ArtistsSectionComponent/>
+
+            <Hr />
+
+            <PartnersSectionComponent />
 
             <Hr css={css `margin-bottom: 30vh;`}/> {/* <DatesNew data={eventData}/> */}
 

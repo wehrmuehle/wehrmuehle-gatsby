@@ -8,6 +8,7 @@ import IcInstagram from '../../vectors/IcInstagram.svg'
 import IcLocation from '../../vectors/IcLocation.svg'
 import HighlightsMobile from './HighlightsMobile';
 import PillarsComponentMobile from './PillarsComponentMobile';
+import FollowComponentMobile from '../FollowComponentMobile'
 
 const Values = [
     [
@@ -153,26 +154,9 @@ export default function HomePageMobile() {
                 exhibit. Over August and September, such artists will take place in a residency
                 exploring the historic site of the gallery and surrounding natural landscapes.`}</h4> */}
 
-            <Hr css={css `margin-bottom: 60px;`}/>
-
-            <h3 css={css `margin-bottom: 50px;`}>Follow us</h3>
-
-            <h2 css={css `margin-bottom: 20px;`}>Instagram</h2>
-
-            <IcInstagram css={css `width: 70px; height: auto; margin-bottom: 40px;`}/>
-
-            <h6 css={css `margin-bottom: 100px;`}>@wehrmuele</h6>
-
-            <h1 css={css `margin-bottom: 50px;`}>Contact</h1>
-
-            <p>Wehrmühlenweg 8
-                <br/>
-                16359 Biesenthal (near Berlin)
-                <br/>
-                <br/>
-                mail@wehrmuehle.de
-                <br/>
-                +49 175 5038587</p>
+            <FollowComponentMobile
+                text="@wehrmuehle"
+                link="https://www.instagram.com/wehrmuehle/"/>
 
             <DirectionsWrapper>
 

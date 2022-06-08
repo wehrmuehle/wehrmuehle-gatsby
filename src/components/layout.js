@@ -82,7 +82,8 @@ const metaNavItems = [
 ]
 
 const metaNavItemsMapped = metaNavItems.map((item) => (
-    <Link key={item[0]}
+    <Link
+        key={item[0]}
         to={item[1]}
         css={css `text-decoration: none; font-size: 22px; font-weight: 500;`}>{item[0]}</Link>
 ))
@@ -96,7 +97,7 @@ export default function Layout({children}) {
 
                 <Link to="/"><BrandMark css={css `width: 40px; height: auto;`}/></Link>
 
-                <IcInstagram css={css `width: 26px; height: auto;`}/>
+                <a href="https://www.instagram.com/wehrmuehle/" target="_blank" css={css `text-decoration: none;`}><IcInstagram css={css `width: 26px; height: auto;`}/></a>
             </HeaderMobile>
 
             {breakpoints.sm && <MainMobile>
