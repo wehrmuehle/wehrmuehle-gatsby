@@ -66,46 +66,46 @@ export default function App() {
                     <EventSpacer>
 
                         <TextLink to="/">
-                            <h6 css={css `margin-bottom: 30px;`}>Art Biesenthal 2022</h6>
+                            <h3 css={css `margin-bottom: 30px;`}>Art Biesenthal 2022</h3>
                         </TextLink>
 
-                        <h6>02. Juli – 29. August</h6>
+                        <h3>02. Juli – 29. August</h3>
 
-                        <h6>Get your ticket via
+                        <h3>Get your ticket via
                             <br/>
                             <TextLink>
                                 Ticket Tailor
                             </TextLink>
-                        </h6>
+                        </h3>
 
                     </EventSpacer>
 
-                    <h4 css={css `font-weight: bold; margin-bottom: 100px;`}>
+                    <h3 css={css `font-weight: bold; margin-bottom: 100px;`}>
                         <TextLink to="/artbiesenthal">Art Biesenthal</TextLink>
-                        {` is an annual art exhibition and summer program that focuses on bringing international emerging and established artists together to exhibit.`}</h4>
+                        {` is an annual art exhibition and summer program that focuses on bringing international emerging and established artists together to exhibit.`}</h3>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <EventSpacer>
 
                         <TextLink to="/">
-                            <h6 css={css `margin-bottom: 30px;`}>Aerial Palettes</h6>
+                            <h3 css={css `margin-bottom: 30px;`}>Aerial Palettes</h3>
                         </TextLink>
 
-                        <h6>04. September – 08. October</h6>
+                        <h3>04. September – 08. October</h3>
 
-                        {/* <h6>Get your ticket via
+                        {/* <h3>Get your ticket via
                             <br/>
                             <TextLink>
                                 Ticket Tailor
                             </TextLink>
-                        </h6> */}
+                        </h3> */}
 
                     </EventSpacer>
 
-                    <h4 css={css `font-weight: bold; margin-bottom: 100px;`}>
+                    <h3 css={css `font-weight: bold; margin-bottom: 100px;`}>
                         {/* <TextLink to="/">Art Biesenthal</TextLink> */}
-                        {` Aerial Palettes is an interdisciplinary exhibition at the Wehrmuehle Biesenthal. This event aims to exhibit young and emerging artists together with established artists. Paul Ćinske-Moulden (Berlin Atonal & OHM Berlin) and curators Tom Esam and Camilla Lucii have selected an interesting mix of site-specific work, large-scale installations and private concerts to be displayed in the garden of the Wehrmuehle. `}</h4>
+                        {` Aerial Palettes is an interdisciplinary exhibition at the Wehrmuehle Biesenthal. This event aims to exhibit young and emerging artists together with established artists. Paul Ćinske-Moulden (Berlin Atonal & OHM Berlin) and curators Tom Esam and Camilla Lucii have selected an interesting mix of site-specific work, large-scale installations and private concerts to be displayed in the garden of the Wehrmuehle. `}</h3>
                 </SwiperSlide>
 
             </Swiper>

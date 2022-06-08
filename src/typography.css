@@ -1,4 +1,9 @@
 @font-face {
-    font-family: "Reckless-Medium";
-    src: url("./fonts/Reckless-Medium.woff2");
+    font-family: "Helvetica-Medium";
+    src: url("./fonts/helvetica-medium.woff2");
+  }
+  
+@font-face {
+    font-family: "Helvetica-Medium";
+    src: url("./fonts/helvetica-bold.woff2");
   }

@@ -9,6 +9,7 @@ import IntroLogo from '../../vectors/IntroLogo.svg'
 import IcLocation from '../../vectors/IcLocation.svg'
 import HeroVideo from '../ProgressiveVideo/HeroVideo';
 import PillarsComponentDesktop from './PillarsComponentDesktop';
+import FollowComponentDesktop from '../FollowComponentDesktop'
 
 const Values = [
     [
@@ -155,6 +156,7 @@ export default function HomePageDekstop() {
                 src="../../images/Location.jpg"
                 alt="Wehrmuehle's location"
                 layout="constrained"
+                placeholder='blurred'
                 width={1920}
                 height={1120}
                 css={css `width: calc(100% + 328px); margin: 0 -164px;`}/>
@@ -171,6 +173,7 @@ export default function HomePageDekstop() {
                     src="../../images/HighlightsPlaceholder.png"
                     alt="A person looking at an artwork"
                     layout="constrained"
+                    placeholder='blurred'
                     width={874}
                     height={1010}
                     css={css `width: 50%; margin-bottom: 30px; position: absolute; right: 0; z-index: -1;`}/>
@@ -192,6 +195,10 @@ export default function HomePageDekstop() {
                     {` is an annual art exhibition and summer program that focuses on bringing international emerging and established artists together to exhibit.`}</h2>
 
             </UpcomingContainer>
+
+            <FollowComponentDesktop
+                text="@wehrmuehle"
+                link="https://www.instagram.com/wehrmuehle/"/>
 
         </Wrapper>
     )

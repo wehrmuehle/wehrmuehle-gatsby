@@ -12,14 +12,6 @@ flex-direction: column;
 justify-content: center;
 `
 
-const Hr = styled("div")`
-background: ${props => props.bg
-    ? props.bg
-    : "black"};
-height: 6px;
-width: 100%;
-`
-
 const ArtistName = styled("h2")`
 display: inline-block;
 text-decoration: underline;
@@ -73,7 +65,6 @@ export default function DatesSectionComponent() {
         setSeventhNameVisible] = useState(false);
 
     const handleArtistsVisibility = (e) => {
-
 
         switch (e.target.id) {
             case "first-artist":
@@ -151,7 +142,7 @@ export default function DatesSectionComponent() {
     const artistsMapped = Artists.map((artist) => {
         return artist[0] === "seventh-artist"
             ? <ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>{`${artist[1]}`}</ArtistName>
-            : <ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>{`${artist[1]}${','}`}&nbsp;</ArtistName>
+            : <ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>{`${artist[1]}${ ','}`}&nbsp;</ArtistName>
 
     })
     return (
@@ -164,6 +155,7 @@ export default function DatesSectionComponent() {
                 src="../../images/ak.jpg"
                 alt="An Artwork"
                 layout="constrained"
+                placeholder='blurred'
                 width={1300}
                 height={974}
                 css={css `width: 50%; z-index: -1; position: absolute; right: 0; display: ${firstNameVisible
@@ -174,6 +166,7 @@ export default function DatesSectionComponent() {
                 src="../../images/nb.jpg"
                 alt="An Artwork"
                 layout="constrained"
+                placeholder='blurred'
                 width={1566}
                 height={2048}
                 css={css `width: 50%; z-index: -1; position: absolute; right: 0; display: ${secondNameVisible
@@ -184,6 +177,7 @@ export default function DatesSectionComponent() {
                 src="../../images/tr.jpg"
                 alt="An Artwork"
                 layout="constrained"
+                placeholder='blurred'
                 width={827}
                 height={550}
                 css={css `width: 50%; z-index: -1; position: absolute; right: 0; display: ${thirdNameVisible
@@ -194,6 +188,7 @@ export default function DatesSectionComponent() {
                 src="../../images/ms.jpg"
                 alt="An Artwork"
                 layout="constrained"
+                placeholder='blurred'
                 width={1500}
                 height={995}
                 css={css `width: 50%; z-index: -1; position: absolute; right: 0; display: ${fourthNameVisible
@@ -204,6 +199,7 @@ export default function DatesSectionComponent() {
                 src="../../images/am.jpg"
                 alt="An Artwork"
                 layout="constrained"
+                placeholder='blurred'
                 width={1500}
                 height={1000}
                 css={css `width: 50%; z-index: -1; position: absolute; right: 0; display: ${fifthhNameVisible
@@ -214,6 +210,7 @@ export default function DatesSectionComponent() {
                 src="../../images/gh.jpeg"
                 alt="An Artwork"
                 layout="constrained"
+                placeholder='blurred'
                 width={1080}
                 height={1349}
                 css={css `width: 50%; z-index: -1; position: absolute; right: 0; display: ${sixthNameVisible
@@ -224,6 +221,7 @@ export default function DatesSectionComponent() {
                 src="../../images/jb.jpg"
                 alt="An Artwork"
                 layout="constrained"
+                placeholder='blurred'
                 width={1300}
                 height={1618}
                 css={css `width: 50%; z-index: -1; position: absolute; right: 0; display: ${seventhNameVisible

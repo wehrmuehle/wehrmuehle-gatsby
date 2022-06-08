@@ -100,6 +100,7 @@ export default function HomePageMobile() {
                 src="../../images/HeroVideoPlaceholder.png"
                 alt="Wehrmuehle Location's"
                 layout="constrained"
+                placeholder='blurred'
                 width={353}
                 height={766}
                 css={css `height: calc(100vh - 14rem);`}/>
@@ -123,6 +124,7 @@ export default function HomePageMobile() {
                 src="../../images/HighlightsPlaceholder.png"
                 alt="A person looking at an artwork"
                 layout="constrained"
+                placeholder='blurred'
                 width={874}
                 height={1010}
                 css={css `width: 100%; margin-bottom: 30px;`}/>

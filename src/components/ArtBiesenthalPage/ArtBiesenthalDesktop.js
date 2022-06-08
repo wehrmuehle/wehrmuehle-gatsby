@@ -4,9 +4,7 @@ import styled from "@emotion/styled";
 import {css, jsx} from '@emotion/react';
 import TextLink from '../UI/TextLink';
 
-import DatesSectionComponent from './DatesSectionComponent';
 import ArtistsSectionComponent from './ArtistsSectionComponent'
-import DatesNew from './DatesNew';
 
 const Wrapper = styled("div")`
 width: 100%;
@@ -28,11 +26,12 @@ export default function HomePageDekstop({eventData}) {
                 src="../../images/gradientPlaceholder.jpg"
                 alt="A person looking at an artwork"
                 layout="constrained"
+                placeholder='blurred'
                 width={1921}
                 height={1467}
                 css={css `width: calc(100% + 328px); margin:-100px -164px 0 -164px; z-index: -1;`}/>
 
-            <h1 css={css `position: absolute; top: 160px; font-size: 150px;`}>Art
+            <h1 css={css `position: absolute; top: 160px; font-size: 12.5rem;`}>Art
                 <br/>Biesenthal
                 <br/>2022</h1>
 
@@ -90,8 +89,7 @@ export default function HomePageDekstop({eventData}) {
 
             <ArtistsSectionComponent/>
 
-            <Hr css={css `margin-bottom: 30vh;`}/>
-            {/* <DatesNew data={eventData}/> */}
+            <Hr css={css `margin-bottom: 30vh;`}/> {/* <DatesNew data={eventData}/> */}
 
         </Wrapper>
     )

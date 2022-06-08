@@ -73,6 +73,7 @@ export default function PillarsComponentMobile() {
                     src="../../images/exhibitions.jpg"
                     alt="Wehrmuehle Location's"
                     layout="constrained"
+placeholder='blurred'
                     width={6240}
                     height={4160}/>
             </SinglePillar>
@@ -85,6 +86,7 @@ export default function PillarsComponentMobile() {
                     src="../../images/residency.jpg"
                     alt="Wehrmuehle Location's"
                     layout="constrained"
+placeholder='blurred'
                     width={1440}
                     height={1920}/>
             </SinglePillar>
@@ -97,6 +99,7 @@ export default function PillarsComponentMobile() {
                     src="../../images/collaborations.jpg"
                     alt="Wehrmuehle Location's"
                     layout="constrained"
+placeholder='blurred'
                     width={3324}
                     height={2236}/>
             </SinglePillar>
@@ -109,6 +112,7 @@ export default function PillarsComponentMobile() {
                     src="../../images/nature.jpg"
                     alt="Wehrmuehle Location's"
                     layout="constrained"
+placeholder='blurred'
                     width={3575}
                     height={2433}/>
             </SinglePillar>

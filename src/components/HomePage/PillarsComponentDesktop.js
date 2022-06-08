@@ -256,6 +256,7 @@ export default function PillarsComponentDesktop() {
                             src="../../images/exhibitions.jpg"
                             alt="Wehrmuehle Location's"
                             layout="constrained"
+placeholder='blurred'
                             width={6240}
                             height={4160}
                             css={css `margin-bottom: 50px;`}/>
@@ -277,6 +278,7 @@ export default function PillarsComponentDesktop() {
                             src="../../images/residency.jpg"
                             alt="Wehrmuehle Location's"
                             layout="constrained"
+placeholder='blurred'
                             width={1440}
                             height={1920}
                             css={css `margin-bottom: 50px;`}/>
@@ -300,6 +302,7 @@ export default function PillarsComponentDesktop() {
                             src="../../images/collaborations.jpg"
                             alt="Wehrmuehle Location's"
                             layout="constrained"
+placeholder='blurred'
                             width={3324}
                             height={2236}
                             css={css `margin-bottom: 50px;`}/>
@@ -320,6 +323,7 @@ export default function PillarsComponentDesktop() {
                             src="../../images/nature.jpg"
                             alt="Wehrmuehle Location's"
                             layout="constrained"
+placeholder='blurred'
                             width={3575}
                             height={2433}
                             css={css `margin-bottom: 50px;`}/>

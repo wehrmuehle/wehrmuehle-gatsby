@@ -1,5 +1,6 @@
 /* CSS Custom Properties Definitions */
 @import "@fontsource/roboto";
+@import "./typography.css";
 :root {
     --maxWidth-none: "none";
     --maxWidth-xs: 20rem;
@@ -29,6 +30,8 @@
     --spacing-32: 8rem;
     --fontFamily-sans: Roboto, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --fontFamily-serif: "Reckless-Medium", "Georgia", Cambria, "Times New Roman", Times, serif;
+    --fontFamily-medium: "Helvetica-Medium", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --fontFamily-bold: "Helvetica-Bold", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-body: var(--fontFamily-sans);
     --font-heading: var(--fontFamily-sans);
     --fontWeight-normal: 400;
@@ -49,8 +52,7 @@
     --fontSize-3: 1.875rem;
     --fontSize-4: 2.5rem;
     --fontSize-5: 3.75rem;
-    --fontSize-6: 5rem;
-    --fontSize-7: 2.986rem;
+    --fontSize-6: 6.25rem;
     --color-primary: #FAF5F1;
     --color-text: #000;
     --color-text-light: #4f5969;
@@ -78,10 +80,11 @@ html {
 }
 
 body {
-    font-family: var(--font-body);
+    font-family: var(--fontFamily-medium);
     color: var(--color-text);
     background-color: #fff;
     width: 100%;
+    overflow-wrap: break-word;
 
 }
 
@@ -100,25 +103,24 @@ hr {
 h1,
 h2,
 h3 {
-    font-family: var(--font-heading);
+    font-family: var(--fontFamily-bold);
     margin-top: var(--spacing-0);
     margin-bottom: var(--spacing-0);
     line-height: var(--lineHeight-tight);
-    font-weight: 400;
 }
 
-h2,
+/* h2,
 h3,
 h4,
 h5,
 h6 {
     font-weight: var(--fontWeight-bold);
     color: var(--color-text);
-}
+} */
 
 h1 {
     font-weight: var(--fontWeight-bold);
-    font-size: 100px;
+    font-size: var(--fontSize-6);
 }
 
 h2 {
@@ -128,7 +130,7 @@ h2 {
 
 h3 {
     font-weight: var(--fontWeight-bold);
-    font-size: 30px;
+    font-size: var(--fontSize-4);
 }
 
 h4 {
@@ -136,21 +138,21 @@ h4 {
     margin-bottom: var(--spacing-0);
     line-height: var(--lineHeight-tight);
     letter-spacing: -0.025em;
-    font-family: var(--font-body);
+    font-family: var(--fontFamily-medium);
     font-weight: var(--fontWeight-regular);
-    font-size: 30px;
+    font-size: var(--fontSize-3);
 }
 
 h5 {
-    font-family: var(--font-body);
-    font-size: var(--fontSize-2);
+    font-family: var(--fontFamily-medium);
+    font-size: var(--fontSize-1);
     text-transform: uppercase;
     font-weight: var(--fontWeight-semibold);
 }
 
 h6 {
-    font-family: var(--font-body);
-    font-size: 26px;
+    font-family: var(--fontFamily-medium);
+    font-size: var(--fontSize-2);
     font-weight: 500;
 }
 
@@ -180,21 +182,17 @@ h6 > a {
 
 /* Prose */
 
-
 p {
-    font-family: var(--font-body);
-    font-size: 22px;
+    font-family: var(--fontFamily-medium);
+    font-size: var(--fontSize-1);
     font-weight: var(--fontWeight-medium);
     margin: var(--spacing-0);
     padding: var(--spacing-0);
 }
 
-.p-big {
-    font-size: var(--fontSize-2);
-}
-
 .p-small {
     font-size: var(--fontSize-0);
+    text-transform: uppercase;
 }
 
 ol,
@@ -265,7 +263,7 @@ a:hover {
     text-decoration: none;
 }
 
-/* Custom classes */
+/* Custom classes
 
 .global-wrapper {
     margin: var(--spacing-0) auto;
@@ -344,7 +342,7 @@ a:hover {
 
 .gatsby-highlight {
     margin-bottom: var(--spacing-8);
-}
+} */
 
 ::-moz-selection {
     /* Code for Firefox */
@@ -357,7 +355,7 @@ a:hover {
     background: black;
 }
 
-button {
+/* button {
     display: inline-block;
     border: none;
     width: 20vw;
@@ -399,10 +397,10 @@ button:hover {
 
 label {
     margin-bottom: 1rem;
-}
+} */
 
 /* Media queries */
-@media (max-width: 42rem) {
+/* @media (max-width: 42rem) {
     blockquote {
         padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
         margin-left: var(--spacing-0);
@@ -411,23 +409,31 @@ label {
     ul {
         list-style-position: inside;
     }
-}
+} */
+
 @media screen and (max-width: 480px) {
     html {
         font-size: 7px;
     }
 
-    h1 {
-        font-size: 40px;
+    p {
+        font-size: 3.14rem;
     }
+
+
 }
 @media screen and (min-width: 960px) and (max-width: 1600px) {
     html {
         font-size: 11px;
     }
 }
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1600px) and (max-width: 1919px) {
     html {
         font-size: 13px;
+    }
+}
+@media screen and (min-width: 1920px) {
+    html {
+        font-size: 16px;
     }
 }

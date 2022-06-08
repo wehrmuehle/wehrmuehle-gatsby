@@ -76,6 +76,7 @@ export default function PresskitPage({data}) {
                 src="../images/PresentationCover.jpeg"
                 alt="The presentation's cover"
                 layout="constrained"
+placeholder='blurred'
                 width={3840}
                 height={2160}
                 css={css `width: ${breakpoints.sm
