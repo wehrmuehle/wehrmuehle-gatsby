@@ -58,7 +58,7 @@ width: 100%;
 
 const ValuesWrapper = styled("div")`
 width: 100%;
-margin-bottom: 40px;
+margin-bottom: 70px;
 `
 
 const ValuesMapped = Values.map((value) => (

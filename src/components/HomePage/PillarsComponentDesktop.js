@@ -232,15 +232,12 @@ export default function PillarsComponentDesktop() {
                     ? "visible"
                     : "none"}
                     id="description">
-                    <div>
+                    <div css={css `max-width: 600px;`}>
                         <p css={css `margin-bottom: 50px;`}>Wehrmuehle is comprised of three buildings,
                             The Gallery, The Guesthouse and The Mill. Onsite facilities include
                             accommodation, gastronomy, studio and co-working space, exhibition space, and
                             storage.</p>
 
-                    </div>
-
-                    <div>
                         {spacesMapped}
                     </div>
 
@@ -256,7 +253,7 @@ export default function PillarsComponentDesktop() {
                             src="../../images/exhibitions.jpg"
                             alt="Wehrmuehle Location's"
                             layout="constrained"
-placeholder='blurred'
+                            placeholder='blurred'
                             width={6240}
                             height={4160}
                             css={css `margin-bottom: 50px;`}/>
@@ -278,9 +275,9 @@ placeholder='blurred'
                             src="../../images/residency.jpg"
                             alt="Wehrmuehle Location's"
                             layout="constrained"
-placeholder='blurred'
-                            width={1440}
-                            height={1920}
+                            placeholder='blurred'
+                            width={1170}
+                            height={1009}
                             css={css `margin-bottom: 50px;`}/>
                     </div>
 
@@ -302,7 +299,7 @@ placeholder='blurred'
                             src="../../images/collaborations.jpg"
                             alt="Wehrmuehle Location's"
                             layout="constrained"
-placeholder='blurred'
+                            placeholder='blurred'
                             width={3324}
                             height={2236}
                             css={css `margin-bottom: 50px;`}/>
@@ -323,7 +320,7 @@ placeholder='blurred'
                             src="../../images/nature.jpg"
                             alt="Wehrmuehle Location's"
                             layout="constrained"
-placeholder='blurred'
+                            placeholder='blurred'
                             width={3575}
                             height={2433}
                             css={css `margin-bottom: 50px;`}/>

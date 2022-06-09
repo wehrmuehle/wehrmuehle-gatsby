@@ -19,9 +19,6 @@ flex-direction: column;
 justify-content: center;
 align-items: start;
 
-& p {
-    margin-bottom: 30px
-}
 
 `
 const CentralWrapper = styled("div")`
@@ -30,6 +27,7 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 align-items: center;
+margin: 30px 0;
 `
 
 const LogoWrapper = styled("div")`
@@ -43,14 +41,18 @@ background-color: ${props => props.bg};
 border:1px solid black;
 `
 
+const LogoTitle = styled("p")`
+margin: 70px 0 40px;
+`
+
 export default function LogosMobile() {
     return (
         <React.Fragment>
 
-            <h2 css={css`margin: 50px 0 60px;`}>Logos</h2>
+            <h2 css={css`margin: 50px 0 0;`}>Logos</h2>
             <Wrapper>
                 <SideWrapper align="start">
-                    <p>Logo standard</p>
+                    <LogoTitle>Logo standard</LogoTitle>
                 </SideWrapper>
                 <CentralWrapper>
                     <LogoWrapper bg="white">
@@ -70,7 +72,7 @@ export default function LogosMobile() {
 
             <Wrapper>
                 <SideWrapper align="start">
-                    <p>Logo medium</p>
+                    <LogoTitle>Logo medium</LogoTitle>
                 </SideWrapper>
                 <CentralWrapper>
                     <LogoWrapper bg="white">
@@ -90,7 +92,7 @@ export default function LogosMobile() {
 
             <Wrapper>
                 <SideWrapper align="start">
-                    <p>Logo small</p>
+                    <LogoTitle>Logo small</LogoTitle>
                 </SideWrapper>
                 <CentralWrapper>
                     <LogoWrapper bg="white">

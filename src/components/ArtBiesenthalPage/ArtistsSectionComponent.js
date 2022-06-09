@@ -23,6 +23,7 @@ text-decoration: underline;
 
 const NameBlock = styled("div")`
 width: 70%;
+max-width: 900px;
 `
 
 const Artists = [
@@ -132,10 +133,10 @@ export default function ArtistsSectionComponent() {
 
     const artistsMapped = Artists.map((artist) => {
         return artist[0] === "sixth-artist"
-            ? <a href={artist[2]} css={css`text-decoration: none; font-size: 3.75rem;`}><ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>
+            ? <a href={artist[2]} target="_blank" css={css`text-decoration: none; font-size: 3.75rem;`}><ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>
                     {`${artist[1]}`}
                 </ArtistName></a>
-            : <a href={artist[2]} css={css`text-decoration: none; font-size: 3.75rem;`}><ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>
+            : <a href={artist[2]} target="_blank" css={css`text-decoration: none; font-size: 3.75rem;`}><ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>
                 {`${artist[1]}`}
             </ArtistName>{`${ ','}`}&nbsp;</a>
 
@@ -186,7 +187,7 @@ export default function ArtistsSectionComponent() {
                 placeholder='blurred'
                 width={1920}
                 height={2560}
-                css={css `width: 50%; z-index: -1; position: absolute; right: 0; display: ${fourthNameVisible
+                css={css `width: 50%; max-height: 800px; z-index: -1; position: absolute; right: 0; display: ${fourthNameVisible
                 ? "visible"
                 : "none"};`}/>
 

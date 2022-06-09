@@ -23,6 +23,7 @@ text-decoration: underline;
 
 const NameBlock = styled("div")`
 width: 70%;
+max-width: 900px;
 `
 
 const Partners = [
@@ -104,12 +105,12 @@ export default function PartnersSectionComponent() {
 
     const partnersMapped = Partners.map((partner) => {
         return partner[0] === "fifth-partner"
-            ? <a href={partner[2]} css={css `text-decoration: none; font-size: 3.75rem;`}>
+            ? <a href={partner[2]} target="_blank" css={css `text-decoration: none; font-size: 3.75rem;`}>
                     <PartnerName onMouseOver={handlepartnersVisibility} id={partner[0]}>
                         {`${partner[1]}`}
                     </PartnerName>
                 </a>
-            : <a href={partner[2]} css={css `text-decoration: none; font-size: 3.75rem;`}>
+            : <a href={partner[2]} target="_blank" css={css `text-decoration: none; font-size: 3.75rem;`}>
                 <PartnerName onMouseOver={handlepartnersVisibility} id={partner[0]}>
                     {`${partner[1]}`}
                 </PartnerName>{`${ ','}`}&nbsp;</a>

@@ -80,14 +80,14 @@ margin-bottom: 30px;
 const ValuesMapped = Values.map((value) => (
     <ValuesWrapper>
         <h1 css={css `margin-bottom: 60px;`}>{value[0]}</h1>
-        <p css={css `margin-bottom: 50px;`}>{value[1]}</p>
+        <p css={css `margin-bottom: 70px;`}>{value[1]}</p>
     </ValuesWrapper>
 ))
 
 const DirectionsMapped = Directions.map((direction) => (
     <DirectionsMappedWrapper>
         <h1 css={css `margin-bottom: 30px;`}>{direction[0]}</h1>
-        <p css={css `margin-bottom: 40px;`}>
+        <p css={css `margin-bottom: 70px;`}>
             {direction[1]}</p>
     </DirectionsMappedWrapper>
 ))
@@ -170,7 +170,7 @@ export default function HomePageMobile() {
                     Biesenthal</p>
 
                 <div
-                    css={css `display: flex; align-items: center; width: 80%; justify-content: space-between; margin: 0 auto 50px auto;`}>
+                    css={css `display: flex; align-items: center; width: 80%; justify-content: space-between; margin: 0 auto 70px auto;`}>
                     <IcLocation css={css `width: 31px; height: auto; filter: invert(1);`}/>
                     <p>Wehrmühlenweg 8
                         <br/>

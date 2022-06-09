@@ -46,28 +46,34 @@ export default function PresskitPage({data}) {
         url={entry.node.highResolutionImage.url}
         key={entry.node.id}/>))
 
+        const hugeVerticalSpace = !breakpoints.md? "120px" : "70px"
+        const bigVerticalSpace = !breakpoints.md? "100px" : "40px"
+        const smallVerticalSpace = !breakpoints.md? "50px" : "20px"
+
     return (
         <React.Fragment>
 
             <HeroWrapper>
-                {(breakpoints.l && !breakpoints.sm) && <h1 css={css `font-size: 150px; margin: 70px 0;`}>Press</h1>}
+                {!breakpoints.md && <h1 css={css `font-size: 150px; margin: 70px 0;`}>Press</h1>}
                 {(breakpoints.sm) && <h1 css={css `font-size: 70px; margin: 40px 0;`}>Press</h1>}
-                <h1>Please find downloads for press material below.</h1>
+                <h1 css={css`margin-bottom: 200px;`}>Please find downloads for press material below.</h1>
+                {!breakpoints.md && <a href="#w-press">Press material Wehrmuehle</a>}
             </HeroWrapper>
 
-            <h1 css={css `margin-bottom: 120px;`}>Wehrmuehle</h1>
+            <h1 css={css `margin-bottom: ${hugeVerticalSpace};`} id="w-press">Wehrmuehle</h1>
 
-            {(breakpoints.l && !breakpoints.sm) && <BundlesDesktop/>}
+            {!breakpoints.md && <BundlesDesktop/>}
 
             {(breakpoints.sm) && <BundlesMobile/>}
 
-            <Hr/> {(breakpoints.l && !breakpoints.sm) && <LogosDesktop/>}
+            <Hr css={css `margin: ${hugeVerticalSpace} 0 ${hugeVerticalSpace} 0;`}/> {!breakpoints.md && <LogosDesktop/>}
 
             {(breakpoints.sm) && <LogosMobile/>}
 
-            <Hr css={css `margin-top: 50px;`}/>
+            <Hr css={css `margin: ${hugeVerticalSpace} 0 ${hugeVerticalSpace} 0;`}/>
 
-            <h3 css={css `margin:60px 0 70px 0;`}>Presentation</h3>
+            {breakpoints.md && <h2 css={css `margin-bottom:${bigVerticalSpace};`}>Presentation</h2>}
+            {!breakpoints.md && <h3 css={css `margin-bottom:${bigVerticalSpace};`}>Presentation</h3>}
 
             <div
                 css={css `display: flex; flex-direction: ${breakpoints.sm
@@ -76,7 +82,7 @@ export default function PresskitPage({data}) {
                 src="../images/PresentationCover.jpeg"
                 alt="The presentation's cover"
                 layout="constrained"
-placeholder='blurred'
+                placeholder='blurred'
                 width={3840}
                 height={2160}
                 css={css `width: ${breakpoints.sm
@@ -88,11 +94,14 @@ placeholder='blurred'
                     image={false}/>
             </div>
 
-            <h3 css={css `margin: 100px 0 70px 0;`}>Pictures</h3>
+            {/* {breakpoints.md && <h2 css={css `margin:${bigVerticalSpace} 0;`}>Pictures</h2>}
+            {!breakpoints.md && <h3 css={css `margin:${bigVerticalSpace} 0;`}>Pictures</h3>}
 
-            {Pictures}
+            {Pictures} */}
 
-            <h1>If you have questions feel free to{" "}
+            <Hr css={css`margin: ${hugeVerticalSpace} 0;`} />
+
+            <h1 css={css`margin: ${hugeVerticalSpace} 0;`}>If you have questions feel free to{" "}
                 <TextLink to="/contacts">contact us</TextLink>{" "}
                 or our brand agency{" "}
                 <OutwardsLink target="_blank" href='https://anewday.studio/'>A New Day Studio</OutwardsLink>

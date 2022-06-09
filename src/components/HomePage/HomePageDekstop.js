@@ -102,6 +102,7 @@ flex-direction: column;
 
 const Spacer = styled("div")`
 width: 100%;
+height: 125vh;
 `
 
 export default function HomePageDekstop() {
@@ -109,26 +110,26 @@ export default function HomePageDekstop() {
     const [videoHeight,
         setVideoHeight] = useState(0);
 
-    useEffect(() => {
-        const spacer = document.getElementById("spacer");
-        const thumbnail = document.getElementById("thumbnail");
-        const spacerHeight = window.innerWidth * 1300 / 1920;
-        spacer.style.height = `${spacerHeight}px`
-        thumbnail.style.height = `${spacerHeight}px`
+    // useEffect(() => {
+    //     const spacer = document.getElementById("spacer");
+    //     const thumbnail = document.getElementById("thumbnail");
+    //     const spacerHeight = window.innerWidth * (1300) / (1920);
+    //     spacer.style.height = `${spacerHeight}px`
+    //     thumbnail.style.height = `${spacerHeight}px`
 
-    }, [])
+    // }, [])
 
     return (
         <Wrapper>
 
             <Spacer id="spacer"/>
 
-            <p css={css `position: absolute; top: 90vh; z-index: 10;`}>
+            <p css={css `position: absolute; top: 110vh; z-index: 10;`}>
                 <a href="#about">About</a>
             </p>
 
-            <div><HeroVideo/></div>
-            <div id="about">
+            <div css={css`z-index: 9;`}><HeroVideo/></div>
+            <div id="about" css={css`position: relative; z-index: 10; margin-bottom: 80px;`}>
                 <IntroLogo css={css `width: 300px; height: auto;`}/>
             </div>
             <h1 css={css `margin:50px 0 150px 0;`}>Kulturort Wehrmuehle in Brandenburger

@@ -28,6 +28,8 @@ align-items: center;
 
 const LogoWrapper = styled("div")`
 height: 20vw;
+max-width: 300px;
+max-height: 300px;
 width: 20vw;
 display: flex;
 justify-content: center;
@@ -40,7 +42,7 @@ export default function LogosDesktop() {
     return (
         <React.Fragment>
 
-            <h2>Logos</h2>
+            <h2 css={css`margin-bottom: 60px;`}>Logos</h2>
             <Wrapper>
                 <SideWrapper align="start">
                     <p>Logo standard</p>

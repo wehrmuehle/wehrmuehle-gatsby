@@ -5,14 +5,19 @@ import TemporaryGradientVideo from "../../images/TemporaryGradientVideo.webm"
 import TemporaryThumbnail from "../../images/TemporaryThumbnail.jpg"
 import {useBreakpoint} from "gatsby-plugin-breakpoints";
 import ResponsiveProgressiveVideo from "./ResponsiveProgressiveVideo"
+import {css, jsx} from '@emotion/react'
 
 const HeroVideo = () => {
     const breakpoints = useBreakpoint();
 
-    return (<ResponsiveProgressiveVideo
-        mobileVideo={undefined}
-        desktopVideo={TemporaryGradientVideo}
-        desktopThumbnail={TemporaryThumbnail}/>)
+    return (
+        <div>
+            <ResponsiveProgressiveVideo
+                mobileVideo={undefined}
+                desktopVideo={TemporaryGradientVideo}
+                desktopThumbnail={TemporaryThumbnail}/>
+        </div>
+    )
 
 }
 

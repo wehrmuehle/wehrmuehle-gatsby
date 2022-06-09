@@ -52,7 +52,7 @@ export default function HomePageDekstop({eventData}) {
                         </h6>
                     </div>
                     <div
-                        css={css `display: flex; width: 100%; flex-direction: column; &>*{margin-bottom: 30px;}`}>
+                        css={css `display: flex; width: 100%; flex-direction: column; &>*{margin-bottom: 15px;}`}>
                         <h6>Öffnungszeiten</h6>
                         <div css={css `display: flex; justify-content: space-between; width: 50%;`}>
                             <h2>SAT</h2>

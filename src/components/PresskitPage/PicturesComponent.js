@@ -29,7 +29,7 @@ export default function PicturesComponent({image, url, title, description, copyr
 
             <Caption css={css `margin: 50px 0 70px 0;`}>
 
-                {(!breakpoints.md && breakpoints.l) && <React.Fragment>
+                {!breakpoints.md && <React.Fragment>
                     <CaptionColumn w="30%">
                         <p>{title}</p>
                         <p>{description}</p>
