@@ -23,22 +23,17 @@ const ProgressiveVideo = (props) => {
 
     return (
         <Box bg={props.bgColour}>
-            <Box
+            {/* <Box
                 className="video-thumb"
                 id="thumbnail"
                 position="absolute"
                 bg={props.desktopThumbnail}
-                css={css `opacity: ${isVideoLoaded
-                ? 0
-                : 1}; width: 100%; background-size: contain; background-repeat: no-repeat;`}/> 
+                css={css ` width: 100%; background-size: contain; background-repeat: no-repeat;`}/>  */}
 
             <AutoPlaySilentVideo
                 onLoadedData={handleVideoLoaded}
                 video={props.video}
-                className="progressive-video"
-                css={css `opacity: ${isVideoLoaded
-                ? 1
-                : 0};`}/>
+                className="progressive-video" />
         </Box>
     )
 }
