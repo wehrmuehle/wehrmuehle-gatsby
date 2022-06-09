@@ -8,24 +8,24 @@ export default function ArtBiesenthalPage({data}) {
     const breakpoints = useBreakpoint();
     return (
         <React.Fragment>
-            {breakpoints.sm && <ArtBiesenthalMobile eventData={data.allContentfulSingleEvents.edges}/>}
-            {!breakpoints.md && <ArtBiesenthalDesktop eventData={data.allContentfulSingleEvents.edges}/>}
+            {/* {breakpoints.sm && <ArtBiesenthalMobile eventData={data.allContentfulSingleEvents.edges}/>} */}
+            {!breakpoints.md && <ArtBiesenthalDesktop/>}
         </React.Fragment>
     )
 }
 
-export const pageQuery = graphql `
-query AbQuery {
-  allContentfulSingleEvents {
-    edges {
-      node {
-        id
-        dateCode
-        eventName
-        dateAndTime
-      }
-    }
-  }
-}
+// export const pageQuery = graphql `
+// query AbQuery {
+//   allContentfulSingleEvents {
+//     edges {
+//       node {
+//         id
+//         dateCode
+//         eventName
+//         dateAndTime
+//       }
+//     }
+//   }
+// }
 
-`
+// `
