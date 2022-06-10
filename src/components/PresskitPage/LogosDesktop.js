@@ -42,7 +42,7 @@ export default function LogosDesktop() {
     return (
         <React.Fragment>
 
-            <h2 css={css`margin-bottom: 60px;`}>Logos</h2>
+            <h2 css={css `margin-bottom: 60px;`}>Logos</h2>
             <Wrapper>
                 <SideWrapper align="start">
                     <p>Logo standard</p>
@@ -58,8 +58,7 @@ export default function LogosDesktop() {
                 </CentralWrapper>
 
                 <SideWrapper align="end">
-                    <DownloadImage url={""} linkText={"Download EPS"} image={false}/>
-                    <DownloadImage url={""} linkText={"Download PNG"} image={false}/>
+                    <DownloadImage url={"https://drive.google.com/uc?export=download&id=1W3DVSa9PKzy7dsvsF6XWffSOGpyT1Wvs"} linkText={"Download"} image={false}/>
                 </SideWrapper>
             </Wrapper>
 
@@ -78,8 +77,7 @@ export default function LogosDesktop() {
                 </CentralWrapper>
 
                 <SideWrapper align="end">
-                    <DownloadImage url={""} linkText={"Download EPS"} image={false}/>
-                    <DownloadImage url={""} linkText={"Download PNG"} image={false}/>
+                    <DownloadImage url={"https://drive.google.com/uc?export=download&id=1wdS8MOxHm0iyAOLmx4183fSM5X9Yhe4g"} linkText={"Download"} image={false}/>
                 </SideWrapper>
             </Wrapper>
 
@@ -98,10 +96,15 @@ export default function LogosDesktop() {
                 </CentralWrapper>
 
                 <SideWrapper align="end">
-                    <DownloadImage url={""} linkText={"Download EPS"} image={false}/>
-                    <DownloadImage url={""} linkText={"Download PNG"} image={false}/>
+                    <DownloadImage url={"https://drive.google.com/uc?export=download&id=14CTw1YeY1iq4-JI8yI8XxtPTYjH9kHtH"} linkText={"Download"} image={false}/>
                 </SideWrapper>
             </Wrapper>
+
+            <div css={css `width: 100%; display: flex; justify-content: center; margin-top: 80px;`}><DownloadImage
+                url="https://drive.google.com/uc?export=download&id=15JTGtvedNUNj9Fhh_nbUwnG_xKGTwsUk"
+                linkText="Download all logos"
+                title="Download all logos"
+                image={false}/></div>
 
         </React.Fragment>
     )

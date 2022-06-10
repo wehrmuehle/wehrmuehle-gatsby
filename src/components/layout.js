@@ -128,7 +128,7 @@ export default function Layout({children}) {
 
             <FooterWrapper>
                 {!breakpoints.md && <FooterDesktop/>}
-                <div
+                {!breakpoints.md && <div
                     css={css `height: 30vh; background: #000; display: flex; justify-content: space-between; width: calc(100% + 328px); margin:0 -164px; padding: 0 164px; padding-top: 4rem;`}>
                     <WehrmuehleLogoSmallWhite css={css `height: 35px;`}/>
                     <div css={css `width: 40%; display: flex;`}>
@@ -150,7 +150,7 @@ export default function Layout({children}) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>}
             </FooterWrapper>
         </LayoutWrapper>
     )

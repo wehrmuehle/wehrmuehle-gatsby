@@ -46,9 +46,18 @@ export default function PresskitPage({data}) {
         url={entry.node.highResolutionImage.url}
         key={entry.node.id}/>))
 
-        const hugeVerticalSpace = !breakpoints.md? "120px" : "70px"
-        const bigVerticalSpace = !breakpoints.md? "100px" : "40px"
-        const smallVerticalSpace = !breakpoints.md? "50px" : "20px"
+    const giganticVerticalSpace = !breakpoints.md
+        ? "250px"
+        : "120px"
+    const hugeVerticalSpace = !breakpoints.md
+        ? "120px"
+        : "70px"
+    const bigVerticalSpace = !breakpoints.md
+        ? "100px"
+        : "40px"
+    const smallVerticalSpace = !breakpoints.md
+        ? "50px"
+        : "20px"
 
     return (
         <React.Fragment>
@@ -56,23 +65,25 @@ export default function PresskitPage({data}) {
             <HeroWrapper>
                 {!breakpoints.md && <h1 css={css `font-size: 150px; margin: 70px 0;`}>Press</h1>}
                 {(breakpoints.sm) && <h1 css={css `font-size: 70px; margin: 40px 0;`}>Press</h1>}
-                <h1 css={css`margin-bottom: 200px;`}>Please find downloads for press material below.</h1>
-                {!breakpoints.md && <a href="#w-press">Press material Wehrmuehle</a>}
+                <h1 css={css `margin-bottom: ${hugeVerticalSpace};`}>Please find downloads for press material below.</h1>
+                <a href="#w-press">
+                    <h4>Press material Wehrmuehle</h4>
+                </a>
             </HeroWrapper>
 
-            <h1 css={css `margin-bottom: ${hugeVerticalSpace};`} id="w-press">Wehrmuehle</h1>
+            <div css={css `margin-bottom: ${hugeVerticalSpace};`} id="w-press"></div>
 
-            {!breakpoints.md && <BundlesDesktop/>}
+            {/* {!breakpoints.md && <BundlesDesktop/>}
 
             {(breakpoints.sm) && <BundlesMobile/>}
 
-            <Hr css={css `margin: ${hugeVerticalSpace} 0 ${hugeVerticalSpace} 0;`}/> {!breakpoints.md && <LogosDesktop/>}
+            <Hr css={css `margin: ${hugeVerticalSpace} 0 ${hugeVerticalSpace} 0;`}/>  */}
+
+            {!breakpoints.md && <LogosDesktop/>}
 
             {(breakpoints.sm) && <LogosMobile/>}
 
-            <Hr css={css `margin: ${hugeVerticalSpace} 0 ${hugeVerticalSpace} 0;`}/>
-
-            {breakpoints.md && <h2 css={css `margin-bottom:${bigVerticalSpace};`}>Presentation</h2>}
+            <Hr css={css `margin: ${hugeVerticalSpace} 0 ${hugeVerticalSpace} 0;`}/> {breakpoints.md && <h2 css={css `margin-bottom:${bigVerticalSpace};`}>Presentation</h2>}
             {!breakpoints.md && <h3 css={css `margin-bottom:${bigVerticalSpace};`}>Presentation</h3>}
 
             <div
@@ -89,7 +100,7 @@ export default function PresskitPage({data}) {
             ? "100%"
             : "70%"}; margin-bottom: 30px; border: 1px solid black;`}/>
                 <DownloadImage
-                    url={"https://drive.google.com/uc?export=download&id=10mW1BX_xHLW-_UajRfWUApuKLvNZkhv9"}
+                    url={"https://drive.google.com/uc?export=download&id=18KTAq9SrjU8IsPnaZzZgqNunXnUZ01Ac"}
                     linkText={"Download PDF"}
                     image={false}/>
             </div>
@@ -99,9 +110,9 @@ export default function PresskitPage({data}) {
 
             {Pictures} */}
 
-            <Hr css={css`margin: ${hugeVerticalSpace} 0;`} />
+            <Hr css={css `margin: ${hugeVerticalSpace} 0;`}/>
 
-            <h1 css={css`margin: ${hugeVerticalSpace} 0;`}>If you have questions feel free to{" "}
+            <h1 css={css `margin: ${giganticVerticalSpace} 0;`}>If you have questions feel free to{" "}
                 <TextLink to="/contacts">contact us</TextLink>{" "}
                 or our brand agency{" "}
                 <OutwardsLink target="_blank" href='https://anewday.studio/'>A New Day Studio</OutwardsLink>

@@ -10,6 +10,7 @@ const Wrapper = styled("div")`
 width: 100%;
 display: flex;
 flex-direction: column;
+
 `
 
 const SideWrapper = styled("div")`
@@ -17,7 +18,7 @@ width: 100%;
 display: flex;
 flex-direction: column;
 justify-content: center;
-align-items: start;
+align-items:${props=>props.align};
 
 
 `
@@ -42,7 +43,7 @@ border:1px solid black;
 `
 
 const LogoTitle = styled("p")`
-margin: 70px 0 40px;
+margin: 100px 0 40px;
 `
 
 export default function LogosMobile() {
@@ -64,9 +65,8 @@ export default function LogosMobile() {
                     </LogoWrapper>
                 </CentralWrapper>
 
-                <SideWrapper align="end">
-                    <DownloadImage url={""} linkText={"Download EPS"} image={false}/>
-                    <DownloadImage url={""} linkText={"Download PNG"} image={false}/>
+                <SideWrapper align="center">
+                    <DownloadImage url={"https://drive.google.com/uc?export=download&id=1W3DVSa9PKzy7dsvsF6XWffSOGpyT1Wvs"} linkText={"Download"} image={false}/>
                 </SideWrapper>
             </Wrapper>
 
@@ -84,9 +84,8 @@ export default function LogosMobile() {
                     </LogoWrapper>
                 </CentralWrapper>
 
-                <SideWrapper align="end">
-                    <DownloadImage url={""} linkText={"Download EPS"} image={false}/>
-                    <DownloadImage url={""} linkText={"Download PNG"} image={false}/>
+                <SideWrapper align="center">
+                    <DownloadImage url={"https://drive.google.com/uc?export=download&id=1wdS8MOxHm0iyAOLmx4183fSM5X9Yhe4g"} linkText={"Download"} image={false}/>
                 </SideWrapper>
             </Wrapper>
 
@@ -104,11 +103,16 @@ export default function LogosMobile() {
                     </LogoWrapper>
                 </CentralWrapper>
 
-                <SideWrapper align="end">
-                    <DownloadImage url={""} linkText={"Download EPS"} image={false}/>
-                    <DownloadImage url={""} linkText={"Download PNG"} image={false}/>
+                <SideWrapper align="center">
+                    <DownloadImage url={"https://drive.google.com/uc?export=download&id=14CTw1YeY1iq4-JI8yI8XxtPTYjH9kHtH"} linkText={"Download"} image={false}/>
                 </SideWrapper>
             </Wrapper>
+
+            <div css={css `width: 100%; display: flex; justify-content: center; margin-top: 80px;`}><DownloadImage
+                url="https://drive.google.com/uc?export=download&id=15JTGtvedNUNj9Fhh_nbUwnG_xKGTwsUk"
+                linkText="Download all logos"
+                title="Download all logos"
+                image={false}/></div>
 
         </React.Fragment>
     )
