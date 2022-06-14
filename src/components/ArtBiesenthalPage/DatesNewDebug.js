@@ -77,8 +77,6 @@ display: flex;
 margin-bottom: 50px;
 `
 
-
-
 const DateComponent = ({date, dateName, alfaWeek}) => {
 
     return (
@@ -88,11 +86,13 @@ const DateComponent = ({date, dateName, alfaWeek}) => {
             <Date>{date}</Date>
 
             <DateNameWrapper>
-                {dateName[0] !== "null" ? dateName.map(e => (
-                    <DateName key={e}>
-                        {e}
-                    </DateName>
-                )) : <div></div>}
+                {dateName[0] !== "null"
+                    ? dateName.map(e => (
+                        <DateName key={e}>
+                            {e}
+                        </DateName>
+                    ))
+                    : <div></div>}
             </DateNameWrapper>
 
         </DateBlock>
@@ -100,8 +100,6 @@ const DateComponent = ({date, dateName, alfaWeek}) => {
 }
 
 export default function DatesNewDebug({data}) {
-
-    
 
     const [datesData,
         setDatesData] = useState(null);
@@ -147,24 +145,36 @@ export default function DatesNewDebug({data}) {
         "December"
     ]
 
-    const isBrowser = () => typeof window !== "undefined"
+    const isBrowser = typeof window !== "undefined"
 
-    console.log(isBrowser)
+
 
     data.map((_) => {
 
-        const dateObject = isBrowser && new window.Date(dateFormatter(_.node.dateAndTime));
-        console.log(dateObject)
-        const month = dateObject.getMonth();
-        const day = dateObject.getDate();
-        const weekDay = dateObject.getDay();
-        const dateToRender = `${day
-            .toString()
-            .padStart(2, '0')}.${ (month + 1)
-            .toString()
-            .padStart(2, '0')}`
+        let dateObject
+
+        let month
+        let day
+        let weekDay
+        let dateToRender
+
+        if (isBrowser) {
+            dateObject = isBrowser && new window.Date(dateFormatter(_.node.dateAndTime));
+
+            month = dateObject.getMonth();
+            day = dateObject.getDate();
+            weekDay = dateObject.getDay();
+            dateToRender = `${day
+                .toString()
+                .padStart(2, '0')}.${ (month + 1)
+                .toString()
+                .padStart(2, '0')}`
+           
+        }
+
+        
         const dateCode = _.node.dateCode
-        const eventName = _.node.eventName 
+        const eventName = _.node.eventName
         const eventObject = _.node
 
         if (month in temp) {
@@ -224,80 +234,33 @@ export default function DatesNewDebug({data}) {
         }
 
     })
-  
 
-    // useEffect(() => {
-    //     setDatesData(temp)
-
-    //     setVisibleMonth(Math.min(...Object.keys(temp)))
-
-    // }, [])
-
-    // console.log(datesData)
-
-    // let mappedDummyDays;
-
-    // useEffect(() => {}, [visibleMonth])
-
-    // let mappedDateCodes;
-    // let mappedMonths;
-
-    // if (datesData) {
-
-    //     const sortedDateCodes = Object
-    //         .keys(datesData[visibleMonth])
-    //         .sort((a, b) => {
-    //             return a.split("-")[0] - b.split("-")[0]
-    //         })
-
-    //     const showDC = visibleDateCode
-    //         ? visibleDateCode
-    //         : sortedDateCodes[0];
-
-    //     mappedDummyDays = Object
-    //         .entries(datesData[visibleMonth][showDC])
-    //         .map((day) => {
-    //             const findEventObject = day[1][Object.keys(day[1])[0]]
-    //             const findDate = findEventObject["dateToRender"]
-    //             const findAlfa = findEventObject["alfaWeekDay"]
-    //             const findName = Object.keys(day[1])
-
-    //             return (
-    //                 <DateComponent
-    //                     dateName={findName}
-    //                     date={findDate}
-    //                     alfaWeek={findAlfa}
-    //                     key={findName + findDate}></DateComponent>
-    //             )
-    //         })
-
-    //     const dateCodesChangeHandler = (e) => {
-    //         setVisibleDateCode(e.target.innerHTML)
-    //     }
-
-    //     mappedDateCodes = sortedDateCodes.map((dc) => {
-    //         return (
-    //             <Period onClick={dateCodesChangeHandler} key={dc}>{dc}</Period>
-    //         )
-    //     })
-
-    //     const monthChangeHandler = (e) => {
-    //         if (visibleMonth !== alfaMonths.indexOf(e.target.innerHTML)) 
-    //             setVisibleMonth(alfaMonths.indexOf(e.target.innerHTML))
-    //         setVisibleDateCode(null)
-    //     }
-
-    //     mappedMonths = Object
-    //         .keys(datesData)
-    //         .map((month) => {
-    //             return (
-
-    //                 <Month onClick={monthChangeHandler} key={month}>{alfaMonths[month]}</Month>
-
-    //             )
-    //         })
-
-    // }
+    // useEffect(() => {     setDatesData(temp)
+    // setVisibleMonth(Math.min(...Object.keys(temp))) }, []) console.log(datesData)
+    // let mappedDummyDays; useEffect(() => {}, [visibleMonth]) let
+    // mappedDateCodes; let mappedMonths; if (datesData) {     const sortedDateCodes
+    // = Object .keys(datesData[visibleMonth])         .sort((a, b) => {
+    // return a.split("-")[0] - b.split("-")[0]         })     const showDC =
+    // visibleDateCode         ? visibleDateCode         : sortedDateCodes[0];
+    // mappedDummyDays = Object         .entries(datesData[visibleMonth][showDC])
+    //   .map((day) => {             const findEventObject =
+    // day[1][Object.keys(day[1])[0]]             const findDate =
+    // findEventObject["dateToRender"]             const findAlfa =
+    // findEventObject["alfaWeekDay"]             const findName =
+    // Object.keys(day[1])             return (                 <DateComponent
+    //         dateName={findName}                     date={findDate}
+    // alfaWeek={findAlfa}                     key={findName +
+    // findDate}></DateComponent>             )         })     const
+    // dateCodesChangeHandler = (e) => { setVisibleDateCode(e.target.innerHTML)
+    // }     mappedDateCodes = sortedDateCodes.map((dc) => {         return (
+    //      <Period onClick={dateCodesChangeHandler} key={dc}>{dc}</Period>
+    // )     }) const monthChangeHandler = (e) => {         if (visibleMonth !==
+    // alfaMonths.indexOf(e.target.innerHTML))
+    // setVisibleMonth(alfaMonths.indexOf(e.target.innerHTML))
+    // setVisibleDateCode(null)     }     mappedMonths = Object .keys(datesData)
+    //     .map((month) => {             return (   <Month
+    // onClick={monthChangeHandler} key={month}>{alfaMonths[month]}</Month>
+    //    )         }) }
 
     return (
         <div></div>
