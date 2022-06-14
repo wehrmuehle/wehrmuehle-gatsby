@@ -38,10 +38,10 @@ width: 35%;
 
 
 
-export default function HomePageDekstop({text, link}) {
+export default function FollowComponentMobile({text, link}) {
 
     return (
-        <Wrapper>
+        <Wrapper id="follow-desktop">
 
             <Hr/>
 

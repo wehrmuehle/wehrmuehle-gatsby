@@ -8,20 +8,13 @@ width: 100%;
 padding-bottom: 60px;
 `
 
-const Hr = styled("div")`
-background: ${props => props.bg
-    ? props.bg
-    : "black"};
-height: 6px;
-width: 100%;
-`
 
-export default function HomePageDekstop({text, link}) {
+
+export default function FollowComponentMobile({text, link}) {
 
     return (
-        <Wrapper>
-
-            <Hr css={css `margin-bottom: 60px;`}/>
+        <Wrapper id="follow-mobile"> 
+     
 
             <h3 css={css `margin-bottom: 50px;`}>Follow us</h3>
 

@@ -12,7 +12,7 @@ flex-direction: column;
 justify-content: center;
 `
 
-const PartnerName = styled("h2")`
+const SponsorName = styled("h2")`
 display: inline-block;
 text-decoration: underline;
 
@@ -26,23 +26,26 @@ width: 65%;
 max-width: 900px;
 `
 
-const Partners = [
+const Sponsors = [
     [
-        "first-partner", "Dittrich & Schlechtriem", "https://dittrich-schlechtriem.com/"
+        "first-sponsor", "Doktor Hauschka"
     ],
     [
-        "second-partner", "SuperBlue", "https://www.superblue.com/"
+        "second-sponsor", "Nespresso"
     ],
     [
-        "third-partner", "Trekantfest", "https://www.trekantfest.dk/"
+        "third-sponsor", "Ostmost"
     ],
     [
-        "fourth-partner", "Acte", "https://actetm.com/"
+        "fourth-sponsor", "Waysa"
     ],
-    ["fifth-partner", "FH Potsdam - University of Applied Sciences", "https://www.fh-potsdam.de/"]
+    [
+        "fifth-sponsor", "Campari"
+    ],
+    ["sixth-sponsor", "Conmoto"]
 ]
 
-export default function PartnersSectionComponent() {
+export default function SponsorsSectionComponent() {
 
     const [firstNameVisible,
         setFirstNameVisible] = useState(false);
@@ -54,48 +57,82 @@ export default function PartnersSectionComponent() {
         setFourthNameVisible] = useState(false);
     const [fifthNameVisible,
         setFifthNameVisible] = useState(false);
+    const [sixthNameVisible,
+        setSixthNameVisible] = useState(false);
+    const [seventhNameVisible,
+        setSeventhNameVisible] = useState(false);
 
-    const handlepartnersVisibility = (e) => {
+    const handlesponsorsVisibility = (e) => {
 
         console.log(e.target)
         switch (e.target.id) {
-            case "first-partner":
+            case "first-sponsor":
                 setFirstNameVisible(true);
                 setSecondNameVisible(false);
                 setThirdNameVisible(false);
                 setFourthNameVisible(false);
                 setFifthNameVisible(false);
+                setSixthNameVisible(false);
+
                 break;
 
-            case "second-partner":
+            case "second-sponsor":
                 setFirstNameVisible(false);
                 setSecondNameVisible(true);
                 setThirdNameVisible(false);
                 setFourthNameVisible(false);
                 setFifthNameVisible(false);
+                setSixthNameVisible(false);
+
                 break;
 
-            case "third-partner":
+            case "third-sponsor":
                 setFirstNameVisible(false);
                 setSecondNameVisible(false);
                 setThirdNameVisible(true);
                 setFourthNameVisible(false);
                 setFifthNameVisible(false);
+                setSixthNameVisible(false);
+
                 break;
-            case "fourth-partner":
+            case "fourth-sponsor":
                 setFirstNameVisible(false);
                 setSecondNameVisible(false);
                 setThirdNameVisible(false);
                 setFourthNameVisible(true);
                 setFifthNameVisible(false);
+                setSixthNameVisible(false);
+
                 break;
 
-            case "fifth-partner":
+            case "fifth-sponsor":
                 setFirstNameVisible(false);
                 setSecondNameVisible(false);
                 setThirdNameVisible(false);
                 setFourthNameVisible(false);
                 setFifthNameVisible(true);
+                setSixthNameVisible(false);
+
+                break;
+
+            case "sixth-sponsor":
+                setFirstNameVisible(false);
+                setSecondNameVisible(false);
+                setThirdNameVisible(false);
+                setFourthNameVisible(false);
+                setFifthNameVisible(false);
+                setSixthNameVisible(true);
+
+                break;
+
+            case "seventh-sponsor":
+                setFirstNameVisible(false);
+                setSecondNameVisible(false);
+                setThirdNameVisible(false);
+                setFourthNameVisible(false);
+                setFifthNameVisible(false);
+                setSixthNameVisible(false);
+
                 break;
 
             default:
@@ -103,77 +140,93 @@ export default function PartnersSectionComponent() {
         }
     }
 
-    const partnersMapped = Partners.map((partner) => {
-        return partner[0] === "fifth-partner"
-            ? <a href={partner[2]} target="_blank" css={css `text-decoration: none; font-size: 3.75rem;`}>
-                    <PartnerName onMouseOver={handlepartnersVisibility} id={partner[0]}>
-                        {`${partner[1]}`}
-                    </PartnerName>
+    const sponsorsMapped = Sponsors.map((sponsor) => {
+        return sponsor[0] === "sixth-sponsor"
+            ? <a
+                    href={sponsor[2]}
+                    target="_blank"
+                    css={css `text-decoration: none; font-size: 3.75rem;`}>
+                    <SponsorName onMouseOver={handlesponsorsVisibility} id={sponsor[0]}>
+                        {`${sponsor[1]}`}
+                    </SponsorName>
                 </a>
-            : <a href={partner[2]} target="_blank" css={css `text-decoration: none; font-size: 3.75rem;`}>
-                <PartnerName onMouseOver={handlepartnersVisibility} id={partner[0]}>
-                    {`${partner[1]}`}
-                </PartnerName>{`${ ','}`}&nbsp;</a>
+            : <a
+                href={sponsor[2]}
+                target="_blank"
+                css={css `text-decoration: none; font-size: 3.75rem;`}>
+                <SponsorName onMouseOver={handlesponsorsVisibility} id={sponsor[0]}>
+                    {`${sponsor[1]}`}
+                </SponsorName>{`${ ','}`}&nbsp;</a>
 
     })
     return (
         <Wrapper>
 
-            <h3 css={css `position: absolute; top: 80px;`}>Partners</h3>
-            <NameBlock>{partnersMapped}</NameBlock>
+            <h3 css={css `position: absolute; top: 80px;`}>Sponsors</h3>
+            <NameBlock>{sponsorsMapped}</NameBlock>
 
             <StaticImage
-                src="../../images/DS.png"
+                src="../../images/DrHauschka.jpg"
                 alt="An Artwork"
                 layout="constrained"
                 placeholder='blurred'
-                width={2168}
-                height={2168}
+                width={1600}
+                height={700}
                 css={css `width: 35%; z-index: -1; position: absolute; right: 0; display: ${firstNameVisible
                 ? "visible"
                 : "none"};`}/>
 
             <StaticImage
-                src="../../images/SuperBlue.jpg"
+                src="../../images/Nespresso.png"
                 alt="An Artwork"
                 layout="constrained"
                 placeholder='blurred'
-                width={1818}
+                width={1080}
                 height={1080}
                 css={css `width: 35%; z-index: -1; position: absolute; right: 0; display: ${secondNameVisible
                 ? "visible"
                 : "none"};`}/>
 
             <StaticImage
-                src="../../images/Trekant.png"
+                src="../../images/Ostmost.png"
                 alt="An Artwork"
                 layout="constrained"
                 placeholder='blurred'
-                width={1024}
-                height={576}
+                width={686}
+                height={650}
                 css={css `width: 35%; z-index: -1; position: absolute; right: 0; display: ${thirdNameVisible
                 ? "visible"
                 : "none"};`}/>
 
             <StaticImage
-                src="../../images/ActeTM.jpg"
+                src="../../images/Waysa.png"
                 alt="An Artwork"
                 layout="constrained"
                 placeholder='blurred'
-                width={1497}
-                height={1058}
+                width={1500}
+                height={1082}
                 css={css `width: 35%; z-index: -1; position: absolute; right: 0; display: ${fourthNameVisible
                 ? "visible"
                 : "none"};`}/>
 
             <StaticImage
-                src="../../images/UAS.png"
+                src="../../images/Campari.png"
                 alt="An Artwork"
                 layout="constrained"
                 placeholder='blurred'
-                width={3200}
-                height={1800}
+                width={3840}
+                height={2160}
                 css={css `width: 35%; z-index: -1; position: absolute; right: 0; display: ${fifthNameVisible
+                ? "visible"
+                : "none"};`}/>
+            <StaticImage
+                src="../../images/Conmoto.png"
+                alt="An Artwork"
+                layout="constrained"
+                placeholder='blurred'
+                width={1747}
+                height={263}
+                css={css `width: 35%; z-index: -1; position: absolute; right: 0; display: ${sixthNameVisible
                 ? "visible"
                 : "none"};`}/>
 

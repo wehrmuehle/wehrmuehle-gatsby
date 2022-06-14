@@ -9,7 +9,8 @@ import IntroLogo from '../../vectors/IntroLogo.svg'
 import IcLocation from '../../vectors/IcLocation.svg'
 import HeroVideo from '../ProgressiveVideo/HeroVideo';
 import PillarsComponentDesktop from './PillarsComponentDesktop';
-import FollowComponentDesktop from '../FollowComponentDesktop'
+import FollowComponentDesktop from '../FollowComponentDesktop';
+import IcTicket from '../../vectors/IcTicket.svg'
 
 const Values = [
     [
@@ -110,14 +111,10 @@ export default function HomePageDekstop() {
     const [videoHeight,
         setVideoHeight] = useState(0);
 
-    // useEffect(() => {
-    //     const spacer = document.getElementById("spacer");
-    //     const thumbnail = document.getElementById("thumbnail");
-    //     const spacerHeight = window.innerWidth * (1300) / (1920);
-    //     spacer.style.height = `${spacerHeight}px`
-    //     thumbnail.style.height = `${spacerHeight}px`
-
-    // }, [])
+    // useEffect(() => {     const spacer = document.getElementById("spacer");
+    // const thumbnail = document.getElementById("thumbnail");     const
+    // spacerHeight = window.innerWidth * (1300) / (1920);     spacer.style.height =
+    // `${spacerHeight}px`     thumbnail.style.height = `${spacerHeight}px` }, [])
 
     return (
         <Wrapper>
@@ -128,8 +125,10 @@ export default function HomePageDekstop() {
                 <a href="#about">About</a>
             </p>
 
-            <div css={css`z-index: 9;`}><HeroVideo/></div>
-            <div id="about" css={css`position: relative; z-index: 10; margin-bottom: 80px;`}>
+            <div css={css `z-index: 9;`}><HeroVideo/></div>
+            <div
+                id="about"
+                css={css `position: relative; z-index: 10; margin-bottom: 80px;`}>
                 <IntroLogo css={css `width: 300px; height: auto;`}/>
             </div>
             <h1 css={css `margin:50px 0 150px 0;`}>Kulturort Wehrmuehle in Brandenburger
@@ -188,7 +187,8 @@ export default function HomePageDekstop() {
                 <h6 >02. Juli – 29. August</h6>
 
                 <h6 css={css `margin: 40px 0 40px 0;`}>{"Get your ticket via "}
-                    <TextLink to="/">Ticket Tailor</TextLink>
+                    <IcTicket css={css `transform: translateY(1px); height: 15px;`}/>
+                    <a href="https://biesenthal.aikencura.de/#tickets" target="_blank" css={css`text-decoration: underline; &:hover {text-decoration: none;}`}>Ticket Tailor</a>
                 </h6>
 
                 <h2 css={css `margin: 200px 0 200px 0;`}>

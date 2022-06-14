@@ -9,6 +9,7 @@ import IcLocation from '../../vectors/IcLocation.svg'
 import HighlightsMobile from './HighlightsMobile';
 import PillarsComponentMobile from './PillarsComponentMobile';
 import FollowComponentMobile from '../FollowComponentMobile'
+import DirectionsMobile from '../DirectionsMobile';
 
 const Values = [
     [
@@ -158,28 +159,7 @@ export default function HomePageMobile() {
                 text="@wehrmuehle"
                 link="https://www.instagram.com/wehrmuehle/"/>
 
-            <DirectionsWrapper>
-
-                <Hr bg="white" css={css `margin-top: 50px; margin-bottom: 70px;`}/>
-
-                <h1 css={css `margin-bottom: 80px;`}>How to get to</h1>
-
-                <p
-                    css={css `text-align: right; align-self: end; font-size: 50px; font-weight: bold; line-height: 1.2; margin-bottom: 50px;`}>Wehrmuehle
-                    <br/>
-                    Biesenthal</p>
-
-                <div
-                    css={css `display: flex; align-items: center; width: 80%; justify-content: space-between; margin: 0 auto 70px auto;`}>
-                    <IcLocation css={css `width: 31px; height: auto; filter: invert(1);`}/>
-                    <p>Wehrmühlenweg 8
-                        <br/>
-                        16359 Biesenthal</p>
-                </div>
-
-                {DirectionsMapped}
-
-            </DirectionsWrapper>
+            <DirectionsMobile />
 
         </Wrapper>
 

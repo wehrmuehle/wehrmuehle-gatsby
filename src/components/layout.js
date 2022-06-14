@@ -19,7 +19,7 @@ position: relative;
 `
 
 const MainMobile = styled("main")`
-padding:7rem 4rem 10rem 4rem;
+padding: 7rem 4rem 0 4rem;
 `
 
 const MainDesktop = styled("main")`
@@ -36,6 +36,11 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 1.5rem 4rem;
+
+
+@media (min-width: 420px) {
+    background-color: transparent;
+      }
 `
 
 const BottomBar = styled("nav")`
@@ -57,6 +62,7 @@ position: fixed;
 right: 60px;
 top: 30vh;
 display: flex;
+align-items: center;
 & > * {
     margin-top: 20px;
     
@@ -66,6 +72,11 @@ display: flex;
 const FooterWrapper = styled("footer")`
 width: 100%;
 padding: 0 164px;
+`
+
+const SideBarItem = styled("div")`
+display: flex;
+align-items: center;
 `
 
 const metaNavItems = [
@@ -97,7 +108,10 @@ export default function Layout({children}) {
 
                 <Link to="/"><BrandMark css={css `width: 40px; height: auto;`}/></Link>
 
-                <a href="https://www.instagram.com/wehrmuehle/" target="_blank" css={css `text-decoration: none;`}><IcInstagram css={css `width: 26px; height: auto;`}/></a>
+                <a
+                    href="https://www.instagram.com/wehrmuehle/"
+                    target="_blank"
+                    css={css `text-decoration: none;`}><IcInstagram css={css `width: 26px; height: auto;`}/></a>
             </HeaderMobile>
 
             {breakpoints.sm && <MainMobile>
@@ -107,22 +121,29 @@ export default function Layout({children}) {
             {!breakpoints.md && <MainDesktop>{children}</MainDesktop>}
 
             {breakpoints.sm && <BottomBar>
-                <Link to="/">
+                <Link to="#directions-mobile">
                     <IcLocation css={css `width: 18px; height: auto; margin-right: 8rem;`}/>
                 </Link>
 
-                <Link to="/">
+                <a href="https://biesenthal.aikencura.de/#tickets" target="_blank">
                     <IcTicket css={css `width: 18px; height: auto;`}/>
-                </Link>
+                </a>
             </BottomBar>}
 
             {!breakpoints.md && <SideBar>
-                <TextLink>
-                    <p>Get Tickets</p>
-                </TextLink>
-                <TextLink to="#location-desktop">
-                    <p>Get there</p>
-                </TextLink>
+                <a href="https://biesenthal.aikencura.de/#tickets" target="_blank">
+                    <SideBarItem>
+                        <IcTicket css={css `transform: rotate(90deg) translateY(1px); height: 15px;`}/>
+                        <p>Get Tickets</p>
+                    </SideBarItem>
+                </a>
+                <Link to="#location-desktop">
+                    <SideBarItem>
+                        <IcLocation
+                            css={css `transform: rotate(90deg) translateY(1px); height: 15px;`}/>
+                        <p>Get there</p>
+                    </SideBarItem>
+                </Link>
 
             </SideBar>}
 
@@ -151,7 +172,27 @@ export default function Layout({children}) {
                         </div>
                     </div>
                 </div>}
+
             </FooterWrapper>
+
+            {breakpoints.md && <div css={css `background-color: black; width: 100%; padding: 0 4rem 15rem;`}>
+                <WehrmuehleLogoSmallWhite css={css `height: 35px; margin: 70px 0 50px;`}/>
+
+                <nav
+                    css={css `width: 60%; display: flex; flex-direction: column; color: white;`}>
+                    {metaNavItemsMapped}
+                </nav>
+
+                <div css={css `display: flex; filter: invert(1); width: 70%; justify-content: space-between; align-items: center; margin-top: 30px;`}>
+                    <a href=""><IcFacebook css={css `width: 16px; height: auto;`}/></a>
+                    <a href="">
+                        <IcInstagram css={css `width: 33px; height: auto;`}/></a>
+                    <a href="">
+                        <IcAnd
+                            css={css `width: 47px; height: auto; filter: invert(1);`}/></a>
+                </div>
+
+            </div>}
         </LayoutWrapper>
     )
 }

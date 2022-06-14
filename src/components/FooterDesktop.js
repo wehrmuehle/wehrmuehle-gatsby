@@ -3,8 +3,6 @@ import styled from "@emotion/styled";
 import {css, jsx} from '@emotion/react'
 import IcLocation from '../vectors/IcLocation.svg'
 
-
-
 const Directions = [
     [
         "Car", "A 45 minutes drive from Alexanderplatz via the L200 or the A11"
@@ -43,8 +41,6 @@ flex-wrap: wrap;
 justify-content: end;
 `
 
-
-
 const FollowBottomContainer = styled("div")`
 display: flex;
 justify-content: space-between;
@@ -74,18 +70,10 @@ display: flex;
 flex-direction: column;
 `
 
-
-
 export default function HomePageDekstop() {
-
-
 
     return (
         <Wrapper>
-
-       
-
-         
 
             <DirectionsWrapper id="location-desktop">
 
@@ -101,6 +89,9 @@ export default function HomePageDekstop() {
                         <p>Wehrmühlenweg 8
                             <br/>
                             16359 Biesenthal</p>
+                        <a href="https://goo.gl/maps/soh2KZbxNeVLYhTS6" target="_blank">
+                            <p css={css`margin-top: 30px;`}>Get directions</p>
+                        </a>
                     </ValueWrapper>
                     <ValueSpacer/> {Directions.map((direction) => (
                         <React.Fragment key={direction[0]}>
