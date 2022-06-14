@@ -143,6 +143,7 @@ export default function SponsorsSectionComponent() {
     const sponsorsMapped = Sponsors.map((sponsor) => {
         return sponsor[0] === "sixth-sponsor"
             ? <a
+                    key={sponsor[1]}
                     href={sponsor[2]}
                     target="_blank"
                     css={css `text-decoration: none; font-size: 3.75rem;`}>
@@ -151,6 +152,7 @@ export default function SponsorsSectionComponent() {
                     </SponsorName>
                 </a>
             : <a
+                key={sponsor[1]}
                 href={sponsor[2]}
                 target="_blank"
                 css={css `text-decoration: none; font-size: 3.75rem;`}>

@@ -9,6 +9,7 @@ import PartnersSectionComponent from './PartnersSectionComponent';
 import GastronomySectionComponent from './GastronomySectionComponent';
 import SponsorsSectionComponent from './SponsorsSectionComponent';
 import FollowComponentDesktop from '../FollowComponentDesktop'
+import DatesNew from './DatesNew'
 
 const Wrapper = styled("div")`
 width: 100%;
@@ -69,7 +70,10 @@ export default function HomePageDekstop({eventData}) {
                         <h6>02. Juli – 29. August</h6>
                         <h6 css={css `margin: 40px 0 40px 0; `}>{"Get your ticket via "}
                             <IcTicket css={css `transform: translateY(1px); height: 15px;`}/>
-                            <a href="https://biesenthal.aikencura.de/#tickets" target="_blank" css={css`text-decoration: underline; &:hover {text-decoration: none;}`}>Ticket Tailor</a>
+                            <a
+                                href="https://biesenthal.aikencura.de/#tickets"
+                                target="_blank"
+                                css={css `text-decoration: underline; &:hover {text-decoration: none;}`}>Ticket Tailor</a>
                         </h6>
                     </div>
                     <div
@@ -116,7 +120,9 @@ export default function HomePageDekstop({eventData}) {
 
             <PartnersSectionComponent/>
 
-            <Hr css={css `margin: 150px 0 50px 0;`}/> {/* <DatesNew data={eventData}/> */}
+            <Hr css={css `margin: 150px 0 50px 0;`}/>
+            <DatesNew data={eventData}/>
+            <Hr css={css `margin: 150px 0 50px 0;`}/>
 
             <GastronomySectionComponent/>
 

@@ -11,6 +11,7 @@ import HeroVideo from '../ProgressiveVideo/HeroVideo';
 import PillarsComponentDesktop from './PillarsComponentDesktop';
 import FollowComponentDesktop from '../FollowComponentDesktop';
 import IcTicket from '../../vectors/IcTicket.svg'
+import HighlightsDesktop from './HighlightsDesktop';
 
 const Values = [
     [
@@ -163,9 +164,12 @@ export default function HomePageDekstop() {
 
             <PillarsComponentDesktop/>
 
+            <Hr />
+            <HighlightsDesktop />
+
             <Hr/>
 
-            <UpcomingContainer>
+            {/* <UpcomingContainer>
 
                 <h3 css={css `margin: 60px 0 100px 0;`}>Upcoming</h3>
 
@@ -195,7 +199,7 @@ export default function HomePageDekstop() {
                     <TextLink to="/artbiesenthal">Art Biesenthal</TextLink>
                     {` is an annual art exhibition and summer program that focuses on bringing international emerging and established artists together to exhibit.`}</h2>
 
-            </UpcomingContainer>
+            </UpcomingContainer> */}
 
             <FollowComponentDesktop
                 text="@wehrmuehle"

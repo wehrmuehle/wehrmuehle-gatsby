@@ -1,28 +1,15 @@
 import React from 'react'
-import styled from "@emotion/styled";
-import {css, jsx} from '@emotion/react';
-import BrandMark from '../vectors/BrandMark.svg'
-
-const Shield = styled("div")`
-position: absolute;
-width: calc(100vw + 328px);
-height: 100vh;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: white;
-z-index: 999999;
-display: flex;
-justify-content: center;
-align-items: center;
-margin-left: -164px;
-`
+import HomePageMobile from '../components/HomePage/HomePageMobile'
+import {useBreakpoint} from 'gatsby-plugin-breakpoints';
+import HomePageDekstop from '../components/HomePage/HomePageDekstop';
 
 export default function IndexPage() {
-  return (
-    <Shield>
-      <BrandMark css={css `width: 200px; height: auto;`}/>
-    </Shield>
-  )
+    const breakpoints = useBreakpoint();
+
+    return (
+      <>
+        {breakpoints.sm &&  <HomePageMobile/>}
+        {!breakpoints.md && <HomePageDekstop/>}
+      </>
+    )
 }

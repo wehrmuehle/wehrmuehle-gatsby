@@ -1,277 +1,304 @@
-// import React, {useState, useEffect} from 'react'
-// import styled from "@emotion/styled";
-// import {css, jsx} from '@emotion/react';
+import React, {useState, useEffect} from 'react'
+import styled from "@emotion/styled";
+import {css, jsx} from '@emotion/react';
 
-// const Hr = styled("div")`
-// background: ${props => props.bg
-//     ? props.bg
-//     : "black"};
-// height: 6px;
-// width: 100%;
-// `
+const Hr = styled("div")`
+background: ${props => props.bg
+    ? props.bg
+    : "black"};
+height: 6px;
+width: 100%;
+`
 
-// const Period = styled("h1")`
-// font-size: 80px;
-// text-decoration: underline;
-// cursor: pointer;
+const Period = styled("h1")`
+font-size: 80px;
+text-decoration: underline;
+cursor: pointer;
 
-// &:hover {
-//     text-decoration: none;
-// }
-// `
+&:hover {
+    text-decoration: none;
+}
+`
 
-// const DateBlock = styled("div")`
-// display: flex;
-// flex-direction: column;
-// width: 30%;
-// `
+const DateBlock = styled("div")`
+display: flex;
+flex-direction: column;
+width: 30%;
+`
 
-// const Date = styled("p")`
-// font-size: 18px;
-// `
+const Date = styled("p")`
+font-size: 18px;
+margin-bottom: 10px;
+`
 
-// const DateNameWrapper = styled("div")`
-// width: 100%;
-// display: flex;
-// flex-direction: column;
-// `
-// const DateName = styled("h6")`
-// font-size: 18px;
-// `
+const DateNameWrapper = styled("div")`
+width: 100%;
+display: flex;
+flex-direction: column;
+`
+const DateName = styled("h6")`
+font-size: 18px;
+margin-bottom: 15px;
+`
 
-// const DatesSection = styled("div")`
-// width: 100%;
-// height: 100vh;
-// display: flex;
-// position: relative;
-// `
+const DatesSection = styled("div")`
+width: 100%;
+display: flex;
+position: relative;
+`
 
-// const DatesWrapper = styled("div")`
-// width: 70%;
-// height: 100%;
-// display: flex;
-// justify-content: space-evenly;
-// position: absolute;
-// right: 0;
-// display: ${props => props.display};
-// `
-// const PeriodWrapper = styled("div")`
-// width: 30%;
-// height: 100%;
-// display: flex;
-// flex-direction: column;
-// `
+const DatesWrapper = styled("div")`
+width: 70%;
+height: 100%;
+display: flex;
+justify-content: space-evenly;
+position: absolute;
+right: 0;
+display: ${props => props.display};
+`
+const PeriodWrapper = styled("div")`
+width: 30%;
+height: 100%;
+display: flex;
+flex-direction: column;
+`
 
-// const DateComponent = ({date, dateName, data}) => {
+const Month = styled("h3")`
+margin-right: 30px;
+text-decoration: underline;
+cursor: pointer;
 
-//     return (
-//         <DateBlock>
-//             <Hr/>
-//             <Date>{date}</Date>
+&:hover {
+    text-decoration: none;
+}
+`
+const MonthWrapper = styled("div")`
+display: flex;
+margin-bottom: 50px;
+`
 
-//             <DateNameWrapper>
-//                 {dateName.map(e => (
-//                     <DateName key={e}>
-//                         {e}
-//                     </DateName>
-//                 ))}
-//             </DateNameWrapper>
+const DateComponent = ({date, dateName, alfaWeek}) => {
 
-//         </DateBlock>
-//     )
-// }
+    return (
+        <DateBlock>
+            <h2 >{alfaWeek}</h2>
+            <Hr css={css `margin: 10px 0 20px;`}/>
+            <Date>{date}</Date>
 
-// export default function DatesNew({data}) {
+            <DateNameWrapper>
+                {dateName && dateName.map(e => (
+                    <DateName key={e}>
+                        {e}
+                    </DateName>
+                ))}
+            </DateNameWrapper>
 
-//     const [datesData,
-//         setDatesData] = useState("");
+        </DateBlock>
+    )
+}
 
-//     const dateFormatter = (date) => {
+export default function DatesNew({data}) {
 
-//         const dataArray = date.split("-");
-//         const year = dataArray[0];
-//         const numberMonth = dataArray[1];
-//         const numberDay = dataArray[2];
+    const [datesData,
+        setDatesData] = useState(null);
+    const [visibleMonth,
+        setVisibleMonth] = useState(null);
+    const [visibleDateCode,
+        setVisibleDateCode] = useState(null);
 
-//         return [year, numberMonth, numberDay]
-//     }
+    const dateFormatter = (date) => {
 
-//     const temp = {}
+        const dataArray = date.split("-");
+        const year = dataArray[0];
+        const numberMonth = dataArray[1];
+        const numberDay = dataArray[2];
 
-//     const alfaWeekDay = [
-//         "Mon",
-//         "Tue",
-//         "Wed",
-//         "Thu",
-//         "Fr",
-//         "Sat",
-//         "Sun"
-//     ];
+        return [year, numberMonth, numberDay]
+    }
 
-//     const alfaMonths = [
-//         "January",
-//         "February",
-//         "March",
-//         "April",
-//         "May",
-//         "June",
-//         "July",
-//         "August",
-//         "September",
-//         "October",
-//         "November",
-//         "December"
-//     ]
+    const temp = {}
 
-//     data.map((_) => {
+    const alfaWeekDay = [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fr",
+        "Sat"
+    ];
 
-//         const dateObject = window
-//             ? new window.Date(dateFormatter(_.node.dateAndTime))
-//             : null;
+    const alfaMonths = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ]
 
-//         const month = dateObject.getMonth();
-//         const day = dateObject.getDate();
-//         const weekDay = dateObject.getDay();
-//         const dateCode = _.node.dateCode
-//         const eventName = _.node.eventName
-//         const eventObject = _.node
+    data.map((_) => {
 
-//         if (month in temp) {
+        const dateObject = window
+            ? new window.Date(dateFormatter(_.node.dateAndTime))
+            : null;
 
-//             if (dateCode in temp[month] && temp[month]) {
+        const month = dateObject.getMonth();
+        const day = dateObject.getDate();
+        const weekDay = dateObject.getDay();
+        const dateToRender = `${day
+            .toString()
+            .padStart(2, '0')}.${ (month + 1)
+            .toString()
+            .padStart(2, '0')}`
+        const dateCode = _.node.dateCode
+        const eventName = _.node.eventName
+        const eventObject = _.node
 
-//                 if (day in temp[month][dateCode] && temp[month][dateCode]) {
+        if (month in temp) {
 
-//                     temp[month][dateCode][day] = {
-//                         ...temp[month][dateCode][day],
-//                         [eventName]: {
-//                             ...eventObject,
-//                             alfaWeekDay: alfaWeekDay[weekDay],
-//                             numberDay: day,
-//                             alfaMonth: alfaMonths[month]
-//                         }
-//                     }
-//                 } else {
-//                     temp[month][dateCode][day] = {
-//                         [eventName]: {
-//                             ...eventObject,
-//                             alfaWeekDay: alfaWeekDay[weekDay],
-//                             numberDay: day,
-//                             alfaMonth: alfaMonths[month]
-//                         }
-//                     }
-//                 }
-//             } else {
-//                 temp[month][dateCode] = {
-//                     [day]: {
-//                         [eventName]: {
-//                             ...eventObject,
-//                             alfaWeekDay: alfaWeekDay[weekDay],
-//                             numberDay: day,
-//                             alfaMonth: alfaMonths[month]
-//                         }
-//                     }
-//                 }
-//             }
-//         } else {
-//             temp[month] = {
-//                 [dateCode]: {
-//                     [day]: {
-//                         [eventName]: {
-//                             ...eventObject,
-//                             alfaWeekDay: alfaWeekDay[weekDay],
-//                             numberDay: day,
-//                             alfaMonth: alfaMonths[month]
-//                         }
-//                     }
-//                 }
-//             }
-//         }
+            if (dateCode in temp[month] && temp[month]) {
 
-//     })
+                if (day in temp[month][dateCode] && temp[month][dateCode]) {
 
-//     useEffect(() => {
-//         setDatesData(temp)
-//     }, [])
+                    temp[month][dateCode][day] = {
+                        ...temp[month][dateCode][day],
+                        [eventName]: {
+                            ...eventObject,
+                            alfaWeekDay: alfaWeekDay[weekDay],
+                            numberDay: day,
+                            alfaMonth: alfaMonths[month],
+                            dateToRender: dateToRender
+                        }
+                    }
+                } else {
+                    temp[month][dateCode][day] = {
+                        [eventName]: {
+                            ...eventObject,
+                            alfaWeekDay: alfaWeekDay[weekDay],
+                            numberDay: day,
+                            alfaMonth: alfaMonths[month],
+                            dateToRender: dateToRender
+                        }
+                    }
+                }
+            } else {
+                temp[month][dateCode] = {
+                    [day]: {
+                        [eventName]: {
+                            ...eventObject,
+                            alfaWeekDay: alfaWeekDay[weekDay],
+                            numberDay: day,
+                            alfaMonth: alfaMonths[month],
+                            dateToRender: dateToRender
+                        }
+                    }
+                }
+            }
+        } else {
+            temp[month] = {
+                [dateCode]: {
+                    [day]: {
+                        [eventName]: {
+                            ...eventObject,
+                            alfaWeekDay: alfaWeekDay[weekDay],
+                            numberDay: day,
+                            alfaMonth: alfaMonths[month],
+                            dateToRender: dateToRender
+                        }
+                    }
+                }
+            }
+        }
 
-//     const sortCodesHandler = (events) => {
-//         let sortedDateCodes;
-//         if (events) {
-//             sortedDateCodes = Object
-//                 .keys(events)
-//                 .sort(function (a, b) {
-//                     return parseInt(a.split("-")[0]) - parseInt(b.split("-")[0]);
-//                 })
-//         }
+    })
 
-//         return sortedDateCodes
-//     }
+    console.log(temp)
 
-//     const sorted = sortCodesHandler(datesData[6])
+    useEffect(() => {
+        setDatesData(temp)
 
-//     const [dateCodesVisibility,
-//         setDateCodesVisibility] = useState([]);
+        setVisibleMonth(Math.min(...Object.keys(temp)))
 
-//     // const [visibleDC,     setVisibleDC] = useState([]);
+    }, [])
 
-//     let tempDCState;
-//     let tempEventsState;
+    let mappedDummyDays;
 
-//     useEffect(() => {
+    useEffect(() => {}, [visibleMonth])
 
-//         const dCAreSorted = typeof(sorted) !== 'undefined'
+    let mappedDateCodes;
+    let mappedMonths;
 
-//         if (dCAreSorted) {
-//             tempDCState = sorted.map((dc, index) => index === 0
-//                 ? [dc, false]
-//                 : [dc, false]);
-//             const visibleDC = tempDCState.filter((dc => dc[1]))[0][0];
+    if (datesData) {
 
-//             if (visibleDC) {
-//                 tempEventsState = Object
-//                     .entries(datesData[6])
-//                     .filter(dc => dc[0] === visibleDC)
-//             }
+        const sortedDateCodes = Object
+            .keys(datesData[visibleMonth])
+            .sort((a, b) => {
+                return a.split("-")[0] - b.split("-")[0]
+            })
 
-//             setDateCodesVisibility(tempDCState)
-//         };
+        const showDC = visibleDateCode
+            ? visibleDateCode
+            : sortedDateCodes[0];
 
-//         console.log(dCAreSorted)
+        mappedDummyDays = Object
+            .entries(datesData[visibleMonth][showDC])
+            .map((day) => {
+                const findEventObject = day[1][Object.keys(day[1])[0]]
+                const findDate = findEventObject["dateToRender"]
+                const findAlfa = findEventObject["alfaWeekDay"]
+                const findName = Object.keys(day[1])
 
-//         return () => dCAreSorted = false
-//     }, []);
+                return (
+                    <DateComponent
+                        dateName={findName}
+                        date={findDate}
+                        alfaWeek={findAlfa}
+                        key={findName + findDate}></DateComponent>
+                )
+            })
 
+        const dateCodesChangeHandler = (e) => {
+            setVisibleDateCode(e.target.innerHTML)
+        }
 
-//     const dateCodeClickHandler = (e) => {
-//         const tempState = dateCodesVisibility;
+        mappedDateCodes = sortedDateCodes.map((dc) => {
+            return (
+                <Period onClick={dateCodesChangeHandler} key={dc}>{dc}</Period>
+            )
+        })
 
-//         tempState.map((dc) => {
-//             if (e.target.id === dc[0]) {
-//                 dc[1] = true;
-//             } else {
-//                 dc[1] = false;
-//             }
-//         })
+        const monthChangeHandler = (e) => {
+            if (visibleMonth !== alfaMonths.indexOf(e.target.innerHTML)) 
+                setVisibleMonth(alfaMonths.indexOf(e.target.innerHTML))
+            setVisibleDateCode(null)
+        }
 
-//         setDateCodesVisibility(tempState)
-//     }
+        mappedMonths = Object
+            .keys(datesData)
+            .map((month) => {
+                return (
 
-//     let dateCodesMapped;
-//     let eventsMapped;
+                    <Month onClick={monthChangeHandler} key={month}>{alfaMonths[month]}</Month>
 
-//     if (dateCodesVisibility && dateCodesVisibility.length > 0) {
+                )
+            })
 
-//         dateCodesMapped = dateCodesVisibility.map((dc) => {
-//             return (
-//                 <Period key={dc[0]} id={dc[0]} onClick={dateCodeClickHandler}>{dc[0]}</Period>
-//             )
-//         })
+    }
 
-//     }
-
-//     return (
-//         <DatesSection>
-//             <PeriodWrapper>{dateCodesMapped}</PeriodWrapper>
-//         </DatesSection>
-//     )
-// }
+    return (
+        <React.Fragment>
+            <MonthWrapper>{mappedMonths}</MonthWrapper>
+            <DatesSection>
+                <PeriodWrapper>{mappedDateCodes}</PeriodWrapper>
+                <DatesWrapper>{mappedDummyDays}</DatesWrapper>
+            </DatesSection>
+        </React.Fragment>
+    )
+}

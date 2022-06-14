@@ -38,8 +38,9 @@ export default function App() {
 
     useEffect(() => {
         const swiper = document.getElementsByClassName("mySwiper")
+        
 
-        setTotalSlides(swiper[0].swiper.slidesSizesGrid.length)
+        setTotalSlides(swiper[0].childElementCount)
 
     }, [])
 

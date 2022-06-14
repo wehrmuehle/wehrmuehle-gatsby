@@ -32,19 +32,19 @@ text-decoration: underline;
 }
 `
 
-export default function PresskitPage({data}) {
+export default function PresskitPage() {
 
     const breakpoints = useBreakpoint();
 
-    const edges = data.allContentfulPressPicture.edges
+    // const edges = data.allContentfulPressPicture.edges
 
-    const Pictures = edges.map((entry) => (<PicturesComponent
-        image={entry.node.highResolutionImage.gatsbyImageData}
-        description={entry.node.description}
-        title={entry.node.title}
-        copyright={entry.node.copyright}
-        url={entry.node.highResolutionImage.url}
-        key={entry.node.id}/>))
+    // const Pictures = edges.map((entry) => (<PicturesComponent
+    //     image={entry.node.highResolutionImage.gatsbyImageData}
+    //     description={entry.node.description}
+    //     title={entry.node.title}
+    //     copyright={entry.node.copyright}
+    //     url={entry.node.highResolutionImage.url}
+    //     key={entry.node.id}/>))
 
     const giganticVerticalSpace = !breakpoints.md
         ? "250px"
@@ -121,26 +121,26 @@ export default function PresskitPage({data}) {
     )
 }
 
-export const pageQuery = graphql `
-query MyQuery {
-  allContentfulPressPicture {
-    edges {
-      node {
-        id
-        title
-        description
-        copyright
-        highResolutionImage {
-          gatsbyImageData(width: 1500, placeholder: BLURRED)
-          url
-        }
-        lowResolutionImage {
+// export const pageQuery = graphql `
+// query MyQuery {
+//   allContentfulPressPicture {
+//     edges {
+//       node {
+//         id
+//         title
+//         description
+//         copyright
+//         highResolutionImage {
+//           gatsbyImageData(width: 1500, placeholder: BLURRED)
+//           url
+//         }
+//         lowResolutionImage {
 
-        gatsbyImageData(width: 1500, placeholder: BLURRED)}
-      }
-    }
-  }
-}
+//         gatsbyImageData(width: 1500, placeholder: BLURRED)}
+//       }
+//     }
+//   }
+// }
 
   
-`
+// `
