@@ -145,16 +145,9 @@ export default function DatesNew({data}) {
 
     data.map((_) => {
 
-        const isBrowser = () => typeof window !== "undefined"
-
-        let dateObject; 
-        
-        if (isBrowser) {
-            dateObject = window
+        const dateObject = window
             ? new window.Date(dateFormatter(_.node.dateAndTime))
             : null;
-        }
-
 
         const month = dateObject.getMonth();
         const day = dateObject.getDate();
