@@ -122,7 +122,7 @@ export default function HomePageDekstop({eventData}) {
             <PartnersSectionComponent/>
 
             <Hr css={css `margin: 150px 0 50px 0;`}/>
-            {isBrowser && <DatesNew data={eventData}/>}
+            {/* {isBrowser && <DatesNew data={eventData}/>} */}
             <Hr css={css `margin: 150px 0 50px 0;`}/>
 
             <GastronomySectionComponent/>
