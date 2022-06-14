@@ -10,6 +10,7 @@ import GastronomySectionComponent from './GastronomySectionComponent';
 import SponsorsSectionComponent from './SponsorsSectionComponent';
 import FollowComponentDesktop from '../FollowComponentDesktop'
 import DatesNew from './DatesNew'
+import DatesNewDebug from './DatesNewDebug'
 
 const Wrapper = styled("div")`
 width: 100%;
@@ -122,7 +123,8 @@ export default function HomePageDekstop({eventData}) {
             <PartnersSectionComponent/>
 
             <Hr css={css `margin: 150px 0 50px 0;`}/>
-            {isBrowser && <DatesNew data={eventData}/>}
+            {/* {isBrowser && <DatesNew data={eventData}/>} */}
+            {isBrowser && <DatesNewDebug data={eventData}/>}
             <Hr css={css `margin: 150px 0 50px 0;`}/>
 
             <GastronomySectionComponent/>
