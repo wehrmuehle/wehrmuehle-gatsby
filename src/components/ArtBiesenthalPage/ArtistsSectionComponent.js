@@ -66,7 +66,7 @@ export default function ArtistsSectionComponent() {
 
     const handleArtistsVisibility = (e) => {
 
-        console.log(e.target)
+        
         switch (e.target.id) {
             case "first-artist":
                 setFirstNameVisible(true);

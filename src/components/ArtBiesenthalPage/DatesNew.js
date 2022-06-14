@@ -145,11 +145,11 @@ export default function DatesNew({data}) {
         "December"
     ]
 
-    data.map((_) => {
+    const isBrowser = () => typeof window !== "undefined"
 
-        const dateObject = window
-            ? new window.Date(dateFormatter(_.node.dateAndTime))
-            : null;
+    {isBrowser && data.map((_) => {
+
+        const dateObject = new window.Date(dateFormatter(_.node.dateAndTime));
 
         const month = dateObject.getMonth();
         const day = dateObject.getDate();
@@ -219,9 +219,8 @@ export default function DatesNew({data}) {
             }
         }
 
-    })
-
-    console.log(temp)
+    })}
+  
 
     useEffect(() => {
         setDatesData(temp)

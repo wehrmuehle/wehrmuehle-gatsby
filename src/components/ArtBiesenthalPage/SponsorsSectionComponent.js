@@ -64,7 +64,7 @@ export default function SponsorsSectionComponent() {
 
     const handlesponsorsVisibility = (e) => {
 
-        console.log(e.target)
+        
         switch (e.target.id) {
             case "first-sponsor":
                 setFirstNameVisible(true);

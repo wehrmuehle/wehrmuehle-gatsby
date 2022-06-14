@@ -57,7 +57,7 @@ export default function PartnersSectionComponent() {
 
     const handlepartnersVisibility = (e) => {
 
-        console.log(e.target)
+        
         switch (e.target.id) {
             case "first-partner":
                 setFirstNameVisible(true);
