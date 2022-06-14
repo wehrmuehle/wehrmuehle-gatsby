@@ -162,7 +162,7 @@ export default function DatesNewDebug({data}) {
             .toString()
             .padStart(2, '0')}`
         const dateCode = _.node.dateCode
-        const eventName = _.node.eventName
+        const eventName = _.node.eventName ? _.node.eventName : `empty day ${dateToRender}`
         const eventObject = _.node
 
         if (month in temp) {
