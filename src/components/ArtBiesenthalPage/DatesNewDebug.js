@@ -149,89 +149,91 @@ export default function DatesNewDebug({data}) {
 
     const isBrowser = () => typeof window !== "undefined"
 
-    {isBrowser && data.map((_) => {
+    console.log(isBrowser)
 
-        const dateObject = new window.Date(dateFormatter(_.node.dateAndTime));
+    // {isBrowser && data.map((_) => {
 
-        const month = dateObject.getMonth();
-        const day = dateObject.getDate();
-        const weekDay = dateObject.getDay();
-        const dateToRender = `${day
-            .toString()
-            .padStart(2, '0')}.${ (month + 1)
-            .toString()
-            .padStart(2, '0')}`
-        const dateCode = _.node.dateCode
-        const eventName = _.node.eventName ? _.node.eventName : `empty day ${dateToRender}`
-        const eventObject = _.node
+    //     const dateObject = new window.Date(dateFormatter(_.node.dateAndTime));
 
-        if (month in temp) {
+    //     const month = dateObject.getMonth();
+    //     const day = dateObject.getDate();
+    //     const weekDay = dateObject.getDay();
+    //     const dateToRender = `${day
+    //         .toString()
+    //         .padStart(2, '0')}.${ (month + 1)
+    //         .toString()
+    //         .padStart(2, '0')}`
+    //     const dateCode = _.node.dateCode
+    //     const eventName = _.node.eventName 
+    //     const eventObject = _.node
 
-            if (dateCode in temp[month] && temp[month]) {
+    //     if (month in temp) {
 
-                if (day in temp[month][dateCode] && temp[month][dateCode]) {
+    //         if (dateCode in temp[month] && temp[month]) {
 
-                    temp[month][dateCode][day] = {
-                        ...temp[month][dateCode][day],
-                        [eventName]: {
-                            ...eventObject,
-                            alfaWeekDay: alfaWeekDay[weekDay],
-                            numberDay: day,
-                            alfaMonth: alfaMonths[month],
-                            dateToRender: dateToRender
-                        }
-                    }
-                } else {
-                    temp[month][dateCode][day] = {
-                        [eventName]: {
-                            ...eventObject,
-                            alfaWeekDay: alfaWeekDay[weekDay],
-                            numberDay: day,
-                            alfaMonth: alfaMonths[month],
-                            dateToRender: dateToRender
-                        }
-                    }
-                }
-            } else {
-                temp[month][dateCode] = {
-                    [day]: {
-                        [eventName]: {
-                            ...eventObject,
-                            alfaWeekDay: alfaWeekDay[weekDay],
-                            numberDay: day,
-                            alfaMonth: alfaMonths[month],
-                            dateToRender: dateToRender
-                        }
-                    }
-                }
-            }
-        } else {
-            temp[month] = {
-                [dateCode]: {
-                    [day]: {
-                        [eventName]: {
-                            ...eventObject,
-                            alfaWeekDay: alfaWeekDay[weekDay],
-                            numberDay: day,
-                            alfaMonth: alfaMonths[month],
-                            dateToRender: dateToRender
-                        }
-                    }
-                }
-            }
-        }
+    //             if (day in temp[month][dateCode] && temp[month][dateCode]) {
 
-    })}
+    //                 temp[month][dateCode][day] = {
+    //                     ...temp[month][dateCode][day],
+    //                     [eventName]: {
+    //                         ...eventObject,
+    //                         alfaWeekDay: alfaWeekDay[weekDay],
+    //                         numberDay: day,
+    //                         alfaMonth: alfaMonths[month],
+    //                         dateToRender: dateToRender
+    //                     }
+    //                 }
+    //             } else {
+    //                 temp[month][dateCode][day] = {
+    //                     [eventName]: {
+    //                         ...eventObject,
+    //                         alfaWeekDay: alfaWeekDay[weekDay],
+    //                         numberDay: day,
+    //                         alfaMonth: alfaMonths[month],
+    //                         dateToRender: dateToRender
+    //                     }
+    //                 }
+    //             }
+    //         } else {
+    //             temp[month][dateCode] = {
+    //                 [day]: {
+    //                     [eventName]: {
+    //                         ...eventObject,
+    //                         alfaWeekDay: alfaWeekDay[weekDay],
+    //                         numberDay: day,
+    //                         alfaMonth: alfaMonths[month],
+    //                         dateToRender: dateToRender
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     } else {
+    //         temp[month] = {
+    //             [dateCode]: {
+    //                 [day]: {
+    //                     [eventName]: {
+    //                         ...eventObject,
+    //                         alfaWeekDay: alfaWeekDay[weekDay],
+    //                         numberDay: day,
+    //                         alfaMonth: alfaMonths[month],
+    //                         dateToRender: dateToRender
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    // })}
   
 
-    useEffect(() => {
-        setDatesData(temp)
+    // useEffect(() => {
+    //     setDatesData(temp)
 
-        setVisibleMonth(Math.min(...Object.keys(temp)))
+    //     setVisibleMonth(Math.min(...Object.keys(temp)))
 
-    }, [])
+    // }, [])
 
-    console.log(datesData)
+    // console.log(datesData)
 
     // let mappedDummyDays;
 
