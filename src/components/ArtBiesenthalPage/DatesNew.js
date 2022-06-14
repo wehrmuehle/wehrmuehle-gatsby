@@ -77,6 +77,8 @@ display: flex;
 margin-bottom: 50px;
 `
 
+
+
 const DateComponent = ({date, dateName, alfaWeek}) => {
 
     return (
@@ -86,11 +88,11 @@ const DateComponent = ({date, dateName, alfaWeek}) => {
             <Date>{date}</Date>
 
             <DateNameWrapper>
-                {dateName && dateName.map(e => (
+                {dateName[0] !== "null" ? dateName.map(e => (
                     <DateName key={e}>
                         {e}
                     </DateName>
-                ))}
+                )) : <div></div>}
             </DateNameWrapper>
 
         </DateBlock>

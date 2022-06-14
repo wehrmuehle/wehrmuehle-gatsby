@@ -8,7 +8,7 @@ export default function ArtBiesenthalPage({data}) {
     const breakpoints = useBreakpoint();
     return (
         <React.Fragment>
-            {breakpoints.sm && <ArtBiesenthalMobile/>}
+            {breakpoints.md && <ArtBiesenthalMobile/>}
             {!breakpoints.md && <ArtBiesenthalDesktop eventData={data.allContentfulSingleEvents.edges}/>}
 
         </React.Fragment>
