@@ -112,10 +112,7 @@ export default function HomePageDekstop() {
     const [videoHeight,
         setVideoHeight] = useState(0);
 
-    // useEffect(() => {     const spacer = document.getElementById("spacer");
-    // const thumbnail = document.getElementById("thumbnail");     const
-    // spacerHeight = window.innerWidth * (1300) / (1920);     spacer.style.height =
-    // `${spacerHeight}px`     thumbnail.style.height = `${spacerHeight}px` }, [])
+
 
     return (
         <Wrapper>
