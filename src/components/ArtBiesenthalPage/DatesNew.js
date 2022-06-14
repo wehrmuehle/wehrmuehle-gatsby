@@ -99,6 +99,7 @@ const DateComponent = ({date, dateName, alfaWeek}) => {
     )
 }
 
+
 export default function DatesNew({data}) {
 
     const [datesData,
@@ -145,20 +146,32 @@ export default function DatesNew({data}) {
         "December"
     ]
 
-    const isBrowser = () => typeof window !== "undefined"
+    const isBrowser = typeof window !== "undefined"
 
-    {isBrowser && data.map((_) => {
 
-        const dateObject = new window.Date(dateFormatter(_.node.dateAndTime));
+    data.map((_) => {
 
-        const month = dateObject.getMonth();
-        const day = dateObject.getDate();
-        const weekDay = dateObject.getDay();
-        const dateToRender = `${day
-            .toString()
-            .padStart(2, '0')}.${ (month + 1)
-            .toString()
-            .padStart(2, '0')}`
+        let dateObject
+
+        let month
+        let day
+        let weekDay
+        let dateToRender
+
+        if (isBrowser) {
+            dateObject = isBrowser && new window.Date(dateFormatter(_.node.dateAndTime));
+
+            month = dateObject.getMonth();
+            day = dateObject.getDate();
+            weekDay = dateObject.getDay();
+            dateToRender = `${day
+                .toString()
+                .padStart(2, '0')}.${ (month + 1)
+                .toString()
+                .padStart(2, '0')}`
+           
+        }
+        
         const dateCode = _.node.dateCode
         const eventName = _.node.eventName
         const eventObject = _.node
@@ -219,7 +232,7 @@ export default function DatesNew({data}) {
             }
         }
 
-    })}
+    })
   
 
     useEffect(() => {

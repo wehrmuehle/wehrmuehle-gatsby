@@ -30,7 +30,7 @@ width: 100%;
 `
 
 export default function HomePageDekstop({eventData}) {
-    const isBrowser = () => typeof window !== "undefined"
+    const isBrowser = typeof window !== "undefined"
     return (
         <Wrapper>
 
@@ -123,8 +123,8 @@ export default function HomePageDekstop({eventData}) {
             <PartnersSectionComponent/>
 
             <Hr css={css `margin: 150px 0 50px 0;`}/>
-            {/* {isBrowser && <DatesNew data={eventData}/>} */}
-            {isBrowser && <DatesNewDebug data={eventData}/>}
+            {isBrowser && <DatesNew data={eventData}/>}
+            {/* {isBrowser && <DatesNewDebug data={eventData}/>} */}
             <Hr css={css `margin: 150px 0 50px 0;`}/>
 
             <GastronomySectionComponent/>
