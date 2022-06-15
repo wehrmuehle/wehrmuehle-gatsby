@@ -152,15 +152,13 @@ export default function DatesMobile({data}) {
         let weekDay
         let dateToRender
 
-        
-
-        
-
         if (isBrowser) {
 
-            const [y, m, d] = dateFormatter(_.node.dateAndTime);
-            
-            dateObject = isBrowser && new window.Date(y,m,d);
+            const [y,
+                m,
+                d] = dateFormatter(_.node.dateAndTime);
+
+            dateObject = isBrowser && new window.Date(y, m, d);
 
             month = dateObject.getMonth();
             const stringMonth = typeof(month) === "number"
@@ -249,7 +247,15 @@ export default function DatesMobile({data}) {
             .split("-")
             .map(item => item.slice(0, -1))
             .join("-");
-        setVisibleDateCode(unstyled)
+
+       
+
+        if (unstyled === visibleDateCode) {
+            setVisibleDateCode(null)
+        } else {
+            setVisibleDateCode(unstyled)
+        }
+
     }
 
     let allVisibleMapped;
