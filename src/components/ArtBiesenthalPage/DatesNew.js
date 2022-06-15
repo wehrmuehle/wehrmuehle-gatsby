@@ -159,7 +159,7 @@ export default function DatesNew({data}) {
         if (isBrowser) {
             const [y, m, d] = dateFormatter(_.node.dateAndTime);
             
-            dateObject = isBrowser && new window.Date(y,m,d);
+            dateObject = isBrowser && new window.Date(y,m-1,d);
 
             month = dateObject.getMonth();
             day = dateObject.getDate();

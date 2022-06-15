@@ -158,7 +158,7 @@ export default function DatesMobile({data}) {
                 m,
                 d] = dateFormatter(_.node.dateAndTime);
 
-            dateObject = isBrowser && new window.Date(y, m, d);
+            dateObject = isBrowser && new window.Date(y, m-1, d);
 
             month = dateObject.getMonth();
             const stringMonth = typeof(month) === "number"
