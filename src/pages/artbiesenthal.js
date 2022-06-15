@@ -6,10 +6,11 @@ import ArtBiesenthalMobile from '../components/ArtBiesenthalPage/ArtBiesenthalMo
 
 export default function ArtBiesenthalPage({data}) {
     const breakpoints = useBreakpoint();
+    const dataEdges = data.allContentfulSingleEvents.edges;
     return (
         <React.Fragment>
-            {breakpoints.md && <ArtBiesenthalMobile/>}
-            {!breakpoints.md && <ArtBiesenthalDesktop eventData={data.allContentfulSingleEvents.edges}/>}
+            {breakpoints.md && <ArtBiesenthalMobile eventData={dataEdges}/>}
+            {!breakpoints.md && <ArtBiesenthalDesktop eventData={dataEdges}/>}
 
         </React.Fragment>
     )

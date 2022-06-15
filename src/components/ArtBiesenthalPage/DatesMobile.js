@@ -14,7 +14,6 @@ const Period = styled("h1")`
 font-size: 80px;
 text-decoration: underline;
 cursor: pointer;
-
 &:hover {
     text-decoration: none;
 }
@@ -67,7 +66,6 @@ const Month = styled("h3")`
 margin-right: 30px;
 text-decoration: underline;
 cursor: pointer;
-
 &:hover {
     text-decoration: none;
 }
@@ -99,12 +97,10 @@ const DateComponent = ({date, dateName, alfaWeek}) => {
     )
 }
 
-export default function DatesNewDebug({data}) {
+export default function DatesMobile({data}) {
 
     const [datesData,
         setDatesData] = useState(null);
-    const [visibleMonth,
-        setVisibleMonth] = useState(null);
     const [visibleDateCode,
         setVisibleDateCode] = useState(null);
 
@@ -147,8 +143,6 @@ export default function DatesNewDebug({data}) {
 
     const isBrowser = typeof window !== "undefined"
 
-
-
     data.map((_) => {
 
         let dateObject
@@ -169,10 +163,9 @@ export default function DatesNewDebug({data}) {
                 .padStart(2, '0')}.${ (month + 1)
                 .toString()
                 .padStart(2, '0')}`
-           
+
         }
 
-        
         const dateCode = _.node.dateCode
         const eventName = _.node.eventName
         const eventObject = _.node
@@ -235,34 +228,88 @@ export default function DatesNewDebug({data}) {
 
     })
 
-    // useEffect(() => {     setDatesData(temp)
-    // setVisibleMonth(Math.min(...Object.keys(temp))) }, []) console.log(datesData)
-    // let mappedDummyDays; useEffect(() => {}, [visibleMonth]) let
-    // mappedDateCodes; let mappedMonths; if (datesData) {     const sortedDateCodes
-    // = Object .keys(datesData[visibleMonth])         .sort((a, b) => {
-    // return a.split("-")[0] - b.split("-")[0]         })     const showDC =
-    // visibleDateCode         ? visibleDateCode         : sortedDateCodes[0];
-    // mappedDummyDays = Object         .entries(datesData[visibleMonth][showDC])
-    //   .map((day) => {             const findEventObject =
-    // day[1][Object.keys(day[1])[0]]             const findDate =
-    // findEventObject["dateToRender"]             const findAlfa =
-    // findEventObject["alfaWeekDay"]             const findName =
-    // Object.keys(day[1])             return (                 <DateComponent
-    //         dateName={findName}                     date={findDate}
-    // alfaWeek={findAlfa}                     key={findName +
-    // findDate}></DateComponent>             )         })     const
-    // dateCodesChangeHandler = (e) => { setVisibleDateCode(e.target.innerHTML)
-    // }     mappedDateCodes = sortedDateCodes.map((dc) => {         return (
-    //      <Period onClick={dateCodesChangeHandler} key={dc}>{dc}</Period>
-    // )     }) const monthChangeHandler = (e) => {         if (visibleMonth !==
-    // alfaMonths.indexOf(e.target.innerHTML))
-    // setVisibleMonth(alfaMonths.indexOf(e.target.innerHTML))
-    // setVisibleDateCode(null)     }     mappedMonths = Object .keys(datesData)
-    //     .map((month) => {             return (   <Month
-    // onClick={monthChangeHandler} key={month}>{alfaMonths[month]}</Month>
-    //    )         }) }
+    useEffect(() => {
+        setDatesData(temp)
+
+    }, [])
+
+    const eventsVisibilityHandler = (e) => {
+        const unstyled = e.target.innerHTML.split("-").map(item => item.slice(0, -1)).join("-");
+        setVisibleDateCode(unstyled)
+    }
+
+    let allVisibleMapped;
+
+    if (datesData) {
+        allVisibleMapped = Object
+            .entries(datesData)
+            .map((month) => {
+
+                const dateCodes = Object
+                    .keys(month[1])
+                    .sort((a, b) => a.split("-")[0] - b.split("-")[0])
+                    .map((dc) => {
+                        const eventDays = Object
+                            .keys(month[1][dc])
+                            .map((eventDay) => {
+
+                                let date;
+                                let alfaWeek;
+
+                                const singleEvents = Object
+                                    .keys(month[1][dc][eventDay])
+                                    .map((singleEvent) => {
+                                        date = month[1][dc][eventDay][singleEvent]["dateToRender"];
+                                        alfaWeek = month[1][dc][eventDay][singleEvent]["alfaWeekDay"]
+
+                                        return (
+                                            <div>
+                                                {singleEvent === "null"
+                                                    ? <div></div>
+                                                    : <h3 css={css`margin-top: 20px;`}>{singleEvent}</h3>}
+                                            </div>
+
+                                        )
+                                    })
+
+                                return (
+                                    <div
+                                        css={css `display: ${visibleDateCode === dc
+                                        ? "visible"
+                                        : "none"}; position: ${visibleDateCode === dc
+                                            ? "relative"
+                                            : "absolute"}; margin-bottom: 25px;`}>
+                                            <h2 css={css`font-size: 60px;`}>{alfaWeek}</h2>
+                                            <Hr css={css`margin: 10px 0 20px;`}/>
+                                        <p>{date}</p>
+                                        <div>{singleEvents}</div>
+                                    </div>
+
+                                )
+                            })
+
+                            const renderDC = dc.split("-").map(item => `${item}.`).join("-");
+
+                        return (
+                            <div onClick={eventsVisibilityHandler}>
+                                <h1  css={css`font-size: 80px; letter-spacing: 8px; margin-bottom: 25px;`}>{renderDC}</h1>
+                                {eventDays}
+                            </div>
+                        )
+                    })
+                return (
+                    <div css={css`margin-bottom: 30px;`}>
+                        <p css={css`margin-bottom: 15px;`}>{alfaMonths[month[0]]}</p>
+                        <div css={css`margin-bottom: 10px;`}>{dateCodes}</div>
+                    </div>
+
+                )
+            })
+    }
 
     return (
-        <div></div>
+        <React.Fragment>
+            {allVisibleMapped}
+        </React.Fragment>
     )
 }

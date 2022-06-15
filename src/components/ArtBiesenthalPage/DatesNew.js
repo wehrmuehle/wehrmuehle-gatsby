@@ -14,7 +14,6 @@ const Period = styled("h1")`
 font-size: 80px;
 text-decoration: underline;
 cursor: pointer;
-
 &:hover {
     text-decoration: none;
 }
@@ -67,7 +66,6 @@ const Month = styled("h3")`
 margin-right: 30px;
 text-decoration: underline;
 cursor: pointer;
-
 &:hover {
     text-decoration: none;
 }

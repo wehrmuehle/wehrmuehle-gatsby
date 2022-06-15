@@ -6,6 +6,7 @@ import TextLink from '../UI/TextLink';
 import GastronomySectionComponent from './GastronomySectionComponent';
 import FollowComponentMobile from '../FollowComponentMobile'
 import DirectionsMobile from '../DirectionsMobile';
+import DatesMobile from './DatesMobile';
 
 const Hr = styled("div")`
 background: ${props => props.bg
@@ -15,7 +16,7 @@ height: 6px;
 width: 100%;
 `
 
-export default function ArtBiesenthalMobile() {
+export default function ArtBiesenthalMobile({eventData}) {
     return (
         <div>
 
@@ -106,7 +107,9 @@ export default function ArtBiesenthalMobile() {
             <h3>Dittrich & Schlechtriem, SuperBlue, Trekantfest, Acte, FH Potsdam -
                 University of Applied Sciences</h3>
 
-            <Hr css={css `margin: 80px 0 65px;`}/> {/* Here go daates */}
+            <Hr css={css `margin: 80px 0 65px;`}/>
+            <DatesMobile data={eventData}/>
+            <Hr css={css `margin: 80px 0 65px;`}/>
 
             <GastronomySectionComponent/>
 

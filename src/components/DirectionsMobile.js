@@ -39,7 +39,7 @@ width: 100%;
 `
 
 const DirectionsMapped = Directions.map((direction) => (
-    <DirectionsMappedWrapper>
+    <DirectionsMappedWrapper key={direction[0]}>
         <h1 css={css `margin-bottom: 30px;`}>{direction[0]}</h1>
         <p css={css `margin-bottom: 70px;`}>
             {direction[1]}</p>
