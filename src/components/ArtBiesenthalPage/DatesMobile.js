@@ -152,8 +152,13 @@ export default function DatesMobile({data}) {
         let weekDay
         let dateToRender
 
+        
+
         if (isBrowser) {
-            dateObject = isBrowser && new window.Date(dateFormatter(_.node.dateAndTime));
+
+            const [y, m, d] = dateFormatter(_.node.dateAndTime);
+            
+            dateObject = isBrowser && new window.Date(y,m,d);
 
             month = dateObject.getMonth();
             const stringMonth = typeof(month) === "number"
