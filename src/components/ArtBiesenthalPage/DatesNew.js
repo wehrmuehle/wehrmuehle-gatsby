@@ -157,7 +157,9 @@ export default function DatesNew({data}) {
         let dateToRender
 
         if (isBrowser) {
-            dateObject = isBrowser && new window.Date(dateFormatter(_.node.dateAndTime));
+            const [y, m, d] = dateFormatter(_.node.dateAndTime);
+            
+            dateObject = isBrowser && new window.Date(y,m,d);
 
             month = dateObject.getMonth();
             day = dateObject.getDate();
