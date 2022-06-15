@@ -66,7 +66,7 @@ export default function App() {
                 <SwiperSlide>
                     <EventSpacer>
 
-                        <TextLink to="/">
+                        <TextLink to="/artbiesenthal">
                             <h3 css={css `margin-bottom: 30px;`}>Art Biesenthal 2022</h3>
                         </TextLink>
 

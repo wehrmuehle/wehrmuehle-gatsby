@@ -21,7 +21,7 @@ export default function ArtBiesenthalMobile({eventData}) {
         <div>
 
             <div css={css `position: relative;`}>
-                <h1 css={css `font-size: 60px; margin-top: 100px;`}>Art
+                <h1 css={css `font-size: 60px; margin-top: 100px; margin-bottom: 50px;`}>Art
                     <br/>Biesenthal
                     <br/>2022</h1>
 

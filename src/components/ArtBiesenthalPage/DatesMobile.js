@@ -156,13 +156,15 @@ export default function DatesMobile({data}) {
             dateObject = isBrowser && new window.Date(dateFormatter(_.node.dateAndTime));
 
             month = dateObject.getMonth();
+            const stringMonth = typeof(month) === "number"
+                ? (month + 1).toString()
+                : month + 1;
             day = dateObject.getDate();
+            const stringDay = typeof(day) === "number"
+                ? day.toString()
+                : day;
             weekDay = dateObject.getDay();
-            dateToRender = `${day
-                .toString()
-                .padStart(2, '0')}.${ (month + 1)
-                .toString()
-                .padStart(2, '0')}`
+            dateToRender = `${stringDay.padStart(2, '0')}.${stringMonth.padStart(2, '0')}`
 
         }
 
@@ -234,7 +236,12 @@ export default function DatesMobile({data}) {
     }, [])
 
     const eventsVisibilityHandler = (e) => {
-        const unstyled = e.target.innerHTML.split("-").map(item => item.slice(0, -1)).join("-");
+        const unstyled = e
+            .target
+            .innerHTML
+            .split("-")
+            .map(item => item.slice(0, -1))
+            .join("-");
         setVisibleDateCode(unstyled)
     }
 
@@ -266,7 +273,7 @@ export default function DatesMobile({data}) {
                                             <div>
                                                 {singleEvent === "null"
                                                     ? <div></div>
-                                                    : <h3 css={css`margin-top: 20px;`}>{singleEvent}</h3>}
+                                                    : <h3 css={css `margin-top: 20px;`}>{singleEvent}</h3>}
                                             </div>
 
                                         )
@@ -279,8 +286,8 @@ export default function DatesMobile({data}) {
                                         : "none"}; position: ${visibleDateCode === dc
                                             ? "relative"
                                             : "absolute"}; margin-bottom: 25px;`}>
-                                            <h2 css={css`font-size: 60px;`}>{alfaWeek}</h2>
-                                            <Hr css={css`margin: 10px 0 20px;`}/>
+                                        <h2 css={css `font-size: 60px;`}>{alfaWeek}</h2>
+                                        <Hr css={css `margin: 10px 0 20px;`}/>
                                         <p>{date}</p>
                                         <div>{singleEvents}</div>
                                     </div>
@@ -288,19 +295,22 @@ export default function DatesMobile({data}) {
                                 )
                             })
 
-                            const renderDC = dc.split("-").map(item => `${item}.`).join("-");
+                        const renderDC = dc
+                            .split("-")
+                            .map(item => `${item}.`)
+                            .join("-");
 
                         return (
                             <div onClick={eventsVisibilityHandler}>
-                                <h1  css={css`font-size: 80px; letter-spacing: 8px; margin-bottom: 25px;`}>{renderDC}</h1>
+                                <h1 css={css `font-size: 80px; letter-spacing: 8px; margin-bottom: 25px;`}>{renderDC}</h1>
                                 {eventDays}
                             </div>
                         )
                     })
                 return (
-                    <div css={css`margin-bottom: 30px;`}>
-                        <p css={css`margin-bottom: 15px;`}>{alfaMonths[month[0]]}</p>
-                        <div css={css`margin-bottom: 10px;`}>{dateCodes}</div>
+                    <div css={css `margin-bottom: 30px;`}>
+                        <p css={css `margin-bottom: 15px;`}>{alfaMonths[month[0]]}</p>
+                        <div css={css `margin-bottom: 10px;`}>{dateCodes}</div>
                     </div>
 
                 )

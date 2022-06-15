@@ -54,7 +54,6 @@ text-decoration: ${props => props.td};
 margin-bottom: 30px;
 opacity: ${props => props.opacity};
 
-
 `
 
 const BottomContainer = styled("div")`
@@ -82,21 +81,21 @@ export default function PillarsComponentDesktop() {
 
     const handlePillarVisibility = (e) => {
         switch (e.target.id) {
-            case "first-pillar":
+            case("first-pillar" || "first-p"):
                 setDescriptionVisibility(false);
                 setFirstPillarVisibility(true);
                 setSecondPillarVisibility(false);
                 setThirdPillarVisibility(false);
                 setFourthPillarVisibility(false);
                 break;
-            case "second-pillar":
+            case("second-pillar" || "second-p"):
                 setDescriptionVisibility(false);
                 setFirstPillarVisibility(false);
                 setSecondPillarVisibility(true);
                 setThirdPillarVisibility(false);
                 setFourthPillarVisibility(false);
                 break;
-            case "third-pillar":
+            case("third-pillar" || "third-p"):
                 setDescriptionVisibility(false);
                 setFirstPillarVisibility(false);
                 setSecondPillarVisibility(false);
@@ -104,7 +103,7 @@ export default function PillarsComponentDesktop() {
                 setFourthPillarVisibility(false);
                 break;
 
-            case "fourth-pillar":
+            case("fourth-pillar" || "fourth-p"):
                 setDescriptionVisibility(false);
                 setFirstPillarVisibility(false);
                 setSecondPillarVisibility(false);
@@ -192,34 +191,52 @@ export default function PillarsComponentDesktop() {
         )
     })
 
+    const resetHandler = (e) => {
+        if (e.target.localName !== "h1") {
+            setDescriptionVisibility(true);
+            setFirstPillarVisibility(false);
+            setSecondPillarVisibility(false);
+            setThirdPillarVisibility(false);
+            setFourthPillarVisibility(false);
+        }
+    }
+
     return (
-        <Wrapper>
+        <Wrapper onClick={resetHandler}>
 
             <PillarContainer>
                 <SmallShortPillar
+                    id="first-p"
                     opacity={firstPillarVisibility
                     ? "100%"
                     : (descriptionVisibility
                         ? "100%"
-                        : "30%")}/>
+                        : "30%")}
+                    onMouseOver={handlePillarVisibility}/>
                 <BigShortPillar
+                    id="second-p"
                     opacity={secondPillarVisibility
                     ? "100%"
                     : (descriptionVisibility
                         ? "100%"
-                        : "30%")}/>
+                        : "30%")}
+                    onMouseOver={handlePillarVisibility}/>
                 <BigShortPillar
+                    id="third-p"
                     opacity={thirdPillarVisibility
                     ? "100%"
                     : (descriptionVisibility
                         ? "100%"
-                        : "30%")}/>
+                        : "30%")}
+                    onMouseOver={handlePillarVisibility}/>
                 <LongPillar
+                    id="fourth-p"
                     opacity={fourthPillarVisibility
                     ? "100%"
                     : (descriptionVisibility
                         ? "100%"
-                        : "30%")}/>
+                        : "30%")}
+                    onMouseOver={handlePillarVisibility}/>
             </PillarContainer>
 
             <BottomContainer>
