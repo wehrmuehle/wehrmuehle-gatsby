@@ -122,16 +122,8 @@ export default function HomePageMobile() {
             <p css={css `margin:20px 0 40px 0; font-size: 20px; font-weight: bold;`}>Upcoming</p>
             <h1 css={css `margin-bottom: 40px;`}>Highlights</h1>
 
-            <StaticImage
-                src="../../images/HighlightsPlaceholder.png"
-                alt="A person looking at an artwork"
-                layout="constrained"
-                placeholder='blurred'
-                width={874}
-                height={1010}
-                css={css `width: 100%; margin-bottom: 30px;`}/>
-
-            <HighlightsMobile/> {/* <EventSpacer>
+            <HighlightsMobile/>
+            <Hr css={css `margin:20px 0 60px 0;`}/> {/* <EventSpacer>
 
                 <TextLink to="/">
                     <h6 css={css `margin-bottom: 30px;`}>Art Biesenthal 2022</h6>
@@ -159,7 +151,7 @@ export default function HomePageMobile() {
                 text="@wehrmuehle"
                 link="https://www.instagram.com/wehrmuehle/"/>
 
-            <DirectionsMobile />
+            <DirectionsMobile/>
 
         </Wrapper>
 

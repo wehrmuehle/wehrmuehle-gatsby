@@ -1,6 +1,7 @@
 import React, {useRef, useState, useEffect} from "react";
 import TextLink from "../UI/TextLink";
 import IcArrowRight from "../../vectors/IcArrowRight.svg"
+import {StaticImage} from "gatsby-plugin-image"
 
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
@@ -14,18 +15,15 @@ import styled from "@emotion/styled";
 import {css, jsx} from '@emotion/react'
 
 const EventSpacer = styled("div")`
-height: 60vh;
 & > * {
 margin-bottom: 30px;
 }
 `
 const ArrowsWrapper = styled("div")`
-position: absolute; 
-top: 45vh;
 display: flex;
 justify-content: space-evenly;
 width: 100%;
-margin: 0 auto;
+margin: 50px auto 25px auto;
 `
 
 export default function App() {
@@ -38,9 +36,9 @@ export default function App() {
 
     useEffect(() => {
         const swiper = document.getElementsByClassName("mySwiper")
-        
+        console.log(swiper)
 
-        setTotalSlides(swiper[0].childElementCount)
+        setTotalSlides(2)
 
     }, [])
 
@@ -57,6 +55,7 @@ export default function App() {
 
             <Swiper
                 className="mySwiper"
+                loop={true}
                 onSlideChange={(swiperCore) => {
                 const {realIndex} = swiperCore;
                 const nonDevIndex = realIndex + 1;
@@ -65,6 +64,15 @@ export default function App() {
 
                 <SwiperSlide>
                     <EventSpacer>
+
+                        <StaticImage
+                            src="../../images/ABKeyVisual.jpg"
+                            alt="Art Bisenthal's Key Visuakl"
+                            layout="constrained"
+                            placeholder='blurred'
+                            width={875}
+                            height={789}
+                            css={css ` `}/>
 
                         <TextLink to="/artbiesenthal">
                             <h3 css={css `margin-bottom: 30px;`}>Art Biesenthal 2022</h3>
@@ -87,8 +95,15 @@ export default function App() {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <EventSpacer>
 
+                    <EventSpacer>
+                        <StaticImage
+                            src="../../images/AerialPalettes.jpg"
+                            alt="A person looking at an artwork"
+                            layout="constrained"
+                            placeholder='blurred'
+                            width={875}
+                            height={789}/>
                         <TextLink to="/">
                             <h3 css={css `margin-bottom: 30px;`}>Aerial Palettes</h3>
                         </TextLink>
@@ -106,7 +121,8 @@ export default function App() {
 
                     <h3 css={css `font-weight: bold; margin-bottom: 100px;`}>
                         {/* <TextLink to="/">Art Biesenthal</TextLink> */}
-                        {` Aerial Palettes is an interdisciplinary exhibition at the Wehrmuehle Biesenthal. This event aims to exhibit young and emerging artists together with established artists. Paul Ćinske-Moulden (Berlin Atonal & OHM Berlin) and curators Tom Esam and Camilla Lucii have selected an interesting mix of site-specific work, large-scale installations and private concerts to be displayed in the garden of the Wehrmuehle. `}</h3>
+                        <TextLink to="/aerialpalettes">Aerial Palettes</TextLink>
+                        {` is an interdisciplinary exhibition at the Wehrmuehle Biesenthal. This event aims to exhibit young and emerging artists together with established artists. Paul Ćinske-Moulden (Berlin Atonal & OHM Berlin) and curators Tom Esam and Camilla Lucii have selected an interesting mix of site-specific work, large-scale installations and private concerts to be displayed in the garden of the Wehrmuehle. `}</h3>
                 </SwiperSlide>
 
             </Swiper>
