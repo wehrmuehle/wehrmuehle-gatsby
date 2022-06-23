@@ -73,7 +73,7 @@ export default function HomePageDekstop({eventData}) {
                         <h6 css={css `margin: 40px 0 40px 0; `}>{"Get your ticket via "}
                             <IcTicket css={css `transform: translateY(1px); height: 15px;`}/>
                             <a
-                                href="https://biesenthal.aikencura.de/#tickets"
+                                href="https://www.tickettailor.com/events/artbiesenthal2022"
                                 target="_blank"
                                 css={css `text-decoration: underline; &:hover {text-decoration: none;}`}>Ticket Tailor</a>
                         </h6>

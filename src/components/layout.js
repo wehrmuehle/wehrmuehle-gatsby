@@ -125,13 +125,13 @@ export default function Layout({children}) {
                     <IcLocation css={css `width: 18px; height: auto; margin-right: 8rem;`}/>
                 </Link>
 
-                <a href="https://biesenthal.aikencura.de/#tickets" target="_blank">
+                <a href="https://www.tickettailor.com/events/artbiesenthal2022" target="_blank">
                     <IcTicket css={css `width: 18px; height: auto;`}/>
                 </a>
             </BottomBar>}
 
             {!breakpoints.md && <SideBar>
-                <a href="https://biesenthal.aikencura.de/#tickets" target="_blank">
+                <a href="https://www.tickettailor.com/events/artbiesenthal2022" target="_blank">
                     <SideBarItem>
                         <IcTicket css={css `transform: rotate(90deg) translateY(1px); height: 15px;`}/>
                         <p>Get Tickets</p>
@@ -160,12 +160,12 @@ export default function Layout({children}) {
                         <div
                             css={css `width: 40%; display: flex; flex-direction: column; filter: invert(1);`}>
                             <div css={css `width: 100%; display: flex; justify-content: space-between;`}>
-                                <a href=""><IcFacebook css={css `width: 16px; height: auto;`}/></a>
-                                <a href="">
+                                <a href="https://www.facebook.com/artbiesenthal/"><IcFacebook css={css `width: 16px; height: auto;`}/></a>
+                                <a href="https://www.instagram.com/wehrmuehle/">
                                     <IcInstagram css={css `width: 33px; height: auto;`}/></a>
                             </div>
                             <div css={css `width: 100%; display: flex; justify-content: start;`}>
-                                <a href="">
+                                <a href="https://anewday.studio/">
                                     <IcAnd
                                         css={css `width: 47px; height: auto; filter: invert(1); padding-top: 3rem; margin-left: -13px;`}/></a>
                             </div>
