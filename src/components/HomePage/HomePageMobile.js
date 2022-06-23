@@ -10,6 +10,7 @@ import HighlightsMobile from './HighlightsMobile';
 import PillarsComponentMobile from './PillarsComponentMobile';
 import FollowComponentMobile from '../FollowComponentMobile'
 import DirectionsMobile from '../DirectionsMobile';
+import HeroVideo from '../ProgressiveVideo/HeroVideo';
 
 const Values = [
     [
@@ -78,6 +79,11 @@ margin-bottom: 30px;
 }
 `
 
+const Spacer = styled("div")`
+width: 100%;
+height: 70vh;
+`
+
 const ValuesMapped = Values.map((value) => (
     <ValuesWrapper>
         <h1 css={css `margin-bottom: 60px;`}>{value[0]}</h1>
@@ -98,16 +104,11 @@ export default function HomePageMobile() {
 
         <Wrapper>
 
-            <StaticImage
-                src="../../images/HeroVideoPlaceholder.png"
-                alt="Wehrmuehle Location's"
-                layout="constrained"
-                placeholder='blurred'
-                width={353}
-                height={766}
-                css={css `height: calc(100vh - 14rem);`}/>
+            <Spacer id="spacer"/>
 
-            <h1 css={css `margin:50px 0 94px 0;`}>Kulturort Wehrmuehle in Brandenburger
+            <div css={css `z-index: 9;`}><HeroVideo/></div>
+
+            <h1 css={css `margin:50px 0 94px 0; position: relative; z-index: 10;`}>Kulturort Wehrmuehle in Brandenburger
                 Biesenthal serves as a space for contemporary art and culture, in particular for
                 the annual Art Biesenthal.</h1>
 
@@ -118,9 +119,6 @@ export default function HomePageMobile() {
             <Hr/>
 
             <PillarsComponentMobile/>
-
-            
-            
 
             <HighlightsMobile/>
             <Hr css={css `margin:20px 0 60px 0;`}/> {/* <EventSpacer>
