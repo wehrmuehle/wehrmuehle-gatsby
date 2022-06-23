@@ -63,7 +63,6 @@ export default function SponsorsSectionComponent() {
 
     const handlesponsorsVisibility = (e) => {
 
-        
         switch (e.target.id) {
             case "first-sponsor":
                 setFirstNameVisible(true);
@@ -164,7 +163,9 @@ export default function SponsorsSectionComponent() {
         <Wrapper>
 
             <h3 css={css `margin-bottom: 100px;`}>Sponsors</h3>
-            <NameBlock>{sponsorsMapped}</NameBlock>
+            <NameBlock>{sponsorsMapped}
+                <h2 css={css `display: inline;`}>, and more</h2>
+            </NameBlock>
 
             <StaticImage
                 src="../../images/DrHauschka.jpg"

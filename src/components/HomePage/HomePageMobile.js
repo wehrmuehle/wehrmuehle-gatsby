@@ -108,9 +108,9 @@ export default function HomePageMobile() {
 
             <div css={css `z-index: 9;`}><HeroVideo/></div>
 
-            <h1 css={css `margin:50px 0 94px 0; position: relative; z-index: 10;`}>Kulturort Wehrmuehle in Brandenburger
-                Biesenthal serves as a space for contemporary art and culture, in particular for
-                the annual Art Biesenthal.</h1>
+            <h1 css={css `margin:50px 0 94px 0; position: relative; z-index: 10;`}>Kulturort
+                Wehrmuehle in Biesenthal serves as a space for contemporary art and culture, in
+                particular for the annual Art Biesenthal.</h1>
 
             <h1 css={css `margin-bottom: 70px;`}>Values</h1>
 

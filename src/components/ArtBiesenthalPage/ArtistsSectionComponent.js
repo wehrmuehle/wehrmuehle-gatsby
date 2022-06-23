@@ -133,7 +133,7 @@ export default function ArtistsSectionComponent() {
     const artistsMapped = Artists.map((artist) => {
         return artist[0] === "sixth-artist"
             ? <a href={artist[2]} target="_blank" css={css`text-decoration: none; font-size: 3.75rem;`} key={artist[1]}><ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>
-                    {`${artist[1]}`}
+                    {`${artist[1]} `}
                 </ArtistName></a>
             : <a href={artist[2]} target="_blank" css={css`text-decoration: none; font-size: 3.75rem;`} key={artist[1]}><ArtistName onMouseOver={handleArtistsVisibility} id={artist[0]}>
                 {`${artist[1]}`}
@@ -144,7 +144,7 @@ export default function ArtistsSectionComponent() {
         <Wrapper>
 
             <h3 css={css `margin-bottom: 100px;`}>/w</h3>
-            <NameBlock>{artistsMapped}</NameBlock>
+            <NameBlock>{artistsMapped}<h2 css={css`display: inline;`}>, and more</h2></NameBlock>
 
             <StaticImage
                 src="../../images/jks.jpeg"

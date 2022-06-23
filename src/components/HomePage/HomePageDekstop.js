@@ -51,7 +51,9 @@ background: ${props => props.bg
     : "black"};
 height: 6px;
 width: 100%;
-margin: ${props => props.values? "0" : "250px 0 150px 0"};
+margin: ${props => props.values
+        ? "0"
+        : "250px 0 150px 0"};
 `
 
 const ValueWrapper = styled("div")`
@@ -113,8 +115,6 @@ export default function HomePageDekstop() {
     const [videoHeight,
         setVideoHeight] = useState(0);
 
-
-
     return (
         <Wrapper>
 
@@ -130,9 +130,9 @@ export default function HomePageDekstop() {
                 css={css `position: relative; z-index: 10; margin-bottom: 80px;`}>
                 <IntroLogo css={css `width: 300px; height: auto;`}/>
             </div>
-            <h1 css={css `margin:50px 0 150px 0;`}>Kulturort Wehrmuehle in Brandenburger
-                Biesenthal serves as a space for contemporary art and culture, in particular for
-                the annual Art Biesenthal.</h1>
+            <h1 css={css `margin:50px 0 150px 0;`}>Kulturort Wehrmuehle in Biesenthal serves
+                as a space for contemporary art and culture, in particular for the annual Art
+                Biesenthal.</h1>
 
             <ValuesContainer>
                 <ValueWrapper>
@@ -162,12 +162,8 @@ export default function HomePageDekstop() {
 
             <PillarsComponentDesktop/>
 
-            <Hr />
-            <HighlightsDesktop />
-
-            
-
-            {/* <UpcomingContainer>
+            <Hr/>
+            <HighlightsDesktop/> {/* <UpcomingContainer>
 
                 <h3 css={css `margin: 60px 0 100px 0;`}>Upcoming</h3>
 

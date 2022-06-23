@@ -98,14 +98,14 @@ export default function ArtBiesenthalMobile({eventData}) {
             <h3 css={css `font-size: 20px; margin: 50px 0;`}>/w</h3>
 
             <h3>Jakob Kudsk Steensen, Fragment.in, Simon Heijdens, Julian Charriere,
-                Quayola, Andreas Greiner</h3>
+                Quayola, Andreas Greiner, and more</h3>
 
             <Hr css={css `margin: 80px 0 65px;`}/>
 
             <h3 css={css `font-size: 20px; margin: 50px 0;`}>Partners</h3>
 
             <h3>Dittrich & Schlechtriem, SuperBlue, Trekantfest, Acte, FH Potsdam -
-                University of Applied Sciences</h3>
+                University of Applied Sciences, and more</h3>
 
             <Hr css={css `margin: 80px 0 65px;`}/>
             <DatesMobile data={eventData}/>
@@ -117,7 +117,7 @@ export default function ArtBiesenthalMobile({eventData}) {
 
             <h3 css={css `font-size: 20px; margin: 50px 0;`}>Sponsors</h3>
 
-            <h3 css={css `margin-bottom: 50px;`}>Doktor Hauschka, Nespresso, Ostmost, Waysa, Campari, Conmoto, Hey!</h3>
+            <h3 css={css `margin-bottom: 50px;`}>Doktor Hauschka, Nespresso, Ostmost, Waysa, Campari, Conmoto, and more</h3>
 
             <Hr css={css `margin: 80px 0 65px;`}/>
 

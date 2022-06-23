@@ -33,12 +33,12 @@ export default function GastronomySectionComponent() {
         margin-bottom: 100px;
       }`}>Gastronomy by</h3>
                 <StaticImage
-                    src="../../images/gastronomy.png"
-                    alt="Some fancy food"
+                    src="../../images/Baldon.jpg"
+                    alt="Some yummy food"
                     layout="constrained"
                     placeholder='blurred'
-                    width={795}
-                    height={530}
+                    width={1706}
+                    height={1080}
                     css={css ``}/>
             </ContentBlock>
             <ContentBlock>

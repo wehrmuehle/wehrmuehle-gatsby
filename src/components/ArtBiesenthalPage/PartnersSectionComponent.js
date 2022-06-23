@@ -56,7 +56,6 @@ export default function PartnersSectionComponent() {
 
     const handlepartnersVisibility = (e) => {
 
-        
         switch (e.target.id) {
             case "first-partner":
                 setFirstNameVisible(true);
@@ -127,7 +126,9 @@ export default function PartnersSectionComponent() {
         <Wrapper>
 
             <h3 css={css `margin-bottom: 100px;`}>Partners</h3>
-            <NameBlock>{partnersMapped}</NameBlock>
+            <NameBlock>{partnersMapped}
+                <h2 css={css `display: inline;`}>, and more</h2>
+            </NameBlock>
 
             <StaticImage
                 src="../../images/DS.jpg"
