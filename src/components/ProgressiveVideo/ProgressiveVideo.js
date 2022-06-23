@@ -33,6 +33,7 @@ const ProgressiveVideo = (props) => {
             <AutoPlaySilentVideo
                 onLoadedData={handleVideoLoaded}
                 video={props.video}
+                fallbackVideo={props.fallbackVideo}
                 className="progressive-video" />
         </Box>
     )
