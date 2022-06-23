@@ -10,6 +10,8 @@ import {css, jsx} from '@emotion/react'
 const HeroVideo = () => {
     const breakpoints = useBreakpoint();
 
+    console.log("maybe")
+
     return (
         <div>
             <ResponsiveProgressiveVideo
