@@ -1,7 +1,7 @@
 import React from "react"
 import ProgressiveVideo from "../../components/ProgressiveVideo/ProgressiveVideo"
 import MobileLightVideo from "../../images/MobileLightVideo.webm"
-import DesktopLightVideo from "../../images/DesktopLightVideo.mp4"
+import DesktopLightVideo from "../../images/DesktopLightVideo.webm"
 import DesktopVideoFallback from "../../images/DesktopVideoFallback.mp4"
 import MobileVideoFallback from "../../images/MobileVideoFallback.mp4"
 // import TemporaryFallbackVideo from "../../images/TemporaryFallbackVideo.mp4"
