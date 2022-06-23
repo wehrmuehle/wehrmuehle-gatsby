@@ -1,6 +1,6 @@
 import React from "react"
 import ProgressiveVideo from "../../components/ProgressiveVideo/ProgressiveVideo"
-import TemporaryGradientVideo from "../../images/TemporaryGradientVideo.webm"
+import MobileLightVideo from "../../images/MobileLightVideo.webm"
 import DesktopVideoFallback from "../../images/DesktopVideoFallback.mp4"
 import MobileVideoFallback from "../../images/MobileVideoFallback.mp4"
 // import TemporaryFallbackVideo from "../../images/TemporaryFallbackVideo.mp4"
@@ -17,7 +17,7 @@ const HeroVideo = () => {
     return (
         <div>
             <ResponsiveProgressiveVideo
-                mobileVideo={undefined}
+                mobileVideo={MobileLightVideo}
                 desktopVideo={TemporaryGradientVideo}
                 desktopVideoFallback={DesktopVideoFallback}
                 mobileVideoFallback={MobileVideoFallback}
