@@ -9,9 +9,7 @@ const height = width / 3.744;
 
 const Wrapper = styled("div")`
 padding-top: 100px;
-padding-bottom: 150px;
 width: 100%;
-min-height: 100vh;
 `
 
 const SmallShortPillar = styled("div")`

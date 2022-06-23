@@ -119,8 +119,8 @@ export default function HomePageMobile() {
 
             <PillarsComponentMobile/>
 
-            <p css={css `margin:20px 0 40px 0; font-size: 20px; font-weight: bold;`}>Upcoming</p>
-            <h1 css={css `margin-bottom: 40px;`}>Highlights</h1>
+            
+            
 
             <HighlightsMobile/>
             <Hr css={css `margin:20px 0 60px 0;`}/> {/* <EventSpacer>

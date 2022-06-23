@@ -5,7 +5,6 @@ import {StaticImage} from "gatsby-plugin-image"
 
 const Wrapper = styled("div")`
 width: 100%;
-height: 100vh;
 position: relative;
 display: flex;
 flex-direction: column;
@@ -164,7 +163,7 @@ export default function SponsorsSectionComponent() {
     return (
         <Wrapper>
 
-            <h3 css={css `position: absolute; top: 80px;`}>Sponsors</h3>
+            <h3 css={css `margin-bottom: 100px;`}>Sponsors</h3>
             <NameBlock>{sponsorsMapped}</NameBlock>
 
             <StaticImage

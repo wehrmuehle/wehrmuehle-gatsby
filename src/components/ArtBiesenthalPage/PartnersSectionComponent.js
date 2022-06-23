@@ -5,7 +5,6 @@ import {StaticImage} from "gatsby-plugin-image"
 
 const Wrapper = styled("div")`
 width: 100%;
-height: 100vh;
 position: relative;
 display: flex;
 flex-direction: column;
@@ -127,16 +126,16 @@ export default function PartnersSectionComponent() {
     return (
         <Wrapper>
 
-            <h3 css={css `position: absolute; top: 80px;`}>Partners</h3>
+            <h3 css={css `margin-bottom: 100px;`}>Partners</h3>
             <NameBlock>{partnersMapped}</NameBlock>
 
             <StaticImage
-                src="../../images/DS.png"
+                src="../../images/DS.jpg"
                 alt="An Artwork"
                 layout="constrained"
                 placeholder='blurred'
                 width={2168}
-                height={2168}
+                height={1148}
                 css={css `width: 35%; z-index: -1; position: absolute; right: 0; display: ${firstNameVisible
                 ? "visible"
                 : "none"};`}/>

@@ -114,13 +114,13 @@ export default function Layout({children}) {
                     css={css `text-decoration: none;`}><IcInstagram css={css `width: 26px; height: auto;`}/></a>
             </HeaderMobile>
 
-            {breakpoints.sm && <MainMobile>
+            {breakpoints.md && <MainMobile>
                 {children}
             </MainMobile>}
 
             {!breakpoints.md && <MainDesktop>{children}</MainDesktop>}
 
-            {breakpoints.sm && <BottomBar>
+            {breakpoints.md && <BottomBar>
                 <Link to="#directions-mobile">
                     <IcLocation css={css `width: 18px; height: auto; margin-right: 8rem;`}/>
                 </Link>

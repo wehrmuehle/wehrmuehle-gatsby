@@ -72,7 +72,7 @@ cursor: pointer;
 `
 const MonthWrapper = styled("div")`
 display: flex;
-margin-bottom: 50px;
+margin-bottom: 100px;
 `
 
 

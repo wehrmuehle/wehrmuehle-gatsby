@@ -64,10 +64,12 @@ export default function PresskitPage() {
 
             <HeroWrapper>
                 {!breakpoints.md && <h1 css={css `font-size: 150px; margin: 70px 0;`}>Press</h1>}
-                {(breakpoints.sm) && <h1 css={css `font-size: 70px; margin: 40px 0;`}>Press</h1>}
+                {(breakpoints.md) && <h1 css={css `font-size: 70px; margin: 40px 0;`}>Press</h1>}
                 <h1 css={css `margin-bottom: ${hugeVerticalSpace};`}>Please find downloads for press material below.</h1>
                 <a href="#w-press">
-                    <h4>Press material Wehrmuehle</h4>
+                {!breakpoints.md && <h4>Press material Wehrmuehle</h4>}
+                {breakpoints.md && <h3>Press material Wehrmuehle</h3>}
+                    
                 </a>
             </HeroWrapper>
 
@@ -75,19 +77,19 @@ export default function PresskitPage() {
 
             {/* {!breakpoints.md && <BundlesDesktop/>}
 
-            {(breakpoints.sm) && <BundlesMobile/>}
+            {(breakpoints.md) && <BundlesMobile/>}
 
             <Hr css={css `margin: ${hugeVerticalSpace} 0 ${hugeVerticalSpace} 0;`}/>  */}
 
             {!breakpoints.md && <LogosDesktop/>}
 
-            {(breakpoints.sm) && <LogosMobile/>}
+            {(breakpoints.md) && <LogosMobile/>}
 
             <Hr css={css `margin: ${hugeVerticalSpace} 0 ${hugeVerticalSpace} 0;`}/> {breakpoints.md && <h2 css={css `margin-bottom:${bigVerticalSpace};`}>Presentation</h2>}
             {!breakpoints.md && <h3 css={css `margin-bottom:${bigVerticalSpace};`}>Presentation</h3>}
 
             <div
-                css={css `display: flex; flex-direction: ${breakpoints.sm
+                css={css `display: flex; flex-direction: ${breakpoints.md
                 ? "column"
                 : "row"}; justify-content: space-between; align-items: center;`}><StaticImage
                 src="../images/PresentationCover.jpeg"
@@ -96,7 +98,7 @@ export default function PresskitPage() {
                 placeholder='blurred'
                 width={3840}
                 height={2160}
-                css={css `width: ${breakpoints.sm
+                css={css `width: ${breakpoints.md
             ? "100%"
             : "70%"}; margin-bottom: 30px; border: 1px solid black;`}/>
                 <DownloadImage

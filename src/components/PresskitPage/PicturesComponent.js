@@ -42,7 +42,7 @@ export default function PicturesComponent({image, url, title, description, copyr
                     </CaptionColumn>
                 </React.Fragment>}
 
-                {breakpoints.sm && 
+                {breakpoints.md && 
                     <div css={css `display: flex; flex-direction: column;`}>
                     <p css={css `margin-bottom: 20px;`}>{title}</p>
                     <p>{description}</p>

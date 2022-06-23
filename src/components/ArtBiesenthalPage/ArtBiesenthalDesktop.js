@@ -26,6 +26,7 @@ background: ${props => props.bg
     : "black"};
 height: 6px;
 width: 100%;
+margin: 250px 0 150px 0;
 `
 
 export default function HomePageDekstop({eventData}) {
@@ -113,7 +114,7 @@ export default function HomePageDekstop({eventData}) {
                 </div>
             </div>
 
-            <Hr css={css `margin: 150px 0 50px 0;`}/>
+            <Hr/>
 
             <ArtistsSectionComponent/>
 
@@ -121,13 +122,13 @@ export default function HomePageDekstop({eventData}) {
 
             <PartnersSectionComponent/>
 
-            <Hr css={css `margin: 150px 0 50px 0;`}/>
+            <Hr/>
             {isBrowser && <DatesNew data={eventData}/>}
-            <Hr css={css `margin: 150px 0 50px 0;`}/>
+            <Hr/>
 
             <GastronomySectionComponent/>
 
-            <Hr css={css `margin: 150px 0 50px 0;`}/>
+            <Hr/>
 
             <SponsorsSectionComponent/>
 

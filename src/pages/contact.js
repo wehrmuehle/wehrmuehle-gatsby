@@ -42,11 +42,11 @@ export default function ContactPage() {
 
     const breakpoints = useBreakpoint();
 
-    const followAnchor = `#${breakpoints.sm
+    const followAnchor = `#${breakpoints.md
         ? "follow-mobile"
         : "follow-desktop"}`
 
-    const directionsAnchor = `#${breakpoints.sm
+    const directionsAnchor = `#${breakpoints.md
         ? "directions-mobile"
         : "location-desktop"}`
     return (
@@ -54,7 +54,7 @@ export default function ContactPage() {
 
             <HeroWrapper>
                 <HugeHeader>Contact</HugeHeader>
-                {breakpoints.sm && <h2>Wehrmühlenweg 8<br/>16359 Biesenthal<br/>mail@wehrmuehle.de</h2>}
+                {breakpoints.md && <h2>Wehrmühlenweg 8<br/>16359 Biesenthal<br/>mail@wehrmuehle.de</h2>}
                 {!breakpoints.md && <h1>Wehrmühlenweg 8<br/>16359 Biesenthal<br/>mail@wehrmuehle.de</h1>}
                 <AnchorsBlock>
                     <Link to={followAnchor}>
@@ -66,9 +66,9 @@ export default function ContactPage() {
 
                 </AnchorsBlock>
             </HeroWrapper>
-            {breakpoints.sm && <FollowComponentMobile/>}
+            {breakpoints.md && <FollowComponentMobile/>}
             {!breakpoints.md && <FollowComponentDesktop/>}
-            {breakpoints.sm && <DirectionsMobile/>}
+            {breakpoints.md && <DirectionsMobile/>}
 
         </div>
     )

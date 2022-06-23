@@ -13,6 +13,7 @@ background: ${props => props.bg
     : "black"};
 height: 6px;
 width: 100%;
+margin: 250px 0 150px 0;
 `
 
 
@@ -45,10 +46,10 @@ export default function FollowComponentMobile({text, link}) {
 
             <Hr/>
 
-            <h3 css={css `margin: 100px 0 80px 0;`}>Follow us</h3>
+            <h3 css={css `margin-bottom: 100px;`}>Follow us</h3>
 
             <p
-                css={css `font-size: 130px; font-weight: bold; margin-right: 20px; margin-bottom: 50px;`}>{text}</p>
+                css={css `font-size: 8.12rem; font-weight: bold; margin-right: 20px; margin-bottom: 50px;`}>{text}</p>
             <a href={link} target="_blank" css={css`text-decoration: none;`}>
                 <div css={css `display: flex;`}>
 

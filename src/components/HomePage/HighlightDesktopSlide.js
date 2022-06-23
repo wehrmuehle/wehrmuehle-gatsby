@@ -44,7 +44,7 @@ export default function HighlightDesktopSlide({
 }
             </div>
 
-            <h2 css={css `margin: 200px 0 200px 0;`}>
+            <h2 css={css `margin: 200px 0 0 0;`}>
                 <TextLink to={link}>{descriptionName}</TextLink>
                 {description}</h2>
 

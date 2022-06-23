@@ -18,8 +18,8 @@ const {mobileVideo, desktopVideo, desktopThumbnail, fallbackVideo} = props;
 
     return (
         <Box>
-            {breakpoints.sm && <ProgressiveVideo video={mobileVideo} />}
-            {!breakpoints.sm && <ProgressiveVideo video={desktopVideo} desktopThumbnail={desktopThumbnail} />}
+            {breakpoints.md && <ProgressiveVideo video={mobileVideo} />}
+            {!breakpoints.md && <ProgressiveVideo video={desktopVideo} desktopThumbnail={desktopThumbnail} />}
 
         </Box>
     )

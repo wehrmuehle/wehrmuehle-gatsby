@@ -51,6 +51,7 @@ background: ${props => props.bg
     : "black"};
 height: 6px;
 width: 100%;
+margin: ${props => props.values? "0" : "250px 0 150px 0"};
 `
 
 const ValueWrapper = styled("div")`
@@ -136,7 +137,7 @@ export default function HomePageDekstop() {
             <ValuesContainer>
                 <ValueWrapper>
                     <h3 css={css `margin-bottom: 40px;`}>Values</h3>
-                    <Hr/>
+                    <Hr values="true"/>
                 </ValueWrapper>
                 <ValueSpacer/> {Values.map((value) => (
                     <React.Fragment key={value[0]}>
@@ -164,7 +165,7 @@ export default function HomePageDekstop() {
             <Hr />
             <HighlightsDesktop />
 
-            <Hr/>
+            
 
             {/* <UpcomingContainer>
 

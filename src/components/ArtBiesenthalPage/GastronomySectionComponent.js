@@ -11,17 +11,17 @@ flex-direction: column;
         flex-direction: row;
         justify-content: space-between;
         padding-bottom: 50px;
-        margin-top: 90px;
       }
 `
 
 const ContentBlock = styled("div")`
 display: flex;
 flex-direction: column;
-margin-bottom: 50px;
+margin-bottom: 40px;
 
 @media (min-width: 420px) {
         width: 40%;
+        margin-bottom:0;
       }
 `
 
@@ -29,7 +29,9 @@ export default function GastronomySectionComponent() {
     return (
         <ContentDivider>
             <ContentBlock>
-                <h3 css={css`margin-bottom: 40px;`}>Gastronomy by</h3>
+                <h3 css={css`margin-bottom: 40px; @media (min-width: 420px) {
+        margin-bottom: 100px;
+      }`}>Gastronomy by</h3>
                 <StaticImage
                     src="../../images/gastronomy.png"
                     alt="Some fancy food"
