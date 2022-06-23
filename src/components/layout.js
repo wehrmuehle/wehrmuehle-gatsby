@@ -89,7 +89,6 @@ const metaNavItems = [
     [
         "privacy policy", "/privacy"
     ],
-    ["cookie guideline", "cookies"]
 ]
 
 const metaNavItemsMapped = metaNavItems.map((item) => (

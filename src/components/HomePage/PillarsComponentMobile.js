@@ -6,27 +6,30 @@ import {StaticImage} from "gatsby-plugin-image"
 
 const PillarsContent = {
     ex: [
-        "Exhibitions", "Wehrmuehle presents site-specific installations, performances, and panel discuss" +
-                "ions that spotlight international artists at all stages of their careers.",
-        "first"
+        "Exhibitions", "Wehrmuehle focuses on bringing international emerging and established artists to" +
+                "gether to exhibit, hosting site-specific installations, performances, and panel " +
+                "discussions that spotlight creators in all stages of their careers.",
+        "Housing international art practices"
     ],
     re: [
-        "Residency", "The Wehrmuehle Art residency in June 2022 will feature a cross-section of discip" +
-                "lines, including sculpture, video, sound, painting, photography, and performance" +
-                ". In the lead up to the exhibition, all artists are invited to use Wehrmuehle as" +
-                " their studio to conduct research, workshops, facilitate collaborations, and exp" +
-                "eriment.",
-        "second"
+        "Residency", "The Wehrmuehle Art residency in June 2022 features disciplines like sculpture, v" +
+                "ideo, sound, painting, photography, and performance. In the lead-up to the exhib" +
+                "ition, artists can use Wehrmuehle as their studio for research, workshops, colla" +
+                "borations, and experiments.",
+        "Connecting all art disciplines"
     ],
     co: [
-        "Collaborations", "Wehrmuehle has partnered with brands in a wide range of fields, from fashion to " +
-                "entertainment to culinary events, to help create unparalleled experiences.",
-        "third"
+        "Collaborations", "As a brand partner, Wehrmuehle has contributed to the creation of unparalleled e" +
+                "xperiences across a variety of fields ranging from music, fashion, and entertain" +
+                "ment to unique culinary events, always open to creative collaborations.",
+        "Inviting creative collaborations"
     ],
     na: [
-        "Nature", 'Located in the middle of a UNESCO nature reserve titled "Human and Biosphere," W' +
-                'ehrmuehle is a historical and cultural site dating back to the 14th century.',
-        "fourth"
+        "Nature", "From its construction in the 14th century to its most recent reconstruction in 2" +
+                "002 by the Hecken Family, Wehrmuehle has developed into a Kulturort of outstandi" +
+                "ng natural, historical, and cultural significance, becoming a forum for internat" +
+                "ional art practice.",
+        "Wehrmuehle’s constant evolution "
     ]
 }
 
@@ -68,12 +71,13 @@ export default function PillarsComponentMobile() {
             <SinglePillar
                 title={PillarsContent.ex[0]}
                 text={PillarsContent.ex[1]}
+                smallHeader={PillarsContent.ex[2]}
                 icon={PillarsContent.ex[2]}>
                 <StaticImage
                     src="../../images/exhibitions.jpg"
                     alt="Wehrmuehle Location's"
                     layout="constrained"
-placeholder='blurred'
+                    placeholder='blurred'
                     width={6240}
                     height={4160}/>
             </SinglePillar>
@@ -81,12 +85,13 @@ placeholder='blurred'
             <SinglePillar
                 title={PillarsContent.re[0]}
                 text={PillarsContent.re[1]}
+                smallHeader={PillarsContent.re[2]}
                 icon={PillarsContent.re[2]}>
                 <StaticImage
                     src="../../images/residency.jpg"
                     alt="Wehrmuehle Location's"
                     layout="constrained"
-placeholder='blurred'
+                    placeholder='blurred'
                     width={1440}
                     height={1920}/>
             </SinglePillar>
@@ -94,12 +99,13 @@ placeholder='blurred'
             <SinglePillar
                 title={PillarsContent.co[0]}
                 text={PillarsContent.co[1]}
+                smallHeader={PillarsContent.co[2]}
                 icon={PillarsContent.co[2]}>
                 <StaticImage
                     src="../../images/collaborations.jpg"
                     alt="Wehrmuehle Location's"
                     layout="constrained"
-placeholder='blurred'
+                    placeholder='blurred'
                     width={3324}
                     height={2236}/>
             </SinglePillar>
@@ -107,12 +113,13 @@ placeholder='blurred'
             <SinglePillar
                 title={PillarsContent.na[0]}
                 text={PillarsContent.na[1]}
+                smallHeader={PillarsContent.na[2]}
                 icon={PillarsContent.na[2]}>
                 <StaticImage
                     src="../../images/nature.jpg"
                     alt="Wehrmuehle Location's"
                     layout="constrained"
-placeholder='blurred'
+                    placeholder='blurred'
                     width={3575}
                     height={2433}/>
             </SinglePillar>

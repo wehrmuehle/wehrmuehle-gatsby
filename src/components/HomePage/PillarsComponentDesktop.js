@@ -274,8 +274,12 @@ export default function PillarsComponentDesktop() {
                             css={css `margin-bottom: 50px;`}/>
                     </div>
 
-                    <p>Wehrmuehle presents site-specific installations, performances, and panel
-                        discussions that spotlight international artists at all stages of their careers.</p>
+                    <h4 css={css`margin-bottom: 20px;`}>Housing international art practices</h4>
+
+                    <p>Wehrmuehle focuses on bringing international emerging and established artists
+                        together to exhibit, hosting site-specific installations, performances, and
+                        panel discussions that spotlight creators in all stages of their careers.
+                    </p>
 
                 </ContentContainer>
 
@@ -296,11 +300,11 @@ export default function PillarsComponentDesktop() {
                             css={css `margin-bottom: 50px;`}/>
                     </div>
 
-                    <p>The Wehrmuehle Art residency in June 2022 will feature a cross-section of
-                        disciplines, including sculpture, video, sound, painting, photography, and
-                        performance. In the lead up to the exhibition, all artists are invited to use
-                        Wehrmuehle as their studio to conduct research, workshops, facilitate
-                        collaborations, and experiment.</p>
+                    <h4 css={css`margin-bottom: 20px;`}>Connecting all art disciplines</h4>
+                    <p>The Wehrmuehle Art residency in June 2022 features disciplines like
+                        sculpture, video, sound, painting, photography, and performance. In the lead-up
+                        to the exhibition, artists can use Wehrmuehle as their studio for research,
+                        workshops, collaborations, and experiments.</p>
 
                 </ContentContainer>
 
@@ -320,8 +324,11 @@ export default function PillarsComponentDesktop() {
                             css={css `margin-bottom: 50px;`}/>
                     </div>
 
-                    <p>Wehrmuehle has partnered with brands in a wide range of fields, from fashion
-                        to entertainment to culinary events, to help create unparalleled experiences.</p>
+                    <h4 css={css`margin-bottom: 20px;`}>Inviting creative collaborations</h4>
+                    <p>As a brand partner, Wehrmuehle has contributed to the creation of
+                        unparalleled experiences across a variety of fields ranging from music, fashion,
+                        and entertainment to unique culinary events, always open to creative
+                        collaborations.</p>
 
                 </ContentContainer>
 
@@ -341,9 +348,11 @@ export default function PillarsComponentDesktop() {
                             css={css `margin-bottom: 50px;`}/>
                     </div>
 
-                    <p>Located in the middle of a UNESCO nature reserve titled "Human and
-                        Biosphere," Wehrmuehle is a historical and cultural site dating back to the 14th
-                        century.</p>
+                    <h4 css={css`margin-bottom: 20px;`}>Wehrmuehle’s constant evolution</h4>
+                    <p>From its construction in the 14th century to its most recent reconstruction
+                        in 2002 by the Hecken Family, Wehrmuehle has developed into a Kulturort of
+                        outstanding natural, historical, and cultural significance, becoming a forum for
+                        international art practice.</p>
 
                 </ContentContainer>
             </BottomContainer>
