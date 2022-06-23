@@ -46,7 +46,7 @@ padding: 1.5rem 4rem;
 const BottomBar = styled("nav")`
 position: fixed;
 bottom: 0;
-z-index: 4;
+z-index: 15;
 width: 100%;
 background-color: white;
 display: flex;

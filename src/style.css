@@ -105,7 +105,7 @@ h3 {
     font-family: var(--fontFamily-bold);
     margin-top: var(--spacing-0);
     margin-bottom: var(--spacing-0);
-    
+
 }
 
 /* h2,
@@ -345,7 +345,6 @@ a:hover {
 .gatsby-highlight {
     margin-bottom: var(--spacing-8);
 } */
-
 ::-moz-selection {
     /* Code for Firefox */
     color: white;
@@ -362,64 +361,7 @@ video {
     width: calc(100% + 328px + 8%) !important;
     height: auto !important;
     margin: 0 calc(0px - 4% - 164px);
-  }
-
-/* button {
-    display: inline-block;
-    border: none;
-    width: 20vw;
-    max-width: 352px;
-    height: 60px;
-    border-radius: 54px;
-    margin: 0;
-    text-decoration: none;
-    background: #F5EEE9;
-    color: #6C665A;
-    font-family: var(--font-body);
-    font-size: var(--fontSize-1);
-    font-weight: var(--fontWeight-semibold);
-    line-height: 1;
-    cursor: pointer;
-    text-align: center;
-    text-transform: uppercase;
 }
-button:focus,
-button:hover {
-    background: linear-gradient(rgba(212, 193, 186, 0.2), rgba(212, 193, 186, 0.2));
-}
-
-.internal-link {
-    text-decoration: none;
-}
-
-.form-container form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-container form h1 {
-    position: absolute;
-    display: none;
-}
-
-label {
-    margin-bottom: 1rem;
-} */
-
-/* Media queries */
-/* @media (max-width: 42rem) {
-    blockquote {
-        padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
-        margin-left: var(--spacing-0);
-    }
-    ol,
-    ul {
-        list-style-position: inside;
-    }
-} */
-
 @media screen and (max-width: 480px) {
     html {
         font-size: 7px;
@@ -429,7 +371,17 @@ label {
         font-size: 3.14rem;
     }
 
+    video {
+        /* override other styles to make responsive */
+        width: 100% !important;
+        margin: 50px 0 0 !important;
+    }
 
+}
+@media screen and (min-width: 481px) and (max-width: 959px) {
+    html {
+        font-size: 9px;
+    }
 }
 @media screen and (min-width: 960px) and (max-width: 1600px) {
     html {
