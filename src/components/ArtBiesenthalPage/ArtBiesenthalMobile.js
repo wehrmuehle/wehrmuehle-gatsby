@@ -122,7 +122,7 @@ export default function ArtBiesenthalMobile({eventData}) {
             <Hr css={css `margin: 80px 0 65px;`}/>
 
             <FollowComponentMobile
-                text="@artbisenthal"
+                text="@artbiesenthal"
                 link="https://www.instagram.com/artbiesenthal/"/>
 
             <DirectionsMobile/>

@@ -133,7 +133,7 @@ export default function HomePageDekstop({eventData}) {
             <SponsorsSectionComponent/>
 
             <FollowComponentDesktop
-                text="@artbisenthal"
+                text="@artbiesenthal"
                 link="https://www.instagram.com/artbiesenthal/"/>
 
         </Wrapper>
