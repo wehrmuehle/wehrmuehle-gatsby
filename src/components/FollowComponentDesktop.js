@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "@emotion/styled";
 import {css, jsx} from '@emotion/react'
 import IcInstagram from '../vectors/IcInstagram.svg'
+import Mailchimp from './UI/Mailchimp'
 
 const Wrapper = styled("div")`
 width: 100%;
@@ -62,7 +63,8 @@ export default function FollowComponentMobile({text, link}) {
             <FollowBottomContainer css={css `margin:100px 0 150px 0;`}>
                 <NewsletterContainer>
                     <h3>Newsletter</h3>
-                    <p css={css `margin: 40px 0 30px 0;`}>Sign up with your email address to receive news and updates.</p>
+                    <p css={css `margin: 40px 0 50px 0;`}>Sign up with your email address to receive news and updates.</p>
+                    <Mailchimp />
                 </NewsletterContainer>
                 <ContactContainer>
                     <h3>Contact</h3>

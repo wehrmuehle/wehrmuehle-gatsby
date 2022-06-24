@@ -31,6 +31,12 @@ module.exports = {
                     include: /vectors/ // See below to configure properly
                 }
             }
-        }, 'gatsby-plugin-breakpoints'
+        },
+        'gatsby-plugin-breakpoints', {
+            resolve: 'gatsby-plugin-mailchimp',
+            options: {
+                endpoint: process.env.MAILCHIMP_ENDPOINT
+            }
+        }
     ]
 };
