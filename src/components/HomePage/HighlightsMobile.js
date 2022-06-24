@@ -101,7 +101,7 @@ export default function App() {
                             <h3 css={css `margin-bottom: 30px;`}>Art Biesenthal 2022</h3>
                         </TextLink>
 
-                        <h3>02. Juli – 29. August</h3>
+                        <h3>09. July – 28. August</h3>
 
                         <h3>Get your ticket via
                             <br/>

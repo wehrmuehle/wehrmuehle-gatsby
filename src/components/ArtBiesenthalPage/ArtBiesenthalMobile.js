@@ -69,7 +69,7 @@ export default function ArtBiesenthalMobile({eventData}) {
             <div
                 css={css `margin-top: 50px; display: flex; width: 100%; flex-direction: column; &>*{margin-bottom: 20px;}`}>
                 <h3>Art Biesenthal 2022</h3>
-                <h3>02. Juli – 29. August</h3>
+                <h3>09. July – 28. August</h3>
                 <h3>Get your ticket via{' '}
                     <TextLink>Ticket Tailor</TextLink>
                 </h3>
@@ -122,7 +122,7 @@ export default function ArtBiesenthalMobile({eventData}) {
             <Hr css={css `margin: 80px 0 65px;`}/>
 
             <FollowComponentMobile
-                text="@Art Bisenthal"
+                text="@artbisenthal"
                 link="https://www.instagram.com/artbiesenthal/"/>
 
             <DirectionsMobile/>

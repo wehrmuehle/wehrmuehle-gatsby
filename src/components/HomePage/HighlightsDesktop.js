@@ -63,7 +63,7 @@ export default function HighlightsDesktop() {
                     <HighlightDesktopSlide
                         title="Art Biesenthal 2022"
                         link="/artbiesenthal"
-                        dates="02. Juli – 29. August"
+                        dates="09. July – 28. August"
                         ticketLink="https://www.tickettailor.com/events/artbiesenthal2022"
                         descriptionName="Art Biesenthal"
                         description=" is an annual art exhibition and summer program that focuses on bringing international emerging and established artists together to exhibit.">

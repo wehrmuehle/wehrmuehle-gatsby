@@ -69,7 +69,7 @@ export default function HomePageDekstop({eventData}) {
                     <div
                         css={css `display: flex; width: 100%; flex-direction: column; &>*{margin-bottom: 30px;}`}>
                         <h6>Art Biesenthal 2022</h6>
-                        <h6>02. Juli – 29. August</h6>
+                        <h6>09. July – 28. August</h6>
                         <h6 css={css `margin: 40px 0 40px 0; `}>{"Get your ticket via "}
                             <IcTicket css={css `transform: translateY(1px); height: 15px;`}/>
                             <a
@@ -122,9 +122,9 @@ export default function HomePageDekstop({eventData}) {
 
             <PartnersSectionComponent/>
 
-            <Hr/>
+            <Hr />
             {isBrowser && <DatesNew data={eventData}/>}
-            <Hr/>
+            <Hr />
 
             <GastronomySectionComponent/>
 
@@ -133,7 +133,7 @@ export default function HomePageDekstop({eventData}) {
             <SponsorsSectionComponent/>
 
             <FollowComponentDesktop
-                text="@Art Bisenthal"
+                text="@artbisenthal"
                 link="https://www.instagram.com/artbiesenthal/"/>
 
         </Wrapper>
