@@ -12,7 +12,9 @@ justify-content: center;
 `
 
 const PartnerName = styled("h2")`
-display: inline-block;
+display: ${props => props.d
+    ? props.d
+    : "inline-block"};
 text-decoration: underline;
 
 &:hover {
@@ -108,7 +110,7 @@ export default function PartnersSectionComponent() {
                     href={partner[2]}
                     target="_blank"
                     css={css `text-decoration: none; font-size: 3.75rem;`}>
-                    <PartnerName onMouseOver={handlepartnersVisibility} id={partner[0]}>
+                    <PartnerName d="inline" onMouseOver={handlepartnersVisibility} id={partner[0]}>
                         {`${partner[1]}`}
                     </PartnerName>
                 </a>
@@ -117,7 +119,7 @@ export default function PartnersSectionComponent() {
                 href={partner[2]}
                 target="_blank"
                 css={css `text-decoration: none; font-size: 3.75rem;`}>
-                <PartnerName onMouseOver={handlepartnersVisibility} id={partner[0]}>
+                <PartnerName d="inline-block" onMouseOver={handlepartnersVisibility} id={partner[0]}>
                     {`${partner[1]}`}
                 </PartnerName>{`${ ','}`}&nbsp;</a>
 

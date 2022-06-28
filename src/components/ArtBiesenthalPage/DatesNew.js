@@ -6,13 +6,18 @@ const Hr = styled("div")`
 background: ${props => props.bg
     ? props.bg
     : "black"};
-height: 6px;
+height: ${props => props.h
+        ? props.h
+        : "4px"};
 width: 100%;
 `
 
 const Period = styled("h1")`
 font-size: 80px;
 text-decoration: underline;
+text-decoration-thickness: 5px;
+text-underline-offset: 2px;
+margin-bottom: 30px;
 cursor: pointer;
 &:hover {
     text-decoration: none;
@@ -48,7 +53,6 @@ position: relative;
 
 const DatesWrapper = styled("div")`
 width: 70%;
-height: 100%;
 display: flex;
 justify-content: space-evenly;
 position: absolute;
@@ -57,14 +61,15 @@ display: ${props => props.display};
 `
 const PeriodWrapper = styled("div")`
 width: 30%;
-height: 100%;
 display: flex;
 flex-direction: column;
 `
 
 const Month = styled("h3")`
 margin-right: 30px;
-text-decoration: underline;
+text-decoration: ${props => props.u
+    ? "none"
+    : "underline"};
 cursor: pointer;
 &:hover {
     text-decoration: none;
@@ -75,9 +80,21 @@ display: flex;
 margin-bottom: 100px;
 `
 
-
-
 const DateComponent = ({date, dateName, alfaWeek}) => {
+
+    let slotMap = [];
+
+    let orderSlot = ["All Day", "Noon", "Afternoon", "Evening"]
+
+    let sortedDateName = dateName.sort((a, b) => {
+        if (orderSlot.indexOf(a[1].timeSlot) < orderSlot.indexOf(b[1].timeSlot)) {
+            return -1;
+        }
+        if (orderSlot.indexOf(a[1].timeSlot) > orderSlot.indexOf(b[1].timeSlot)) {
+            return 1;
+        }
+        return 0;
+    });
 
     return (
         <DateBlock>
@@ -86,17 +103,37 @@ const DateComponent = ({date, dateName, alfaWeek}) => {
             <Date>{date}</Date>
 
             <DateNameWrapper>
-                {dateName[0] !== "null" ? dateName.map(e => (
-                    <DateName key={e}>
-                        {e}
-                    </DateName>
-                )) : <div></div>}
+                {sortedDateName[0][0] !== "null"
+                    ? sortedDateName.map(e => (
+
+                        <React.Fragment key={e[0]}>
+                            {slotMap.includes(e[1].timeSlot)
+                                ? <DateName >
+                                        {e[0]}
+                                    </DateName>
+                                : <React.Fragment>
+                                    <div css={css `position: absolute; display: none;`}>
+                                        {slotMap = [
+                                            ...slotMap,
+                                            e[1].timeSlot
+                                        ]}
+                                    </div>
+                                    <Hr h="1px" css={css `margin: 10px 0;`}/>
+                                    <p css={css `margin-bottom: 8px;`}>{e[1].timeSlot}</p>
+
+                                    <DateName >
+                                        {e[0]}
+                                    </DateName>
+                                </React.Fragment>}
+
+                        </React.Fragment>
+                    ))
+                    : <div></div>}
             </DateNameWrapper>
 
         </DateBlock>
     )
 }
-
 
 export default function DatesNew({data}) {
 
@@ -146,7 +183,6 @@ export default function DatesNew({data}) {
 
     const isBrowser = typeof window !== "undefined"
 
-
     data.map((_) => {
 
         let dateObject
@@ -157,9 +193,11 @@ export default function DatesNew({data}) {
         let dateToRender
 
         if (isBrowser) {
-            const [y, m, d] = dateFormatter(_.node.dateAndTime);
-            
-            dateObject = isBrowser && new window.Date(y,m-1,d);
+            const [y,
+                m,
+                d] = dateFormatter(_.node.dateAndTime);
+
+            dateObject = isBrowser && new window.Date(y, m - 1, d);
 
             month = dateObject.getMonth();
             day = dateObject.getDate();
@@ -169,9 +207,9 @@ export default function DatesNew({data}) {
                 .padStart(2, '0')}.${ (month + 1)
                 .toString()
                 .padStart(2, '0')}`
-           
+
         }
-        
+
         const dateCode = _.node.dateCode
         const eventName = _.node.eventName
         const eventObject = _.node
@@ -233,7 +271,6 @@ export default function DatesNew({data}) {
         }
 
     })
-  
 
     useEffect(() => {
         setDatesData(temp)
@@ -267,7 +304,8 @@ export default function DatesNew({data}) {
                 const findEventObject = day[1][Object.keys(day[1])[0]]
                 const findDate = findEventObject["dateToRender"]
                 const findAlfa = findEventObject["alfaWeekDay"]
-                const findName = Object.keys(day[1])
+                const findSlot = findEventObject["timeSlot"]
+                const findName = Object.entries(day[1])
 
                 return (
                     <DateComponent
@@ -279,12 +317,27 @@ export default function DatesNew({data}) {
             })
 
         const dateCodesChangeHandler = (e) => {
-            setVisibleDateCode(e.target.innerHTML)
+            const unstyled = e
+                .target
+                .innerHTML
+                .split("-")
+                .map(item => item.slice(0, -1))
+                .join("-");
+            setVisibleDateCode(unstyled)
+        }
+
+        const formatDateCode = (_) => {
+            const toReturn = _
+                .split("-")
+                .map(item => `${item}.`)
+                .join("-");
+
+            return toReturn
         }
 
         mappedDateCodes = sortedDateCodes.map((dc) => {
             return (
-                <Period onClick={dateCodesChangeHandler} key={dc}>{dc}</Period>
+                <Period onClick={dateCodesChangeHandler} key={dc}>{formatDateCode(dc)}</Period>
             )
         })
 
@@ -297,9 +350,14 @@ export default function DatesNew({data}) {
         mappedMonths = Object
             .keys(datesData)
             .map((month) => {
+
+                console.log(visibleMonth, alfaMonths[month], alfaMonths[month] === visibleMonth)
                 return (
 
-                    <Month onClick={monthChangeHandler} key={month}>{alfaMonths[month]}</Month>
+                    <Month
+                        onClick={monthChangeHandler}
+                        key={month}
+                        u={alfaMonths[month] === alfaMonths[visibleMonth]}>{alfaMonths[month]}</Month>
 
                 )
             })

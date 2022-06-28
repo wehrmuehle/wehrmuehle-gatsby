@@ -7,7 +7,8 @@ import IcInstagram from '../vectors/IcInstagram.svg'
 import IcFacebook from '../vectors/IcFacebook.svg'
 import IcLocation from '../vectors/IcLocation.svg'
 import IcAnd from '../vectors/IcAnd.svg'
-import WehrmuehleLogoSmallWhite from '../vectors/WehrmuehleLogoSmallWhite.svg'
+import AndWavy from '../vectors/AndWavy.svg'
+import IntroLogo from '../vectors/IntroLogo.svg'
 import IcTicket from '../vectors/IcTicket.svg'
 import {useBreakpoint} from 'gatsby-plugin-breakpoints';
 import TextLink from './UI/TextLink';
@@ -86,9 +87,7 @@ const metaNavItems = [
     [
         "imprint", "/imprint"
     ],
-    [
-        "privacy policy", "/privacy"
-    ],
+    ["privacy policy", "/privacy"]
 ]
 
 const metaNavItemsMapped = metaNavItems.map((item) => (
@@ -124,13 +123,19 @@ export default function Layout({children}) {
                     <IcLocation css={css `width: 18px; height: auto; margin-right: 8rem;`}/>
                 </Link>
 
-                <a href="https://www.tickettailor.com/events/artbiesenthal2022" target="_blank">
+                <a
+                    target="_blank"
+                    href="https://www.tickettailor.com/events/artbiesenthal2022"
+                    target="_blank">
                     <IcTicket css={css `width: 18px; height: auto;`}/>
                 </a>
             </BottomBar>}
 
             {!breakpoints.md && <SideBar>
-                <a href="https://www.tickettailor.com/events/artbiesenthal2022" target="_blank">
+                <a
+                    target="_blank"
+                    href="https://www.tickettailor.com/events/artbiesenthal2022"
+                    target="_blank">
                     <SideBarItem>
                         <IcTicket css={css `transform: rotate(90deg) translateY(1px); height: 15px;`}/>
                         <p>Get Tickets</p>
@@ -150,7 +155,17 @@ export default function Layout({children}) {
                 {!breakpoints.md && <FooterDesktop/>}
                 {!breakpoints.md && <div
                     css={css `height: 30vh; background: #000; display: flex; justify-content: space-between; width: calc(100% + 328px); margin:0 -164px; padding: 0 164px; padding-top: 4rem;`}>
-                    <WehrmuehleLogoSmallWhite css={css `height: 35px;`}/>
+                    <div css={css `display: flex; flex-direction: column;`}>
+                        <IntroLogo css={css `height: 12rem; filter: invert(1);`}/>
+
+                        <div css={css `display: flex; align-items: center; padding: 3rem 0;`}>
+                            <p
+                                css={css `opacity: .5; font-size: .8rem; color: white; margin-right: 10px; `}>© 2022 | MADE WITH LOVE BY</p>
+                            <a target="_blank" href="https://anewday.studio/">
+                                <AndWavy css={css `width: 8rem; height: auto;`}/></a>
+                        </div>
+
+                    </div>
                     <div css={css `width: 40%; display: flex;`}>
                         <nav
                             css={css `width: 60%; display: flex; flex-direction: column; color: white;`}>
@@ -159,15 +174,11 @@ export default function Layout({children}) {
                         <div
                             css={css `width: 40%; display: flex; flex-direction: column; filter: invert(1);`}>
                             <div css={css `width: 100%; display: flex; justify-content: space-between;`}>
-                                <a href="https://www.facebook.com/artbiesenthal/"><IcFacebook css={css `width: 16px; height: auto;`}/></a>
-                                <a href="https://www.instagram.com/wehrmuehle/">
+                                <a target="_blank" href="https://www.facebook.com/artbiesenthal/"><IcFacebook css={css `width: 16px; height: auto;`}/></a>
+                                <a target="_blank" href="https://www.instagram.com/wehrmuehle/">
                                     <IcInstagram css={css `width: 33px; height: auto;`}/></a>
                             </div>
-                            <div css={css `width: 100%; display: flex; justify-content: start;`}>
-                                <a href="https://anewday.studio/">
-                                    <IcAnd
-                                        css={css `width: 47px; height: auto; filter: invert(1); padding-top: 3rem; margin-left: -13px;`}/></a>
-                            </div>
+                            <div css={css `width: 100%; display: flex; justify-content: start;`}></div>
                         </div>
                     </div>
                 </div>}
@@ -175,20 +186,22 @@ export default function Layout({children}) {
             </FooterWrapper>
 
             {breakpoints.md && <div css={css `background-color: black; width: 100%; padding: 0 4rem 15rem;`}>
-                <WehrmuehleLogoSmallWhite css={css `height: 35px; margin: 70px 0 50px;`}/>
+                <IntroLogo css={css `height: 2.2rem; margin: 70px 0 50px; filter: invert(1);`}/>
 
                 <nav
                     css={css `width: 60%; display: flex; flex-direction: column; color: white;`}>
                     {metaNavItemsMapped}
                 </nav>
 
-                <div css={css `display: flex; filter: invert(1); width: 70%; justify-content: space-between; align-items: center; margin-top: 30px;`}>
-                    <a href=""><IcFacebook css={css `width: 16px; height: auto;`}/></a>
-                    <a href="">
+                <div
+                    css={css `display: flex; filter: invert(1); width: 70%; justify-content: space-between; align-items: center; margin-top: 30px;`}>
+                    <a
+                        target="_blank"
+                        href="https://www.facebook.com/pages/Wehrm%C3%BChle/481248098607579/"><IcFacebook css={css `width: 16px; height: auto;`}/></a>
+                    <a target="_blank" href="https://www.instagram.com/wehrmuehle/">
                         <IcInstagram css={css `width: 33px; height: auto;`}/></a>
-                    <a href="">
-                        <IcAnd
-                            css={css `width: 47px; height: auto; filter: invert(1);`}/></a>
+                    <a target="_blank" href="https://anewday.studio/">
+                        <IcAnd css={css `width: 38px; height: auto; filter: invert(1);`}/></a>
                 </div>
 
             </div>}
