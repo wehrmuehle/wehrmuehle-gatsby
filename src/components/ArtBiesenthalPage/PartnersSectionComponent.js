@@ -32,7 +32,7 @@ const Partners = [
         "first-partner", "Dittrich & Schlechtriem", "https://dittrich-schlechtriem.com/"
     ],
     [
-        "second-partner", "SuperBlue", "https://www.superblue.com/"
+        "second-partner", "Superblue", "https://www.superblue.com/"
     ],
     [
         "third-partner", "Trekantfest", "https://www.trekantfest.dk/"
