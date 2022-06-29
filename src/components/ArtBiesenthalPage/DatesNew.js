@@ -14,7 +14,8 @@ width: 100%;
 
 const Period = styled("h1")`
 font-size: 80px;
-text-decoration: underline;
+text-decoration: ${props => props.u};
+opacity: ${props => props.o};
 text-decoration-thickness: 5px;
 text-underline-offset: 2px;
 margin-bottom: 30px;
@@ -298,23 +299,25 @@ export default function DatesNew({data}) {
             ? visibleDateCode
             : sortedDateCodes[0];
 
-        mappedDummyDays = Object
-            .entries(datesData[visibleMonth][showDC])
-            .map((day) => {
-                const findEventObject = day[1][Object.keys(day[1])[0]]
-                const findDate = findEventObject["dateToRender"]
-                const findAlfa = findEventObject["alfaWeekDay"]
-                const findSlot = findEventObject["timeSlot"]
-                const findName = Object.entries(day[1])
+        mappedDummyDays = visibleDateCode
+            ? Object
+                .entries(datesData[visibleMonth][visibleDateCode])
+                .map((day) => {
+                    const findEventObject = day[1][Object.keys(day[1])[0]]
+                    const findDate = findEventObject["dateToRender"]
+                    const findAlfa = findEventObject["alfaWeekDay"]
+                    const findSlot = findEventObject["timeSlot"]
+                    const findName = Object.entries(day[1])
 
-                return (
-                    <DateComponent
-                        dateName={findName}
-                        date={findDate}
-                        alfaWeek={findAlfa}
-                        key={findName + findDate}></DateComponent>
-                )
-            })
+                    return (
+                        <DateComponent
+                            dateName={findName}
+                            date={findDate}
+                            alfaWeek={findAlfa}
+                            key={findName + findDate}></DateComponent>
+                    )
+                })
+            : <div></div>
 
         const dateCodesChangeHandler = (e) => {
             const unstyled = e
@@ -336,8 +339,17 @@ export default function DatesNew({data}) {
         }
 
         mappedDateCodes = sortedDateCodes.map((dc) => {
+            console.log(visibleDateCode)
             return (
-                <Period onClick={dateCodesChangeHandler} key={dc}>{formatDateCode(dc)}</Period>
+                <Period
+                    onClick={dateCodesChangeHandler}
+                    key={dc}
+                    u={dc === visibleDateCode
+                    ? "none"
+                    : "underline"}
+                    o={dc === visibleDateCode
+                    ? "1"
+                    : ".2"}>{formatDateCode(dc)}</Period>
             )
         })
 
@@ -350,8 +362,6 @@ export default function DatesNew({data}) {
         mappedMonths = Object
             .keys(datesData)
             .map((month) => {
-
-                console.log(visibleMonth, alfaMonths[month], alfaMonths[month] === visibleMonth)
                 return (
 
                     <Month
