@@ -6,7 +6,9 @@ const Hr = styled("div")`
 background: ${props => props.bg
     ? props.bg
     : "black"};
-height: 6px;
+height: ${props => props.h
+        ? props.h
+        : "4px"};
 width: 100%;
 `
 
@@ -75,28 +77,6 @@ display: flex;
 margin-bottom: 50px;
 `
 
-const DateComponent = ({date, dateName, alfaWeek}) => {
-
-    return (
-        <DateBlock>
-            <h2 >{alfaWeek}</h2>
-            <Hr css={css `margin: 10px 0 20px;`}/>
-            <Date>{date}</Date>
-
-            <DateNameWrapper>
-                {dateName[0] !== "null"
-                    ? dateName.map(e => (
-                        <DateName key={e}>
-                            {e}
-                        </DateName>
-                    ))
-                    : <div></div>}
-            </DateNameWrapper>
-
-        </DateBlock>
-    )
-}
-
 export default function DatesMobile({data}) {
 
     const [datesData,
@@ -158,7 +138,7 @@ export default function DatesMobile({data}) {
                 m,
                 d] = dateFormatter(_.node.dateAndTime);
 
-            dateObject = isBrowser && new window.Date(y, m-1, d);
+            dateObject = isBrowser && new window.Date(y, m - 1, d);
 
             month = dateObject.getMonth();
             const stringMonth = typeof(month) === "number"
@@ -248,8 +228,6 @@ export default function DatesMobile({data}) {
             .map(item => item.slice(0, -1))
             .join("-");
 
-       
-
         if (unstyled === visibleDateCode) {
             setVisibleDateCode(null)
         } else {
@@ -261,9 +239,11 @@ export default function DatesMobile({data}) {
     let allVisibleMapped;
 
     if (datesData) {
+        let slotMap = [];
+
         allVisibleMapped = Object
             .entries(datesData)
-            .map((month) => {
+            .map((month, i) => {
 
                 const dateCodes = Object
                     .keys(month[1])
@@ -276,29 +256,63 @@ export default function DatesMobile({data}) {
                                 let date;
                                 let alfaWeek;
 
-                                const singleEvents = Object
+                                let orderSlot = ["All Day", "Noon", "Afternoon", "Evening"]
+
+                                let sortedDateName = Object
                                     .keys(month[1][dc][eventDay])
-                                    .map((singleEvent) => {
-                                        date = month[1][dc][eventDay][singleEvent]["dateToRender"];
-                                        alfaWeek = month[1][dc][eventDay][singleEvent]["alfaWeekDay"]
+                                    .sort((a, b) => {
+                                        if (orderSlot.indexOf(a[1].timeSlot) < orderSlot.indexOf(b[1].timeSlot)) {
+                                            return -1;
+                                        }
+                                        if (orderSlot.indexOf(a[1].timeSlot) > orderSlot.indexOf(b[1].timeSlot)) {
+                                            return 1;
+                                        }
+                                        return 0;
+                                    });
 
-                                        return (
-                                            <div>
-                                                {singleEvent === "null"
-                                                    ? <div></div>
-                                                    : <h3 css={css `margin-top: 20px;`}>{singleEvent}</h3>}
-                                            </div>
+                                const singleEvents = sortedDateName.map((singleEvent) => {
+                                    date = month[1][dc][eventDay][singleEvent]["dateToRender"];
+                                    alfaWeek = month[1][dc][eventDay][singleEvent]["alfaWeekDay"]
 
-                                        )
-                                    })
+                                    return (
+                                        <React.Fragment key={singleEvent + date}>
+                                            {singleEvent === "null"
+                                                ? <div></div>
+                                                : <React.Fragment>
+                                                    {slotMap.includes(month[1][dc][eventDay][singleEvent].timeSlot + date)
+                                                        ? <h3 css={css `margin-top: 20px;`}>{singleEvent}</h3>
+                                                        : <React.Fragment>
 
+                                                            <div css={css `position: absolute; display: none;`}>
+                                                                {slotMap = [
+                                                                    ...slotMap,
+                                                                    month[1][dc][eventDay][singleEvent].timeSlot + date
+                                                                ]}
+                                                            </div>
+
+                                                            <Hr h="2px" css={css `margin: 35px 0 15px;`}/>
+                                                            <p css={css `margin-bottom: 8px; font-size: 15px;`}>{month[1][dc][eventDay][singleEvent].timeSlot}</p>
+
+                                                            <h3 css={css `margin-top: 20px;`}>
+                                                                {singleEvent}
+                                                            </h3>
+                                                        </React.Fragment>
+}
+
+                                                </React.Fragment>}
+                                        </React.Fragment>
+
+                                    )
+                                })
                                 return (
+
                                     <div
                                         css={css `display: ${visibleDateCode === dc
                                         ? "visible"
                                         : "none"}; position: ${visibleDateCode === dc
                                             ? "relative"
-                                            : "absolute"}; margin-bottom: 25px;`}>
+                                            : "absolute"}; margin-bottom: 25px;`}
+                                        key={dc + date}>
                                         <h2 css={css `font-size: 60px;`}>{alfaWeek}</h2>
                                         <Hr css={css `margin: 10px 0 20px;`}/>
                                         <p>{date}</p>
@@ -312,16 +326,16 @@ export default function DatesMobile({data}) {
                             .split("-")
                             .map(item => `${item}.`)
                             .join("-");
-
                         return (
-                            <div onClick={eventsVisibilityHandler}>
+                            <div onClick={eventsVisibilityHandler} key={renderDC + i}>
                                 <h1 css={css `font-size: 80px; letter-spacing: 8px; margin-bottom: 25px;`}>{renderDC}</h1>
                                 {eventDays}
                             </div>
                         )
                     })
+
                 return (
-                    <div css={css `margin-bottom: 30px;`}>
+                    <div css={css `margin-bottom: 30px;`} key={alfaMonths[month[0]] + i}>
                         <p css={css `margin-bottom: 15px;`}>{alfaMonths[month[0]]}</p>
                         <div css={css `margin-bottom: 10px;`}>{dateCodes}</div>
                     </div>
