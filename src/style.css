@@ -1,6 +1,44 @@
 /* CSS Custom Properties Definitions */
 @import "@fontsource/roboto";
 @import "./typography.css";
+@property --offset {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 7px;
+}
+
+.inner-underline {
+    color: black;
+}
+
+.outer-underline {
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+    text-decoration-thickness: 7px;
+    color: white;
+    transition: text-underline-offset 400ms, color 400ms;
+}
+.outer-underline:hover {
+    text-underline-offset: 0.05em;
+    color: black;
+}
+@supports (background: paint(something)) {
+
+    .outer-underline {
+        color: white;
+        text-underline-offset: var(--offset, 1px) !important;
+        text-decoration: underline 7px;
+        transition: --offset 400ms, color 400ms;
+    }
+    .inner-underline {
+        color: black;
+    }
+    .outer-underline:hover {
+        --offset: 1px;
+        color: black;
+    }
+}
+
 :root {
     --maxWidth-none: "none";
     --maxWidth-xs: 20rem;
@@ -361,6 +399,14 @@ video {
     width: calc(100% + 328px + 8%) !important;
     height: auto !important;
     margin: 0 calc(0px - 4% - 164px);
+}
+
+.dates-link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.dates-link:hover {
+    text-decoration: none;
 }
 @media screen and (max-width: 480px) {
     html {

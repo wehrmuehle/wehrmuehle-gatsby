@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from "@emotion/styled";
 import {css, jsx} from '@emotion/react';
+import parse from 'html-react-parser';
 
 const Hr = styled("div")`
 background: ${props => props.bg
@@ -10,6 +11,14 @@ height: ${props => props.h
         ? props.h
         : "4px"};
 width: 100%;
+
+`
+const DatesLink = styled("a")`
+text-decoration: underline;
+
+&:hover {
+    text-decoration: none;
+}
 `
 
 const Period = styled("h1")`
@@ -109,8 +118,8 @@ const DateComponent = ({date, dateName, alfaWeek}) => {
 
                         <React.Fragment key={e[0]}>
                             {slotMap.includes(e[1].timeSlot)
-                                ? <DateName >
-                                        {e[0]}
+                                ? <DateName>
+                                        {parse(e[0])}
                                     </DateName>
                                 : <React.Fragment>
                                     <div css={css `position: absolute; display: none;`}>
@@ -123,7 +132,7 @@ const DateComponent = ({date, dateName, alfaWeek}) => {
                                     <p css={css `margin-bottom: 8px;`}>{e[1].timeSlot}</p>
 
                                     <DateName >
-                                        {e[0]}
+                                        {parse(e[0])}
                                     </DateName>
                                 </React.Fragment>}
 
@@ -182,6 +191,23 @@ export default function DatesNew({data}) {
         "December"
     ]
 
+    const addLinkToEventName = (eName, toSpot, link) => {
+
+        if (eName) {
+            const eventNameArray = eName.split(" ");
+
+            const index = eventNameArray.indexOf(toSpot);
+
+            if (index !== -1) {
+                eventNameArray[index] = `<a className="dates-link" target="_blank" href="${link}">${toSpot}</a>`
+            }
+
+            return eventNameArray.join(" ")
+        } else {
+            return `<div></div>`
+        }
+    }
+
     const isBrowser = typeof window !== "undefined"
 
     data.map((_) => {
@@ -212,7 +238,7 @@ export default function DatesNew({data}) {
         }
 
         const dateCode = _.node.dateCode
-        const eventName = _.node.eventName
+        const eventName = addLinkToEventName(_.node.eventName, "BALDON", "https://baldon.berlin/")
         const eventObject = _.node
 
         if (month in temp) {

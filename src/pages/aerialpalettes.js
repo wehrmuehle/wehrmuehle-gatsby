@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "@emotion/styled";
 import {css, jsx} from '@emotion/react';
 import BrandMark from '../vectors/BrandMark.svg'
+import Seo from '../components/seo';
 
 const Shield = styled("div")`
 
@@ -20,10 +21,13 @@ margin:0 -164px;
 `
 
 export default function AerialPage() {
-  return (
-    <Shield>
-      <BrandMark css={css `width: 200px; height: auto;`}/>
-      <h1>Coming soon</h1>
-    </Shield>
-  )
+    return (
+        <>
+        <Seo title="Aerial Palettes"></Seo>
+            <Shield>
+                <BrandMark css={css `width: 200px; height: auto;`}/>
+                <h1>Coming soon</h1>
+            </Shield>
+        </>
+    )
 }

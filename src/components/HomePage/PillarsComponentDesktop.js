@@ -49,6 +49,7 @@ width: 40%;
 const TextPillar = styled("h1")`
 font-size: 60px;
 text-decoration: ${props => props.td};
+text-underline-offset: 3px;
 margin-bottom: 30px;
 opacity: ${props => props.opacity};
 

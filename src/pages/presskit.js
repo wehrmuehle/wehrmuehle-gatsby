@@ -11,6 +11,7 @@ import LogosDesktop from '../components/PresskitPage/LogosDesktop';
 import LogosMobile from '../components/PresskitPage/LogosMobile';
 import {StaticImage} from "gatsby-plugin-image"
 import DownloadImage from '../components/PresskitPage/DownloadImage';
+import Seo from '../components/seo';
 
 const Hr = styled("div")`
 background: ${props => props.bg
@@ -36,14 +37,11 @@ export default function PresskitPage() {
 
     const breakpoints = useBreakpoint();
 
-    // const edges = data.allContentfulPressPicture.edges
-
-    // const Pictures = edges.map((entry) => (<PicturesComponent
-    //     image={entry.node.highResolutionImage.gatsbyImageData}
-    //     description={entry.node.description}
-    //     title={entry.node.title}
-    //     copyright={entry.node.copyright}
-    //     url={entry.node.highResolutionImage.url}
+    // const edges = data.allContentfulPressPicture.edges const Pictures =
+    // edges.map((entry) => (<PicturesComponent
+    // image={entry.node.highResolutionImage.gatsbyImageData}
+    // description={entry.node.description}     title={entry.node.title}
+    // copyright={entry.node.copyright}     url={entry.node.highResolutionImage.url}
     //     key={entry.node.id}/>))
 
     const giganticVerticalSpace = !breakpoints.md
@@ -61,15 +59,15 @@ export default function PresskitPage() {
 
     return (
         <React.Fragment>
-
+        <Seo title="Press kit"/>
             <HeroWrapper>
                 {!breakpoints.md && <h1 css={css `font-size: 150px; margin: 70px 0;`}>Press</h1>}
                 {(breakpoints.md) && <h1 css={css `font-size: 70px; margin: 40px 0;`}>Press</h1>}
                 <h1 css={css `margin-bottom: ${hugeVerticalSpace};`}>Please find downloads for press material below.</h1>
                 <a href="#w-press">
-                {!breakpoints.md && <h4>Press material Wehrmuehle</h4>}
-                {breakpoints.md && <h3>Press material Wehrmuehle</h3>}
-                    
+                    {!breakpoints.md && <h4>Press material Wehrmuehle</h4>}
+                    {breakpoints.md && <h3>Press material Wehrmuehle</h3>}
+
                 </a>
             </HeroWrapper>
 
@@ -123,26 +121,9 @@ export default function PresskitPage() {
     )
 }
 
-// export const pageQuery = graphql `
-// query MyQuery {
-//   allContentfulPressPicture {
-//     edges {
-//       node {
-//         id
-//         title
-//         description
-//         copyright
-//         highResolutionImage {
-//           gatsbyImageData(width: 1500, placeholder: BLURRED)
-//           url
-//         }
-//         lowResolutionImage {
-
-//         gatsbyImageData(width: 1500, placeholder: BLURRED)}
-//       }
-//     }
-//   }
-// }
-
-  
-// `
+// export const pageQuery = graphql ` query MyQuery {
+// allContentfulPressPicture {     edges {       node {         id         title
+//         description         copyright         highResolutionImage {
+// gatsbyImageData(width: 1500, placeholder: BLURRED)           url         }
+//      lowResolutionImage {         gatsbyImageData(width: 1500, placeholder:
+// BLURRED)}       }     }   } } `

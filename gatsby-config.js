@@ -2,8 +2,9 @@ require("dotenv").config({path: `.env.${process.env.NODE_ENV}`})
 
 module.exports = {
     siteMetadata: {
-        title: `wehrmuehle`,
-        siteUrl: `https://www.yourdomain.tld`
+        title: `Wehrmuehle`,
+        description: `A space for contemporary art and culture`,
+        siteUrl: `https://www.wehrmuehle.com/`
     },
     plugins: [
         {
@@ -36,6 +37,17 @@ module.exports = {
             resolve: 'gatsby-plugin-mailchimp',
             options: {
                 endpoint: process.env.MAILCHIMP_ENDPOINT
+            }
+        }, {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: `Wehrmuehle`,
+                short_name: `Wehrmuehle`,
+                start_url: `/`,
+                background_color: `#ffffff`,
+                heme_color: `#000000`,
+                display: `minimal-ui`,
+                icon: `src/images/fav.png`, // This path is relative to the root of the site.
             }
         }
     ]

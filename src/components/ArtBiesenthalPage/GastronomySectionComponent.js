@@ -19,19 +19,29 @@ display: flex;
 flex-direction: column;
 margin-bottom: 40px;
 
+&>*{
+    margin-bottom: 50px;
+}
+
 @media (min-width: 420px) {
         width: 40%;
         margin-bottom:0;
       }
 `
+const BookLink = styled("a")`
+text-decoration: underline;
+
+&:hover {
+    text-decoration: none;
+}`
 
 export default function GastronomySectionComponent() {
     return (
         <ContentDivider>
             <ContentBlock>
-                <h3 css={css`margin-bottom: 40px; @media (min-width: 420px) {
-        margin-bottom: 100px;
-      }`}>Gastronomy by</h3>
+                <h3
+                    css={css `margin-bottom: 40px; @media (min-width: 420px) { margin-bottom: 100px; }`}>Gastronomy by</h3>
+
                 <StaticImage
                     src="../../images/Baldon.jpg"
                     alt="Some yummy food"
@@ -42,14 +52,15 @@ export default function GastronomySectionComponent() {
                     css={css ``}/>
             </ContentBlock>
             <ContentBlock>
-                <StaticImage
-                    src="../../images/gastronomyLogo.png"
-                    alt="Some fancy food"
-                    layout="constrained"
-                    placeholder='blurred'
-                    width={517}
-                    height={193}
-                    css={css ` width: 80%; height: auto; margin-bottom: 40px;`}/>
+                <a href="https://baldon.berlin/" target="_blank">
+                    <StaticImage
+                        src="../../images/gastronomyLogo.png"
+                        alt="Some fancy food"
+                        layout="constrained"
+                        placeholder='blurred'
+                        width={517}
+                        height={193}
+                        css={css ` width: 80%; height: auto; margin-bottom: 40px;`}/></a>
                 <p>Baldon founders, Cäcilia Baldszus and Jessica-Joyce Sidon enhance their
                     appetite for sharp creativity, sensorial experiences, multi-faceted
                     inspirations, and above all, locally sourced seasonal products that echo a
@@ -57,6 +68,10 @@ export default function GastronomySectionComponent() {
                     years edition of Art Biesenthal you can expect exclusive Friday dinners, a small
                     but ever changing menu on Saturdays and Sundays cooked over open fire, natural
                     wines and good vibes only.</p>
+
+                <p>
+                    <BookLink href="https://www.exploretock.com/baldonberlin/" target="_blank">Reserve your Picnic Basket</BookLink>
+                </p>
             </ContentBlock>
         </ContentDivider>
     )

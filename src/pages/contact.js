@@ -6,6 +6,7 @@ import {useBreakpoint} from 'gatsby-plugin-breakpoints';
 import FollowComponentDesktop from '../components/FollowComponentDesktop'
 import FollowComponentMobile from '../components/FollowComponentMobile';
 import DirectionsMobile from '../components/DirectionsMobile';
+import Seo from '../components/seo';
 
 const HugeHeader = styled("h1")`
 font-size: 11rem;
@@ -50,7 +51,8 @@ export default function ContactPage() {
         ? "directions-mobile"
         : "location-desktop"}`
     return (
-        <div>
+        <>
+        <Seo title="Contact"></Seo>
 
             <HeroWrapper>
                 <HugeHeader>Contact</HugeHeader>
@@ -70,6 +72,6 @@ export default function ContactPage() {
             {!breakpoints.md && <FollowComponentDesktop/>}
             {breakpoints.md && <DirectionsMobile/>}
 
-        </div>
+        </>
     )
 }
