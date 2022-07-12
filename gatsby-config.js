@@ -45,7 +45,7 @@ module.exports = {
                 short_name: `Wehrmuehle`,
                 start_url: `/`,
                 background_color: `#ffffff`,
-                heme_color: `#000000`,
+                theme_color: `#000000`,
                 display: `minimal-ui`,
                 icon: `src/images/fav.png`, // This path is relative to the root of the site.
             }
