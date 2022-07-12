@@ -13,13 +13,7 @@ height: ${props => props.h
 width: 100%;
 
 `
-const DatesLink = styled("a")`
-text-decoration: underline;
 
-&:hover {
-    text-decoration: none;
-}
-`
 
 const Period = styled("h1")`
 font-size: 80px;

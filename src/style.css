@@ -1,7 +1,7 @@
 /* CSS Custom Properties Definitions */
 @import "@fontsource/roboto";
 @import "./typography.css";
-@property --offset {
+/* @property --offset {
     syntax: '<length>';
     inherits: false;
     initial-value: 7px;
@@ -21,8 +21,8 @@
 .outer-underline:hover {
     text-underline-offset: 0.05em;
     color: black;
-}
-@supports (background: paint(something)) {
+} */
+/* @supports (background: paint(something)) {
 
     .outer-underline {
         color: white;
@@ -37,7 +37,35 @@
         --offset: 1px;
         color: black;
     }
+} */
+
+/* Underline animation */
+.my-node-enter {
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+    text-decoration-thickness: 7px;
+    color: white;
+
 }
+.my-node-enter-active {
+    text-underline-offset: 0.05em;
+    color: black;
+    transition: color 800ms;
+}
+
+.my-node-enter-done {
+    text-decoration: underline;
+    text-decoration-thickness: 7px;
+    text-underline-offset: 0.05em;
+    color: black;
+}
+/* .my-node-exit {
+    opacity: 1;
+}
+.my-node-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+} */
 
 :root {
     --maxWidth-none: "none";

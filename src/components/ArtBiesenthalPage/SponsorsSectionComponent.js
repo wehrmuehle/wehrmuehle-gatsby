@@ -144,16 +144,16 @@ export default function SponsorsSectionComponent() {
                     key={sponsor[1]}
                     href={sponsor[2]}
                     target="_blank"
-                    css={css `text-decoration: none; font-size: 3.75rem;`}>
+                    css={css `text-decoration: none; font-size: 3.75rem; display: inline-block;`}>
                     <SponsorName onMouseOver={handlesponsorsVisibility} id={sponsor[0]}>
                         {`${sponsor[1]}`}
-                    </SponsorName>
+                    </SponsorName>{`${ ', and more'}`}
                 </a>
             : <a
                 key={sponsor[1]}
                 href={sponsor[2]}
                 target="_blank"
-                css={css `text-decoration: none; font-size: 3.75rem;`}>
+                css={css `text-decoration: none; font-size: 3.75rem; display: inline-block;`}>
                 <SponsorName onMouseOver={handlesponsorsVisibility} id={sponsor[0]}>
                     {`${sponsor[1]}`}
                 </SponsorName>{`${ ','}`}&nbsp;</a>
@@ -164,7 +164,6 @@ export default function SponsorsSectionComponent() {
 
             <h3 css={css `margin-bottom: 100px;`}>Sponsors</h3>
             <NameBlock>{sponsorsMapped}
-                <h2 css={css `display: inline;`}>, and more</h2>
             </NameBlock>
 
             <StaticImage

@@ -109,17 +109,20 @@ export default function PartnersSectionComponent() {
                     key={partner[1]}
                     href={partner[2]}
                     target="_blank"
-                    css={css `text-decoration: none; font-size: 3.75rem;`}>
+                    css={css `text-decoration: none; font-size: 3.75rem; display: inline-block;`}>
                     <PartnerName d="inline" onMouseOver={handlepartnersVisibility} id={partner[0]}>
                         {`${partner[1]}`}
-                    </PartnerName>
+                    </PartnerName>{`${ ', and more'}`}
                 </a>
             : <a
                 key={partner[1]}
                 href={partner[2]}
                 target="_blank"
-                css={css `text-decoration: none; font-size: 3.75rem;`}>
-                <PartnerName d="inline-block" onMouseOver={handlepartnersVisibility} id={partner[0]}>
+                css={css `text-decoration: none; font-size: 3.75rem; display: inline-block;`}>
+                <PartnerName
+                    d="inline-block"
+                    onMouseOver={handlepartnersVisibility}
+                    id={partner[0]}>
                     {`${partner[1]}`}
                 </PartnerName>{`${ ','}`}&nbsp;</a>
 
@@ -129,7 +132,7 @@ export default function PartnersSectionComponent() {
 
             <h3 css={css `margin-bottom: 100px;`}>Partners</h3>
             <NameBlock>{partnersMapped}
-                <h2 css={css `display: inline;`}>, and more</h2>
+
             </NameBlock>
 
             <StaticImage

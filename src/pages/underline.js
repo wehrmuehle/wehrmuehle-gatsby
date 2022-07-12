@@ -1,38 +1,37 @@
-import React from 'react'
-import styled from "@emotion/styled";
-import {css, jsx} from '@emotion/react';
+// import React, {useState} from 'react'
+// import { CSSTransition } from 'react-transition-group';
+// import styled from "@emotion/styled";
+// import {css, jsx} from '@emotion/react';
+// import {InView} from 'react-intersection-observer';
 
-const Text = styled("h1")`
+// const Text = styled("h1")`
 
-`
+// `
 
-const OtherText = styled("h1")`
+// export default function Underline() {
+//     // const {ref, entry} = useInView({
+//     //     /* Optional options */
+//     //     threshold: 1,
+//     //     rootMargin: "100px 0px -100px 0px"
+//     // });
+
+//     const [inProp, setInProp] = useState("");
+
+//     return (
+//         <div css={css `height: 200vh; padding-top: 120vh;`}>
+//             <InView>
+//               <Text className='outer-underline' ref={ref} onChange={(inView, entry) => console.log(inView)}>
+//                   <span class="inner-underline">{`That was easy ${inView}`}</span>
   
-`
-const Underline = styled("h1")`
+//               </Text>
+//             </InView>
 
-  background-image: linear-gradient(transparent calc(100% - 7px), black 7px);
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  transition: background-size 1s;
-  
+//             {/* <CSSTransition in={inProp} timeout={200} classNames="my-node">
+//                 <div>
+//                     {"I'll receive my-node-* classes"}
+//                 </div>
+//             </CSSTransition> */}
 
-
-
-  &:hover {
-    background-size: 100% 100%;
-    background-blend-mode: difference;
-  }
-`
-
-export default function underline() {
-    return (
-        <div css={css `height: 100vh; padding-top: 20vh;`}>
-            <Text className='outer-underline'>
-                <span class="inner-underline">That was easy</span>
-
-            </Text>
-
-        </div>
-    )
-}
+//         {/* </div> */}
+//     )
+// }
